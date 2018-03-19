@@ -1,0 +1,4 @@
+class Payment
+  attr_reader :id, :status, :isSupplyPayment, :returnedAmount, :sourceAmount, :sourceCurrency, :targetAmount, :targetCurrency, :exchangeRate, :fees, :recipientFees, :fxRate, :memo, :externalId, :processedAt, :createdAt, :updatedAt, :merchantFees, :compliance, :payoutMethod, :recipient, :withholdingAmount, :withholdingCurrency, :equivalentWithholdingAmount, :equivalentWithholdingCurrency, :methodDisplay, :batch
+  attr_writer :id, :status, :isSupplyPayment, :returnedAmount, :sourceAmount, :sourceCurrency, :targetAmount, :targetCurrency, :exchangeRate, :fees, :recipientFees, :fxRate, :memo, :externalId, :processedAt, :createdAt, :updatedAt, :merchantFees, :compliance, :payoutMethod, :recipient, :withholdingAmount, :withholdingCurrency, :equivalentWithholdingAmount, :equivalentWithholdingCurrency, :methodDisplay, :batch
+end
