@@ -1,4 +1,4 @@
-[Payment Rails Ruby SDK](../README.md) > [BatchInput](../types/batch.md)
+[Payment Rails Ruby SDK](../README.md) > [Batch](../types/batch.md)
 
 # Types: Batch
 
@@ -10,7 +10,7 @@
 
 **●  description**:  *`undefined`⎮`string`*
 
-*Defined in [Batch.rb:15](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/Batch.rb#L15)*
+*Defined in [Batch.rb:15](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/Batch.rb#L15)*
 
 ---
 
@@ -20,6 +20,6 @@
 
 **●  sourceCurrency**:  *`undefined`⎮`string`*
 
-*Defined in [Batch.rb:14](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/Batch.rb#L14)*
+*Defined in [Batch.rb:14](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/Batch.rb#L14)*
 
 ---
