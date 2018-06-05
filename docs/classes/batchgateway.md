@@ -11,11 +11,10 @@ Gateway class for batches
 
 * [create](BatchGateway.md#create)
 * [find](BatchGateway.md#find)
-* [generateQuote](BatchGateway.md#generatequote)
-* [paymentList](BatchGateway.md#paymentlist)
+* [generate_quote](BatchGateway.md#generate_quote)
 * [delete](BatchGateway.md#delete)
 * [search](BatchGateway.md#search)
-* [processBatch](BatchGateway.md#processBatch)
+* [start_processing](BatchGateway.md#start_processing)
 * [summary](BatchGateway.md#summary)
 * [update](BatchGateway.md#update)
 
@@ -27,9 +26,9 @@ Gateway class for batches
 
 ### create
 
-► **create**(batch: *`Batch`*): `Batch`
+► **create**(body: *`Batch`*): `Batch`
 
-*Defined in [BatchGateway.rb:95](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L95)*
+*Defined in [BatchGateway.rb:18](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L18)*
 
 Creates a batch with optional payments. This is the interface that is provide by the [Create Batch](http://docs.paymentrails.com/api/#create-a-batch) API
 
@@ -44,7 +43,7 @@ Creates a batch with optional payments. This is the interface that is provide by
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| batch | `Batch`   |  - |
+| body | `Batch`   |  - |
 
 **Returns:** `Batch`
 
@@ -56,7 +55,7 @@ Creates a batch with optional payments. This is the interface that is provide by
 
 ► **find**(batchId: *`string`*): `Batch`
 
-*Defined in [BatchGateway.rb:67](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L67)*
+*Defined in [BatchGateway.rb:8](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L8)*
 
 Retrieves a batch based on the batch id
 
@@ -72,13 +71,13 @@ Retrieves a batch based on the batch id
 
 ---
 
-<a id="generatequote"></a>
+<a id="generate_quote"></a>
 
-### generateQuote
+### generate_quote
 
-► **generateQuote**(batchId: *`string`*): `Batch`
+► **generate_quote**(batchId: *`string`*): `Batch`
 
-*Defined in [BatchGateway.rb:182](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L182)*
+*Defined in [BatchGateway.rb:33](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L33)*
 
 Generate a FX quote for this batch
 
@@ -92,35 +91,13 @@ Generate a FX quote for this batch
 
 ---
 
-<a id="paymentlist"></a>
-
-### paymentList
-
-► **paymentList**(batchId: *`string`*, page?: *`number`*, pageSize?: *`number`*): `Promise`.<`Payment`[]>
-
-*Defined in [BatchGateway.rb:166](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L166)*
-
-Return a paginated list of payments for this batch
-
-**Parameters:**
-
-| Param | Type | Default value | Description |
-| ------ | ------ | ------ | ------ |
-| batchId | `string`  | - |   Payment Rails payment id (e.g. "B-xx999bb") |
-| page | `number`  | 1 |   starting a 1 |
-| pageSize | `number`  | 10 |   in the range 0...1000 |
-
-**Returns:** `Payment`[]
-
----
-
 <a id="delete"></a>
 
 ### delete
 
 ► **delete**(batchId: *`string`*): `Boolean`
 
-*Defined in [BatchGateway.rb:132](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L132)*
+*Defined in [BatchGateway.rb:28](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L28)*
 
 Delete the given batch
 
@@ -142,7 +119,7 @@ Delete the given batch
 
 ► **search**(page?: *`number`*, pageSize?: *`number`*, term?: *`string`*): `Batch`[]
 
-*Defined in [BatchGateway.rb:146](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L146)*
+*Defined in [BatchGateway.rb:43](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L43)*
 
 Search for a batch matching the given term
 
@@ -158,13 +135,13 @@ Search for a batch matching the given term
 
 ---
 
-<a id="processBatch"></a>
+<a id="start_processing"></a>
 
-### processBatch
+### start_processing
 
-► **processBatch**(batchId: *`string`*): `Batch`
+► **start_processing**(batchId: *`string`*): `Batch`
 
-*Defined in [BatchGateway.rb:194](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L194)*
+*Defined in [BatchGateway.rb:38](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L38)*
 
 Start processing this batch
 
@@ -184,7 +161,7 @@ Start processing this batch
 
 ► **summary**(batchId: *`string`*): `String`
 
-*Defined in [BatchGateway.rb:206](https://github.com/PaymentRails/ruby-sdk/tree/master/lib/BatchGateway.rb#L206)*
+*Defined in [BatchGateway.rb:60](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L60)*
 
 Get a transaction totaled summary for this batch
 
@@ -195,5 +172,26 @@ Get a transaction totaled summary for this batch
 | batchId | `string`   |  Payment Rails payment id (e.g. "B-xx999bb") |
 
 **Returns:** `String`
+
+---
+
+<a id="update"></a>
+
+### update
+
+► **update**(batchId: *`string`*, body: *`Batch`*): `Boolean`
+
+*Defined in [BatchGateway.rb:23](https://github.com/PaymentRails/ruby-sdk/blob/dev/lib/BatchGateway.rb#L23)*
+
+Update a batch
+
+**Parameters:**
+
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| batchId | `string`   |  Payment Rails batch id (e.g. "B-xx999bb") |
+| body | `Batch`   |  - |
+
+**Returns:** `Boolean`
 
 ---
