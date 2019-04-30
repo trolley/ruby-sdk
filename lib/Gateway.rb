@@ -2,6 +2,7 @@ require_relative 'RecipientGateway.rb'
 require_relative 'RecipientAccountGateway.rb'
 require_relative 'BatchGateway.rb'
 require_relative 'PaymentGateway.rb'
+require_relative 'BalanceGateway.rb'
 
 class Gateway
   attr_reader :config
