@@ -11,4 +11,5 @@ Gem::Specification.new do |s|
   s.author = "PaymentRails"
   s.has_rdoc = false
   s.files = Dir.glob ["README.rdoc", "LICENSE", "lib/**/*.{rb,crt}", "spec/**/*", "*.gemspec"]
+  s.add_dependency "rest-client", "= 2.0.2"
 end
