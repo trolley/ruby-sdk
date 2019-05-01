@@ -23,7 +23,7 @@ git clone https://github.com/PaymentRails/ruby-sdk.git
 cd ruby-sdk
 bundler install
 gem build paymentrails.gemspec
-gem install paymentrais-[version].gem
+gem install paymentrails-[version].gem
 ```
 
 ## Getting Started
