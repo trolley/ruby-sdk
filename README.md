@@ -8,23 +8,32 @@ The Payment Rails Ruby library provides integration access to the Payment Rails 
 
 Ruby version >= 2.4.3 is required.
 
-
 ## Installation & Usage
 
-### Library
+### Clone the SDK
 
 ```bash
 git clone https://github.com/PaymentRails/ruby-sdk.git
 ```
 
-## Getting Started
+### Build & Install the gem
 
+```bash
+cd ruby-sdk
+bundler install
+gem build paymentrails.gemspec
+gem install paymentrais-[version].gem
+```
+
+## Getting Started
 
 ```Ruby
 
+require 'paymentrails'
+
 client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production'))
 
-recipient = client.recipient.find('R-124353cdfgh65g')
+recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
 ```
 
