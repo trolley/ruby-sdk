@@ -1,7 +1,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name = "ruby-sdk"
+  s.name = "paymentrails"
   s.summary = "PaymentRails Ruby SDK"
   s.description = "Ruby SDK for interacting with the PaymentRails API"
   s.version = '0.1.2'
