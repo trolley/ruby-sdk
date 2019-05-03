@@ -13,6 +13,7 @@ Bundler is required.
 
 ### Install the Gem
 
+
 ```bash
 gem install paymentrails
 ```
