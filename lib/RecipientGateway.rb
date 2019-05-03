@@ -1,4 +1,5 @@
 require_relative 'Client.rb'
+require_relative 'Recipient.rb'
 
 class RecipientGateway
   def initialize(client)
@@ -25,8 +26,8 @@ class RecipientGateway
     true
   end
 
-  def search(page = 1, page_number = 10, term = '')
-    response = @client.get('/v1/recipients?search=' + term + 'page=' + page + '&pageSize=' + page_number)
+  def search(page = 1, page_size = 10, term = '')
+    response = @client.get('/v1/recipients?page=' + page.to_s + '&pageSize=' + page_size.to_s + '&search=' + term)
     recipient_list_builder(response)
   end
 
