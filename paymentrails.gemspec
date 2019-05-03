@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Ruby SDK for interacting with the PaymentRails API"
   s.version = '0.1'
   s.homepage = 'https://www.paymentrails.com/'
-  s.email = 'jesse.silber@paymentrails.com'
+  s.email = ['jesse.silber@paymentrails.com', 'joshua@paymentrails.com']
   s.license = "MIT"
   s.author = "PaymentRails"
   s.has_rdoc = false
