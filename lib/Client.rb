@@ -90,7 +90,7 @@ class Client
       when '500'
         raise ServerError, message
       when '503'
-        raise DownForMaintenanceErroressage, message
+        raise DownForMaintenanceError, message
       else
         raise UnexpectedError, message
       end
