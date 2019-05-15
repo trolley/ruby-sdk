@@ -9,7 +9,16 @@ The Payment Rails Ruby library provides integration access to the Payment Rails 
 Ruby version >= 2.4.3 is required.
 Bundler is required.
 
-## Installation & Usage
+## Installation & Usage (RubyGem)
+
+### Install the Gem
+
+
+```bash
+gem install paymentrails
+```
+
+## Installation & Usage (Git)
 
 ### Clone the SDK
 
