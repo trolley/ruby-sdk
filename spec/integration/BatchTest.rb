@@ -1,10 +1,10 @@
-Dir['../../lib/*'].each { |file| require_relative file }
+Dir[File.join(__dir__, '../../lib', '*.rb')].each { |file| require file }
 require 'test/unit'
 require 'securerandom'
 
 class BatchTest < Test::Unit::TestCase
   def setup
-    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET', 'production'))
+    @client = Gateway.new(Configuration.new('ASWmYwap7CKY06E5BX23DYE1', '5ehbfxm67n0b9gn2wny3jkzfedzdxvwz1zq6jkzw'))
   end
 
   def create_recipient
@@ -25,13 +25,8 @@ class BatchTest < Test::Unit::TestCase
     recipient
   end
 
-  def test_all
-    batch = @client.batch.all
-    assert_true(batch.count > 0)
-  end
-
   def test_create
-    batch = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    batch = @client.batch.create(sourceCurrency: 'CAD', description: 'Integration Test Create')
     assert_not_nil(batch)
     assert_not_nil(batch.id)
 
@@ -39,8 +34,22 @@ class BatchTest < Test::Unit::TestCase
     assert_true(batch.count > 0)
   end
 
+  # def test_all
+  #   batch = @client.batch.all
+  #   assert_true(batch.count > 0)
+  # end
+
+  # def test_create
+  #   batch = @client.batch.create(sourceCurrency: 'CAD', description: 'Integration Test Create')
+  #   assert_not_nil(batch)
+  #   assert_not_nil(batch.id)
+
+  #   batch = @client.batch.all
+  #   assert_true(batch.count > 0)
+  # end
+
   def test_update
-    batch = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    batch = @client.batch.create(sourceCurrency: 'CAD', description: 'Integration Test Create')
     assert_not_nil(batch)
     assert_not_nil(batch.id)
 
@@ -62,7 +71,7 @@ class BatchTest < Test::Unit::TestCase
     recipientBeta = create_recipient
 
     batch = @client.batch.create(
-      sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
+      sourceCurrency: 'CAD', description: 'Integration Test Payments', payments: [
         { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipientAlpha.id } },
         { sourceAmount: '10.00', recipient: { id: recipientBeta.id } }
       ]
@@ -80,7 +89,7 @@ class BatchTest < Test::Unit::TestCase
   end
 
   def test_payments
-    batch = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Payments')
+    batch = @client.batch.create(sourceCurrency: 'CAD', description: 'Integration Test Payments')
     assert_not_nil(batch)
     assert_not_nil(batch.id)
 
@@ -103,7 +112,7 @@ class BatchTest < Test::Unit::TestCase
     recipientBeta = create_recipient
 
     batch = @client.batch.create(
-      sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
+      sourceCurrency: 'CAD', description: 'Integration Test Payments', payments: [
         { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipientAlpha.id } },
         { sourceAmount: '10.00', recipient: { id: recipientBeta.id } }
       ]
