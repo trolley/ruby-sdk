@@ -13,6 +13,7 @@ Bundler is required.
 
 ### Install the Gem
 
+
 ```bash
 gem install paymentrails
 ```
@@ -40,7 +41,7 @@ gem install paymentrails-[version].gem
 
 require 'paymentrails'
 
-client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY'))
+client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production'))
 
 recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
