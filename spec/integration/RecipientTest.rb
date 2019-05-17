@@ -1,10 +1,10 @@
-Dir['../../lib/*'].each { |file| require_relative file }
+Dir[File.join(__dir__, '../../lib', '*.rb')].each { |file| require file }
 require 'test/unit'
 require 'securerandom'
 
 class RecipientTest < Test::Unit::TestCase
   def setup
-    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET', 'production'))
+    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET'))
   end
 
   def test_create

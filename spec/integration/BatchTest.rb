@@ -1,10 +1,10 @@
-Dir['../../lib/*'].each { |file| require_relative file }
+Dir[File.join(__dir__, '../../lib', '*.rb')].each { |file| require file }
 require 'test/unit'
 require 'securerandom'
 
 class BatchTest < Test::Unit::TestCase
   def setup
-    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET', 'production'))
+    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET'))
   end
 
   def create_recipient
@@ -23,11 +23,6 @@ class BatchTest < Test::Unit::TestCase
     )
     @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
     recipient
-  end
-
-  def test_all
-    batch = @client.batch.all
-    assert_true(batch.count > 0)
   end
 
   def test_create
