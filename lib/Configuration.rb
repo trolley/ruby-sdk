@@ -1,5 +1,5 @@
 class Configuration
-  def initialize(publicKey, privateKey, enviroment = 'production')
+  def initialize(publicKey, privateKey, enviroment)
     @publicKey = publicKey
     @privateKey = privateKey
     @apiBase = set_enviroment(enviroment)
@@ -10,7 +10,7 @@ class Configuration
     when 'production'
       'https://api.paymentrails.com'
     when 'development'
-      'https://api.railz.io'
+      'http://api.railz.io'
     when 'integration'
       'http://api.local.dev:3000'
     else
