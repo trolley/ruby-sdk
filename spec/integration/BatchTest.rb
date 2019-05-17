@@ -4,7 +4,7 @@ require 'securerandom'
 
 class BatchTest < Test::Unit::TestCase
   def setup
-    @client = Gateway.new(Configuration.new('ASWmYwap7CKY06E5BX23DYE1', '5ehbfxm67n0b9gn2wny3jkzfedzdxvwz1zq6jkzw'))
+    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET'))
   end
 
   def create_recipient
@@ -33,20 +33,6 @@ class BatchTest < Test::Unit::TestCase
     batch = @client.batch.all
     assert_true(batch.count > 0)
   end
-
-  # def test_all
-  #   batch = @client.batch.all
-  #   assert_true(batch.count > 0)
-  # end
-
-  # def test_create
-  #   batch = @client.batch.create(sourceCurrency: 'CAD', description: 'Integration Test Create')
-  #   assert_not_nil(batch)
-  #   assert_not_nil(batch.id)
-
-  #   batch = @client.batch.all
-  #   assert_true(batch.count > 0)
-  # end
 
   def test_update
     batch = @client.batch.create(sourceCurrency: 'CAD', description: 'Integration Test Create')

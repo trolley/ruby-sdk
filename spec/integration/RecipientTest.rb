@@ -4,7 +4,7 @@ require 'securerandom'
 
 class RecipientTest < Test::Unit::TestCase
   def setup
-    @client = Gateway.new(Configuration.new('ASWmYwap7CKY06E5BX23DYE1', '5ehbfxm67n0b9gn2wny3jkzfedzdxvwz1zq6jkzw'))
+    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET'))
   end
 
   def test_create
