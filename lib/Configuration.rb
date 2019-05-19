@@ -1,11 +1,11 @@
 class Configuration
-  def initialize(publicKey, privateKey, enviroment = 'production')
+  def initialize(publicKey, privateKey, environment = 'production')
     @publicKey = publicKey
     @privateKey = privateKey
-    @apiBase = set_enviroment(enviroment)
+    @apiBase = set_environment(environment)
   end
 
-  def set_enviroment(apiBase)
+  def set_environment(apiBase)
     case apiBase
     when 'production'
       'https://api.paymentrails.com'

@@ -34,7 +34,7 @@
 | ------ | ------ | ------ |
 | publicKey | [String]   |  The public key |
 | secretKey | [String]   |  The secret key |
-| enviroment | [String]   |  The enviroment which should be used |
+| environment | [String]   |  The environment which should be used |
 
 **Returns:** [Gateway](classes/gateway.md)
 
