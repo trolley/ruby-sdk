@@ -40,7 +40,7 @@ gem install paymentrails-[version].gem
 
 require 'paymentrails'
 
-pr = Paymentrails.new
+pr = PaymentRails.new
 
 client = pr.Gateway.new(pr.Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY'))
 

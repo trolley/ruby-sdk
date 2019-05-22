@@ -1,4 +1,4 @@
-class Paymentrails
+class PaymentRails
   def Gateway
     load 'Gateway.rb'
     return Gateway
