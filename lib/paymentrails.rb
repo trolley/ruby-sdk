@@ -1,2 +1,11 @@
-require_relative 'Gateway.rb'
-require_relative 'Configuration.rb'
+class Paymentrails
+  def Gateway
+    load 'Gateway.rb'
+    return Gateway
+  end
+  
+  def Configuration
+    load 'Configuration.rb'
+    return Configuration
+  end
+end
