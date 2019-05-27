@@ -1,4 +1,5 @@
 class Configuration
+
   def initialize(publicKey, privateKey, environment = 'production')
     @publicKey = publicKey
     @privateKey = privateKey

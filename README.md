@@ -40,7 +40,7 @@ gem install paymentrails-[version].gem
 
 require 'paymentrails'
 
-client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY'))
+client = PaymentRails.new('YOUR-API-KEY', 'YOUR-SECRET-KEY')
 
 recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
