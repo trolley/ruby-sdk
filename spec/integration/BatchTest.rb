@@ -5,7 +5,7 @@ require 'securerandom'
 
 class BatchTest < Test::Unit::TestCase
   def setup
-    @client = PaymentRails::Gateway.new(PaymentRails::Configuration.new('ASXQRXUnWNACRUADKCB9QR43', 'paravk9dfbhvk9ztnh24phtd3njtzc7yhnrptv1k'))
+    @client = PaymentRails::Gateway.new(PaymentRails::Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY'))
   end
 
   def create_recipient
