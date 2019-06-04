@@ -1,4 +1,3 @@
-# Dir[File.join(__dir__, '../../lib', '*.rb')].each { |file| require file }
 require_relative '../../lib/paymentrails'
 require 'test/unit'
 require 'securerandom'
