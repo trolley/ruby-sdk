@@ -1,10 +1,11 @@
-Dir[File.join(__dir__, '../../lib', '*.rb')].each { |file| require file }
+# Dir[File.join(__dir__, '../../lib', '*.rb')].each { |file| require file }
+require_relative '../../lib/paymentrails'
 require 'test/unit'
 require 'securerandom'
 
 class RecipientTest < Test::Unit::TestCase
   def setup
-    @client = Gateway.new(Configuration.new('YOUR-API-KEY', 'YOUR-API-SECRET'))
+    @client = PaymentRails::Gateway.new(PaymentRails::Configuration.new('ASXQRXUnWNACRUADKCB9QR43', 'paravk9dfbhvk9ztnh24phtd3njtzc7yhnrptv1k'))
   end
 
   def test_create
