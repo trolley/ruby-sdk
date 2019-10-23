@@ -4,11 +4,11 @@ module PaymentRails
     def initialize(publicKey, privateKey, environment = 'production')
       @publicKey = publicKey
       @privateKey = privateKey
-      @apiBase = set_environment(environment)
+      @environment = environment
     end
 
-    def set_environment(apiBase)
-      case apiBase
+    def apiBase
+      case environment
       when 'production'
         'https://api.paymentrails.com'
       when 'development'
@@ -20,6 +20,10 @@ module PaymentRails
       end
     end
 
+    def useSsl?
+      apiBase.start_with? 'https'
+    end
+
     attr_reader :publicKey
 
     attr_writer :publicKey
@@ -28,6 +32,6 @@ module PaymentRails
 
     attr_writer :privateKey
 
-    attr_reader :apiBase
+    attr_reader :environment
   end
 end
