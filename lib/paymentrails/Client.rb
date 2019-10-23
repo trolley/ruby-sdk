@@ -35,12 +35,7 @@ module PaymentRails
     def send_request(endPoint, method, body = '')
       uri = URI.parse(@config.apiBase + endPoint)
       http = Net::HTTP.new(uri.host, uri.port)
-
-      # for ssl use
-      if (@config.apiBase["https"])
-        http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      end
+      http.use_ssl = @config.useSsl?
 
       time = Time.now.to_i
       headers = {'X-PR-Timestamp': time.to_s,
