@@ -21,6 +21,9 @@ module PaymentRails
     attr_reader :balance
     attr_writer :balance
 
+    attr_reader :offline_payment
+    attr_writer :offline_payment
+
     def initialize(config)
       @config = config
       @client = Client.new(config)
@@ -29,6 +32,7 @@ module PaymentRails
       @batch = BatchGateway.new(client)
       @payment = PaymentGateway.new(client)
       @balance = BalanceGateway.new(client)
+      @offline_payment = OfflinePaymentGateway.new(client)
     end
   end
 end
