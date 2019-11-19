@@ -22,7 +22,7 @@ module PaymentRails
     end
 
     def update(recipient_id, recipient_account_id, body)
-      response = @client.patch('/v1/recipients/' + recipient_id, + '/accounts/' + recipient_account_id, body)
+      response = @client.patch('/v1/recipients/' + recipient_id + '/accounts/' + recipient_account_id, body)
       recipient_account_builder(response)
     end
 
