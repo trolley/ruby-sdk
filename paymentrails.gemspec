@@ -9,7 +9,6 @@ Gem::Specification.new do |s|
   s.email = ['joshua@paymentrails.com']
   s.license = "MIT"
   s.author = "PaymentRails"
-  s.has_rdoc = false
   s.files = Dir.glob ["README.rdoc", "LICENSE", "lib/**/*.{rb,crt}", "spec/**/*", "*.gemspec"]
   s.add_dependency "rest-client", ">= 2.0.0"
 end
