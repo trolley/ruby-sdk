@@ -1,0 +1,21 @@
+inherit_from: .rubocop_todo.yml
+
+# This basically enshrines existing intentional styles
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Naming/VariableName:
+  Enabled: false
+
+Style/CaseEquality:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
