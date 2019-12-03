@@ -40,6 +40,8 @@ module PaymentRails
       initiatedAt
       settledAt
       returnedAt
+      returnedNote
+      returnedReason
       failureMessage
       merchantId
     ]
