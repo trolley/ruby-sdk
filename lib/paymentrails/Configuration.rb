@@ -2,6 +2,10 @@ module PaymentRails
   class Configuration
 
     def initialize(publicKey, privateKey, environment = 'production')
+      if publicKey&.empty? || privateKey&.empty?
+        raise ArgumentError, 'Both key/secret must be a nonempty string'
+      end
+
       @publicKey = publicKey
       @privateKey = privateKey
       @environment = environment
