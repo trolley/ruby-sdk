@@ -2,7 +2,6 @@
 require 'digest'
 require 'net/http'
 require 'openssl'
-require 'rest-client'
 require 'uri'
 require 'json'
 
