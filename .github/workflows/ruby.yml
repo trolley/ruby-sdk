@@ -18,9 +18,8 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rubocop --parallel
-    # TODO:
-    # - name: Build and run tests
-    #   run: |
-    #     gem install bundler
-    #     bundle install --jobs 4 --retry 3
-    #     bundle exec rake
+    - name: Build and run tests
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake unit_tests
