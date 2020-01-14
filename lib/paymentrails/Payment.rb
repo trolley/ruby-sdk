@@ -21,6 +21,7 @@ module PaymentRails
       :merchantFees,
       :compliance,
       :payoutMethod,
+      :estimatedDeliveryAt,
       :recipient,
       :withholdingAmount,
       :withholdingCurrency,
