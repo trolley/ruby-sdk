@@ -33,7 +33,10 @@ module PaymentRails
 
     def send_request(endPoint, method, body = '')
       uri = URI.parse(@config.apiBase + endPoint)
-      http = Net::HTTP.new(uri.host, uri.port)
+      http = Net::HTTP.new(
+        uri.host, uri.port,
+        @config.proxy&.host, @config.proxy&.port, @config.proxy&.user, @config.proxy&.password
+      )
       http.use_ssl = @config.useSsl?
 
       time = Time.now.to_i

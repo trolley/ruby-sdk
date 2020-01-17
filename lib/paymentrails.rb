@@ -18,8 +18,7 @@ require 'paymentrails/RecipientAccount'
 require 'paymentrails/OfflinePayment'
 
 module PaymentRails
-  def self.client(key, secret, environment = 'production')
-    client = Gateway.new(Configuration.new(key, secret, environment))
-    return client
+  def self.client(key, secret, environment = 'production', **optionals)
+    Gateway.new(Configuration.new(key, secret, environment, optionals))
   end
 end
