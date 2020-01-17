@@ -10,6 +10,13 @@ First `bundle install`
 
 `bundle exec rake unit_tests`
 
-#### Running just the integration tests 
+#### Running just the integration tests
+
+Integration tests have a dependency on the real API, therefore you need credentials.
+
+To add credentials, this gem uses `dotenv` to inject credential ENV variables:
+
+1. copy the env template `cp .env.template .env`
+1. add your configuration there **NOTE: preferrably use sandbox values -- integration tests run real requests**
 
 `bundle exec rake integration_tests`

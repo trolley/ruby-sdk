@@ -1,10 +1,13 @@
-require_relative '../../lib/paymentrails'
-require 'test/unit'
-require 'securerandom'
+require_relative 'helper'
 
 class BatchTest < Test::Unit::TestCase
   def setup
-    @client = PaymentRails::Gateway.new(PaymentRails::Configuration.new('YOUR-API-KEY', 'YOUR-SECRET-KEY'))
+    @client = PaymentRails.client(
+      ENV.fetch('SANDBOX_API_KEY'),
+      ENV.fetch('SANDBOX_SECRET_KEY'),
+      'production',
+      proxy_uri: ENV['PROXY_URI']
+    )
   end
 
   def create_recipient
