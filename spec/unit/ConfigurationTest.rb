@@ -33,4 +33,19 @@ class ConfigurationTest < Test::Unit::TestCase
     assert_equal true, PaymentRails::Configuration.new('key', 'secret', 'development').useSsl?
     assert_equal true, PaymentRails::Configuration.new('key', 'secret', 'non_standard_environment').useSsl?
   end
+
+  def test_invalid_proxy_uri
+    proxy_uri = 'not_://*a_valid_proxy'
+    assert_raise PaymentRails::Configuration::InvalidProxyAddress.new("Invalid proxy provided to configuration: #{proxy_uri}") do
+      PaymentRails::Configuration.new('k', 's', 'production', proxy_uri: proxy_uri).proxy
+    end
+  end
+
+  def test_vaid_proxy_uri
+    config = PaymentRails::Configuration.new('k', 's', 'production', proxy_uri: 'http://user:pass@gimmeproxy.com:80')
+    assert_equal 'gimmeproxy.com', config.proxy.host
+    assert_equal 80, config.proxy.port
+    assert_equal 'user', config.proxy.user
+    assert_equal 'pass', config.proxy.password
+  end
 end

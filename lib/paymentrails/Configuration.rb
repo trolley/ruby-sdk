@@ -1,12 +1,19 @@
 module PaymentRails
   class Configuration
+    class InvalidProxyAddress < StandardError; end
 
-    def initialize(publicKey, privateKey, environment = 'production')
+    def initialize(publicKey, privateKey, environment = 'production', proxy_uri: nil)
       raise ArgumentError, 'Both key/secret must be a nonempty string' if publicKey.to_s&.empty? || privateKey.to_s&.empty?
 
       @publicKey = publicKey
       @privateKey = privateKey
       @environment = environment
+      # failfast on a bad proxy
+      begin
+        @proxy = proxy_uri.nil? ? nil : URI.parse(proxy_uri)
+      rescue URI::InvalidURIError
+        raise InvalidProxyAddress, "Invalid proxy provided to configuration: #{proxy_uri}"
+      end
     end
 
     def apiBase
@@ -25,6 +32,8 @@ module PaymentRails
     def useSsl?
       apiBase.start_with? 'https'
     end
+
+    attr_reader :proxy
 
     attr_reader :publicKey
 

@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.author = "PaymentRails"
   s.files = Dir.glob ["README.rdoc", "LICENSE", "lib/**/*.{rb,crt}", "spec/**/*", "*.gemspec"]
   s.required_ruby_version = '>= 2.4'
+  s.add_development_dependency 'dotenv', '~> 2'
   s.add_development_dependency 'rake', '~> 12'
   s.add_development_dependency "rubocop", '~> 0.77'
   s.add_development_dependency 'test-unit', '~> 3'

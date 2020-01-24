@@ -46,6 +46,12 @@ recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
 ```
 
+#### Need a proxy?
+
+```Ruby
+client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'development', proxy_uri: 'peter_the_proxy.com')
+```
+
 ## Documentation for API Endpoints
 
 All URIs are available at http://docs.paymentrails.com/
