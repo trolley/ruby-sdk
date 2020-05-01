@@ -34,7 +34,8 @@ module PaymentRails
       :payoutMethod,
       :placeOfBirth,
       :tags,
-      :taxDeliveryType
+      :taxDeliveryType,
+      :riskScore
     )
   end
 end
