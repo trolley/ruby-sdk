@@ -86,10 +86,6 @@ Layout/TrailingWhitespace:
   Exclude:
     - 'spec/integration/RecipientAccountTest.rb'
 
-# Offense count: 5
-Lint/DuplicateMethods:
-  Enabled: false
-
 # Offense count: 2
 # Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
 Lint/UselessAccessModifier:
