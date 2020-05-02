@@ -5,9 +5,6 @@ inherit_from: .rubocop_todo.yml
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
-Layout/TrailingEmptyLines:
-  Enabled: false
-
 Naming/FileName:
   Enabled: false
 
