@@ -1,7 +1,10 @@
 require_relative '../Client.rb'
+require_relative 'GatewayHelper'
 
 module PaymentRails
   class BatchGateway
+    include GatewayHelper
+
     def initialize(client)
       @client = client
     end
@@ -51,9 +54,7 @@ module PaymentRails
       data = JSON.parse(response)
       data.each do |key, value|
         next unless key === 'batch'
-        value.each do |newKey, newValue|
-          batch.send("#{newKey}=", newValue)
-        end
+        loosely_hydrate_model(batch, value)
       end
       batch
     end
@@ -64,9 +65,7 @@ module PaymentRails
       data = JSON.parse(response)
       data.each do |key, value|
         next unless key === 'batchSummary'
-        value.each do |newKey, newValue|
-          summary.send("#{newKey}=", newValue)
-        end
+        loosely_hydrate_model(summary, value)
       end
       summary
     end
@@ -78,11 +77,9 @@ module PaymentRails
       data.each do |key, value|
         next unless key === 'batches'
         value.each do |newKey, _newValue|
-          batch = Batch.new
-          newKey.each do |key1, value1|
-            batch.send("#{key1}=", value1)
-          end
-          batches.push(batch)
+          batches.push(
+            loosely_hydrate_model(Batch.new, newKey)
+          )
         end
       end
       batches

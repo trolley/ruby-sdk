@@ -1,7 +1,10 @@
 require_relative '../Client.rb'
+require_relative 'GatewayHelper'
 
 module PaymentRails
   class RecipientGateway
+    include GatewayHelper
+
     def initialize(client)
       @client = client
     end
@@ -36,9 +39,7 @@ module PaymentRails
       data = JSON.parse(response)
       data.each do |key, value|
         next unless key === 'recipient'
-        value.each do |recipKey, recipValue|
-          recipient.send("#{recipKey}=", recipValue)
-        end
+        loosely_hydrate_model(recipient, value)
       end
       recipient
     end
@@ -50,10 +51,7 @@ module PaymentRails
       data.each do |key, value|
         next unless key === 'recipients'
         value.each do |newKey, _newValue|
-          recipient = Recipient.new
-          newKey.each do |key1, value1|
-            recipient.send("#{key1}=", value1)
-          end
+          recipient = loosely_hydrate_model(Recipient.new, newKey)
           recipients.push(recipient)
         end
       end
