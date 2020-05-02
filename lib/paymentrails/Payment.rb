@@ -44,7 +44,8 @@ module PaymentRails
       :returnedNote,
       :returnedReason,
       :failureMessage,
-      :merchantId
+      :merchantId,
+      :checkNumber
     )
   end
 end
