@@ -13,7 +13,8 @@ module PaymentRails
       :updatedAt,
       :methods,
       :detail,
-      :total
+      :total,
+      :balances
     )
   end
 end
