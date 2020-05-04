@@ -13,4 +13,3 @@ module PaymentRails
     end
   end
 end
-
