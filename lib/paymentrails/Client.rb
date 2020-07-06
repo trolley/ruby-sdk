@@ -83,7 +83,7 @@ module PaymentRails
         when '404'
           raise NotFoundError, message
         when '429'
-          raise TooManyRequestsError message
+          raise TooManyRequestsError, message
         when '500'
           raise ServerError, message
         when '503'
