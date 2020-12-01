@@ -29,8 +29,15 @@ module PaymentRails
       true
     end
 
-    def search(page = 1, page_size = 10, term = '')
-      response = @client.get('/v1/recipients?page=' + page.to_s + '&pageSize=' + page_size.to_s + '&search=' + term)
+    # TODO: if we can afford a breaking change ideally these should be kwargs
+    def search(page = 1, page_size = 10, prefix_search = '', filters = {})
+      query_string = URI.encode_www_form(
+        page: page.to_s,
+        pageSize: page_size.to_s,
+        search: prefix_search,
+        **filters
+      )
+      response = @client.get("/v1/recipients?#{query_string}")
       recipient_list_builder(response)
     end
 
