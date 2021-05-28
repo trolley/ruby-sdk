@@ -14,7 +14,8 @@ module PaymentRails
       :methods,
       :detail,
       :total,
-      :balances
+      :balances,
+      :accounts
     )
   end
 end
