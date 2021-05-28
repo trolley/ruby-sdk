@@ -9,8 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Ruby 2.4
-      uses: actions/setup-ruby@v1
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1.71.0
       with:
         ruby-version: 2.4.x
     - name: Build and run Rubocop
