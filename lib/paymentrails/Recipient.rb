@@ -35,7 +35,8 @@ module PaymentRails
       :placeOfBirth,
       :tags,
       :taxDeliveryType,
-      :riskScore
+      :riskScore,
+      :isPortalUser
     )
   end
 end

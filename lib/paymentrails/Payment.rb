@@ -45,7 +45,8 @@ module PaymentRails
       :returnedReason,
       :failureMessage,
       :merchantId,
-      :checkNumber
+      :checkNumber,
+      :forceUsTaxActivity
     )
   end
 end
