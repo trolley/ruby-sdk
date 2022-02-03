@@ -16,7 +16,7 @@ module PaymentRails
       :dueAmount,
       :tags,
       :recipientId,
-      :lines,
+      :lines
     )
   end
 end

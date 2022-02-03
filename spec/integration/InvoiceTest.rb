@@ -45,9 +45,9 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
     assert_equal([], invoice.lines)
 
-    invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: {value: '2000', currency: 'USD' }}])
+    invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: { value: '2000', currency: 'USD' } }])
     assert_not_nil(invoice_line.lines)
-    assert_not_nil(invoice_line.lines.first["id"])
+    assert_not_nil(invoice_line.lines.first['id'])
 
     findInvoice = @client.invoice.find(invoiceId: invoice.id)
     assert_true(findInvoice.lines.count > 0)
@@ -76,21 +76,21 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
     assert_equal([], invoice.lines)
 
-    invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: {value: '2000', currency: 'USD' }}])
+    invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: { value: '2000', currency: 'USD' } }])
     assert_not_nil(invoice_line.lines)
-    assert_not_nil(invoice_line.lines.first["id"])
+    assert_not_nil(invoice_line.lines.first['id'])
 
     response = @client.invoice.update_line(
       invoiceId: invoice.id,
       lines: [{
-        invoiceLineId: invoice_line.lines.first["id"],
-        unitAmount: {value: '3000', currency: 'USD' }
+        invoiceLineId: invoice_line.lines.first['id'],
+        unitAmount: { value: '3000', currency: 'USD' }
       }]
     )
     assert_true(response)
 
     findInvoice = @client.invoice.find(invoiceId: invoice.id)
-    assert_equal('3000.00', findInvoice.lines.first["unitAmount"]["value"])
+    assert_equal('3000.00', findInvoice.lines.first['unitAmount']['value'])
   end
 
   def test_delete
@@ -116,9 +116,7 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
     assert_equal([], invoice.lines)
 
-    invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: {value: '2000', currency: 'USD' }}])
-    assert_not_nil(invoice_line.lines)
-    assert_not_nil(invoice_line.lines.first["id"])
+    invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: { value: '2000', currency: 'USD' } }])
 
     response = @client.invoice.delete_line(invoiceId: invoice.id, invoiceLineIds: [invoice_line.lines.first['id']])
     assert_true(response)
