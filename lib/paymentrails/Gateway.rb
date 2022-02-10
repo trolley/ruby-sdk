@@ -25,6 +25,7 @@ module PaymentRails
     attr_writer :offline_payment
 
     attr_accessor :invoice
+    attr_accessor :invoice_payment
 
     def initialize(config)
       @config = config
@@ -36,6 +37,7 @@ module PaymentRails
       @balance = BalanceGateway.new(client)
       @offline_payment = OfflinePaymentGateway.new(client)
       @invoice = InvoiceGateway.new(client)
+      @invoice_payment = InvoicePaymentGateway.new(client)
     end
   end
 end

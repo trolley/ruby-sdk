@@ -8,6 +8,7 @@ require 'paymentrails/gateways/RecipientGateway'
 require 'paymentrails/gateways/RecipientAccountGateway'
 require 'paymentrails/gateways/OfflinePaymentGateway'
 require 'paymentrails/gateways/InvoiceGateway'
+require 'paymentrails/gateways/InvoicePaymentGateway'
 
 require 'paymentrails/Balance'
 require 'paymentrails/Batch'
@@ -18,6 +19,7 @@ require 'paymentrails/Recipient'
 require 'paymentrails/RecipientAccount'
 require 'paymentrails/OfflinePayment'
 require 'paymentrails/Invoice'
+require 'paymentrails/InvoicePayment'
 
 module PaymentRails
   def self.client(key, secret, environment = 'production', **optionals)
