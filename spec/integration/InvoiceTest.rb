@@ -98,6 +98,7 @@ class InvoiceTest < Test::Unit::TestCase
     invoice = @client.invoice.create(recipientId: recipient.id, description: 'Integration Test Invoice Create')
     assert_not_nil(invoice)
     assert_not_nil(invoice.id)
+    beginning_invoice_count =     @client.invoice.search({}).count
 
     invoices = @client.invoice.search({})
     assert_true(invoices.count > 0)
@@ -106,7 +107,7 @@ class InvoiceTest < Test::Unit::TestCase
     assert_true(response)
 
     final_invoices = @client.invoice.search({})
-    assert_true(final_invoices.count == 0)
+    assert_true(final_invoices.count == beginning_invoice_count)
   end
 
   def test_delete_line
