@@ -1,6 +1,13 @@
 require_relative 'helper'
 
 class OfflinePaymentTest < Test::Unit::TestCase
+  DEFAULT_PAYMENT_AMOUNT = "100.00"
+  DEFAULT_PAYMENT_CURRENCY = "USD"
+  DEFAULT_PAYMENT_WITHHOLDING_AMOUNT = "0.00"
+  DEFAULT_PAYMENT_WITHHOLDING_CURRENCY = "USD"
+  DEFAULT_PAYMENT_PAYOUT_METHOD = "other"
+  DEFAULT_PAYMENT_EXTERNAL_ID = "12345"
+
   def setup
     @client = PaymentRails.client(
       ENV.fetch('SANDBOX_API_KEY'),
@@ -14,10 +21,10 @@ class OfflinePaymentTest < Test::Unit::TestCase
     recipient, offline_payment = create_offline_payment!
 
     assert_equal(offline_payment.class, PaymentRails::OfflinePayment)
-    assert_equal(offline_payment.amount, "100.00")
-    assert_equal(offline_payment.withholdingAmount, "0.00")
-    assert_equal(offline_payment.currency, 'USD')
-    assert_equal(offline_payment.externalId, '12345')
+    assert_equal(offline_payment.amount, DEFAULT_PAYMENT_AMOUNT)
+    assert_equal(offline_payment.withholdingAmount, DEFAULT_PAYMENT_WITHHOLDING_AMOUNT)
+    assert_equal(offline_payment.currency, DEFAULT_PAYMENT_CURRENCY)
+    assert_equal(offline_payment.externalId, DEFAULT_PAYMENT_EXTERNAL_ID)
 
     assert_true @client.offline_payment.delete(recipient.id, offline_payment.id)
     assert_true @client.recipient.delete(recipient.id)
@@ -71,12 +78,12 @@ class OfflinePaymentTest < Test::Unit::TestCase
 
     offline_payment = @client.offline_payment.create(
       recipient.id,
-      amount: "100",
-      currency: 'USD',
-      withholdingAmount: "0",
-      withholdingCurrency: 'USD',
-      payoutMethod: 'other',
-      externalId: '12345'
+      amount: DEFAULT_PAYMENT_AMOUNT,
+      currency: DEFAULT_PAYMENT_CURRENCY,
+      withholdingAmount: DEFAULT_PAYMENT_WITHHOLDING_AMOUNT,
+      withholdingCurrency: DEFAULT_PAYMENT_WITHHOLDING_CURRENCY,
+      payoutMethod: DEFAULT_PAYMENT_PAYOUT_METHOD,
+      externalId: DEFAULT_PAYMENT_EXTERNAL_ID
     )
 
     return recipient, offline_payment
