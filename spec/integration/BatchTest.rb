@@ -5,7 +5,7 @@ class BatchTest < Test::Unit::TestCase
     @client = PaymentRails.client(
       ENV.fetch('SANDBOX_API_KEY'),
       ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
+      ENV.fetch('TROLLEY_ENVIRONMENT'),
       proxy_uri: ENV['PROXY_URI']
     )
   end
