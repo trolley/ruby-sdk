@@ -29,6 +29,18 @@ class PaymentTest < Test::Unit::TestCase
     assert_equal payment.currency, DEFAULT_PAYMENT_CURRENCY
   end
 
+  ## NOTE: Can't test this because payment is processing in such a short amount of time
+  # def test_update
+  #   payment, batch = create_payment
+  #
+  #   assert_equal payment.amount, DEFAULT_PAYMENT_AMOUNT
+  #   assert_equal payment.currency, DEFAULT_PAYMENT_CURRENCY
+  #
+  #   @client.payment.update(batch.id, payment.id, amount: '200.00')
+  #
+  #   assert_equal @client.payment.find(batch.id, payment.id).amount, '200.00'
+  # end
+
   private
 
   def create_payment
