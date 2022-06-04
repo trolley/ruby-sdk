@@ -19,9 +19,10 @@ module PaymentRails
       payment_builder(response)
     end
 
+    # TODO: Add integration test for this
     def update(batch_id, payment_id, body)
-      @client.patch('/v1/batches/' + batch_id + '/payments/' + payment_id, body)
-      true
+      response = @client.patch('/v1/batches/' + batch_id + '/payments/' + payment_id, body)
+      payment_builder(response)
     end
 
     def delete(batch_id, payment_id)

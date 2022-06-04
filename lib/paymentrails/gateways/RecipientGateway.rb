@@ -20,8 +20,8 @@ module PaymentRails
     end
 
     def update(recipient_id, body)
-      @client.patch('/v1/recipients/' + recipient_id, body)
-      true
+      response = @client.patch('/v1/recipients/' + recipient_id, body)
+      recipient_builder(response)
     end
 
     def delete(recipient_id)

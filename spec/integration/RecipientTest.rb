@@ -36,10 +36,8 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient.firstName, 'Tom')
     assert_equal(recipient.status, 'incomplete')
 
-    response = @client.recipient.update(recipient.id, firstName: 'Bob')
-    assert_true(response)
+    recipient = @client.recipient.update(recipient.id, firstName: 'Bob')
 
-    recipient = @client.recipient.find(recipient.id)
     assert_equal(recipient.firstName, 'Bob')
 
     response = @client.recipient.delete(recipient.id)
