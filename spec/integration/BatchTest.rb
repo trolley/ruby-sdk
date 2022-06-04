@@ -45,8 +45,10 @@ class BatchTest < Test::Unit::TestCase
     all = @client.batch.all
     assert_true(all.count > 0)
 
-    response = @client.batch.update(batch.id, description: 'Integration Update')
-    assert_true(response)
+    batch = @client.batch.update(batch.id, description: 'Integration Update')
+
+    assert_equal('Integration Update', batch.description)
+
     findBatch = @client.batch.find(batch.id)
     assert_equal('Integration Update', findBatch.description)
     assert_equal('open', batch.status)
@@ -89,8 +91,9 @@ class BatchTest < Test::Unit::TestCase
     assert_not_nil(payment)
     assert_not_nil(payment.id)
 
-    response = @client.payment.update(batch.id, payment.id, sourceAmount: '20.00')
-    assert_true(response)
+    payment = @client.payment.update(batch.id, payment.id, sourceAmount: '20.00')
+
+    assert_equal('20.00', payment.sourceAmount)
 
     response = @client.payment.delete(batch.id, payment.id)
     assert_true(response)

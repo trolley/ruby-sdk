@@ -25,8 +25,8 @@ module PaymentRails
     end
 
     def update(batch_id, body)
-      @client.patch('/v1/batches/' + batch_id, body)
-      true
+      response = @client.patch('/v1/batches/' + batch_id, body)
+      batch_builder(response)
     end
 
     def delete(batch_id)
