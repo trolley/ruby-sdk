@@ -62,8 +62,10 @@ class InvoiceTest < Test::Unit::TestCase
     invoices = @client.invoice.search({})
     assert_true(invoices.count > 0)
 
-    response = @client.invoice.update(invoiceId: invoice.id, description: 'Integration Test Invoice Update')
-    assert_true(response)
+    invoice = @client.invoice.update(invoiceId: invoice.id, description: 'Integration Test Invoice Update')
+
+    assert_equal('Integration Test Invoice Update', invoice.description)
+
     findInvoice = @client.invoice.find(invoiceId: invoice.id)
     assert_equal('Integration Test Invoice Update', findInvoice.description)
     assert_equal('open', findInvoice.status)

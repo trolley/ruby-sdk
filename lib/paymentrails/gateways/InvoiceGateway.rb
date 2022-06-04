@@ -30,8 +30,8 @@ module PaymentRails
     end
 
     def update(body)
-      @client.post('/v1/invoices/update', body)
-      true
+      response = @client.post('/v1/invoices/update', body)
+      invoice_builder(response)
     end
 
     def update_line(body)
