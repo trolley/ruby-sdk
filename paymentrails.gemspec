@@ -2,11 +2,11 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name = "paymentrails"
-  s.summary = "PaymentRails Ruby SDK"
-  s.description = "Ruby SDK for interacting with the PaymentRails API"
+  s.summary = "Trolley Ruby SDK"
+  s.description = "Ruby SDK for interacting with the Trolley API"
   s.version = '0.2.11'
-  s.homepage = 'https://www.paymentrails.com/'
-  s.email = ['joshua@paymentrails.com']
+  s.homepage = 'https://trolley.com/'
+  s.email = ['developer-tools@trolley.com']
   s.license = "MIT"
   s.author = "PaymentRails"
   s.files = Dir.glob ["README.rdoc", "LICENSE", "lib/**/*.{rb,crt}", "spec/**/*", "*.gemspec"]
