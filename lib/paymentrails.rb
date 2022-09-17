@@ -23,6 +23,6 @@ require 'paymentrails/InvoicePayment'
 
 module PaymentRails
   def self.client(key, secret, environment = 'production', **optionals)
-    Gateway.new(Configuration.new(key, secret, environment, optionals))
+    Gateway.new(Configuration.new(key, secret, environment, **optionals))
   end
 end
