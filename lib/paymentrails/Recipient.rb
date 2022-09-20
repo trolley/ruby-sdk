@@ -2,6 +2,7 @@ module PaymentRails
   class Recipient
     attr_accessor(
       :id,
+      :routeMinimum,
       :routeType,
       :estimatedFees,
       :referenceId,
@@ -15,6 +16,7 @@ module PaymentRails
       :language,
       :complianceStatus,
       :dob,
+      :contactEmails,
       :passport,
       :updatedAt,
       :createdAt,
