@@ -1,9 +1,10 @@
 # require_relative 'Exceptions.rb'
-require 'digest'
 require 'net/http'
-require 'openssl'
 require 'uri'
 require 'json'
+
+require 'faraday'
+require_relative 'lib/faraday_middleware/trolley_authentication.rb'
 
 module PaymentRails
   class Client
@@ -12,7 +13,21 @@ module PaymentRails
     end
 
     def get(endPoint)
-      send_request(endPoint, 'GET')
+      conn = Faraday.new do |f|
+        f.request :url_encoded
+        f.request :trolley_authentication
+        f.adapter Faraday.default_adapter
+      end
+
+      response = conn.get(@config.apiBase + endPoint) do |req|
+        req.options.context = {
+          api_key_token: @config.publicKey,
+          api_key_secret: @config.privateKey,
+          endpoint: endPoint,
+        }
+      end
+
+      p response.body
     end
 
     def post(endPoint, body)
