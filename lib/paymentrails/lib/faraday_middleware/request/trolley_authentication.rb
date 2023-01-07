@@ -12,19 +12,23 @@ module FaradayMiddleware
 
     def call(env)
       env[:request_headers]['X-PR-Timestamp'] = @time
-      env[:request_headers]['Authorization'] = authorization_header(env)
+      env[:request_headers]['Authorization'] = authentication_header(env)
       @app.call(env)
     end
 
     private
 
-    def authorization_header(env)
-      "prsign #{env[:api_key_token]}:#{authorization_signature(env)}"
+    def authentication_header(env)
+      api_key_token = env.dig(:request, :context, :api_key_token)
+      "prsign #{api_key_token}:#{authorization_signature(env)}"
     end
 
     def authorization_signature(env)
-      message = [@time, env[:method], env[:endpoint], env[:body]].join("\n") + "\n"
-      OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), env[:api_key_secret], message)
+      endpoint = env.dig(:request, :context, :endpoint)
+      api_key_secret = env.dig(:request, :context, :api_key_secret)
+
+      message = [@time, env[:method].upcase, endpoint, env[:body]].join("\n") + "\n"
+      OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), api_key_secret, message)
     end
   end
 end

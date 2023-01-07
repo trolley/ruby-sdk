@@ -13,21 +13,33 @@ module PaymentRails
     end
 
     def get(endPoint)
-      conn = Faraday.new do |f|
+      response = conn.get(@config.apiBase + endPoint) do |req|
+        req.options.context = req.options.context.merge(endpoint: endPoint)
+      end
+
+      p response.body
+    end
+
+    def conn
+      Faraday.new(default_endpoint, default_request_context) do |f|
         f.request :url_encoded
         f.request :trolley_authentication
         f.adapter Faraday.default_adapter
       end
+    end
 
-      response = conn.get(@config.apiBase + endPoint) do |req|
-        req.options.context = {
-          api_key_token: @config.publicKey,
-          api_key_secret: @config.privateKey,
-          endpoint: endPoint,
+    def default_endpoint
+      nil
+    end
+    def default_request_context
+      {
+        request: {
+          context: {
+            api_key_token: @config.publicKey,
+            api_key_secret: @config.privateKey
+          }
         }
-      end
-
-      p response.body
+      }
     end
 
     def post(endPoint, body)
