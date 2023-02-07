@@ -1,10 +1,10 @@
-# Payment Rails[^1] Ruby Library
+# Trolley Ruby SDK (Previously Trolley[^1])
 
 [![Latest Stable Version](https://poser.pugx.org/paymentrails/ruby-sdk/v/stable.png)](https://packagist.org/packages/paymentrails/ruby-sdk)
 
-The Payment Rails Ruby library provides integration access to the Payment Rails API.
+The Trolley Ruby SDK provides integration access to the Trolley API.
 
-[^1]: [Payment Rails is now Trolley](https://www.trolley.com/payment-rails-is-now-trolley-series-a), we'll be updating our SDKs to support the new domain during the second half of 2022.
+[^1]: [Payment Rails is now Trolley](https://www.trolley.com/payment-rails-is-now-trolley-series-a), e're in the process of updating our SDKs to support the new domain. In this transition phase, you might still see "PaymentRails" on some places.
 
 ## Requirements
 
