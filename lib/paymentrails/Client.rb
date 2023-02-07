@@ -40,7 +40,7 @@ module PaymentRails
       )
       http.use_ssl = @config.useSsl?
 
-      spec = Gem::Specification::load("paymentrails.gemspec")
+      spec = Gem::Specification.load("paymentrails.gemspec")
 
       time = Time.now.to_i
       headers = {'X-PR-Timestamp': time.to_s,
