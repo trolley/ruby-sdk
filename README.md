@@ -4,7 +4,7 @@
 
 The Trolley Ruby SDK provides integration access to the Trolley API.
 
-[^1]: [Payment Rails is now Trolley](https://www.trolley.com/payment-rails-is-now-trolley-series-a), e're in the process of updating our SDKs to support the new domain. In this transition phase, you might still see "PaymentRails" on some places.
+[^1]: [Payment Rails is now Trolley](https://www.trolley.com/payment-rails-is-now-trolley-series-a). We're in the process of updating our SDKs to support the new domain. In this transition phase, you might still see "PaymentRails" at some places.
 
 ## Requirements
 
