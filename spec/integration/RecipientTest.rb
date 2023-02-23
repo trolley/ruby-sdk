@@ -144,12 +144,15 @@ class RecipientTest < Test::Unit::TestCase
     @client.batch.create(
       sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
         { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
-        { sourceAmount: '100.00', recipient: { id: recipient.id } }
+        { sourceAmount: '10.00', recipient: { id: recipient.id } }
       ]
     )
 
     payments = @client.recipient.find_payments(recipient.id)
     assert_equal(payments.count, 2)
+    assert_equal(payments[0].recipient['id'], recipient.id)
+    assert_equal(payments[1].recipient['id'], recipient.id)
+    assert_equal(payments.map(&:amount), ['10.00', '10.00'])
   end
 
   private
