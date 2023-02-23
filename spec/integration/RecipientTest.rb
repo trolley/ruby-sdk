@@ -5,13 +5,12 @@ class RecipientTest < Test::Unit::TestCase
     @client = PaymentRails.client(
       ENV.fetch('SANDBOX_API_KEY'),
       ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
+      'development',
       proxy_uri: ENV['PROXY_URI']
     )
   end
 
   def test_create
-    uuid = SecureRandom.uuid.to_s
     response = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -25,7 +24,6 @@ class RecipientTest < Test::Unit::TestCase
   end
 
   def test_lifecycle
-    uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -50,7 +48,6 @@ class RecipientTest < Test::Unit::TestCase
   end
 
   def test_account
-    uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -86,5 +83,42 @@ class RecipientTest < Test::Unit::TestCase
 
     accountList = @client.recipient_account.all(recipient.id)
     assert_equal(1, accountList.count)
+  end
+
+  def test_delete_multiple
+    recipient1 = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    assert_not_nil(recipient1)
+    assert_equal(recipient1.firstName, 'Tom')
+    assert_equal(recipient1.status, 'incomplete')
+
+    recipient2 = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    assert_not_nil(recipient2)
+    assert_equal(recipient2.firstName, 'Tom')
+    assert_equal(recipient2.status, 'incomplete')
+
+    response = @client.recipient.delete_multiple([recipient1.id, recipient2.id])
+    assert_true(response)
+
+    recipient1 = @client.recipient.find(recipient1.id)
+    assert_equal(recipient1.status, 'archived')
+
+    recipient2 = @client.recipient.find(recipient2.id)
+    assert_equal(recipient2.status, 'archived')
+  end
+
+  private
+
+  def uuid
+    SecureRandom.uuid.to_s
   end
 end

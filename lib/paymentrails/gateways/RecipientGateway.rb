@@ -29,6 +29,11 @@ module PaymentRails
       true
     end
 
+    def delete_multiple(recipient_ids)
+      @client.delete_multiple('/v1/recipients/', ids: recipient_ids)
+      true
+    end
+
     # TODO: if we can afford a breaking change ideally these should be kwargs
     def search(page = 1, page_size = 10, prefix_search = '', filters = {})
       query_string = URI.encode_www_form(
