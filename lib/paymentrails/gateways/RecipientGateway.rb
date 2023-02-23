@@ -34,6 +34,11 @@ module PaymentRails
       true
     end
 
+    def retrieve_logs(recipient_id)
+      response = @client.get('/v1/recipients/' + recipient_id + '/logs')
+      JSON.parse(response, object_class: OpenStruct)
+    end
+
     # TODO: if we can afford a breaking change ideally these should be kwargs
     def search(page = 1, page_size = 10, prefix_search = '', filters = {})
       query_string = URI.encode_www_form(

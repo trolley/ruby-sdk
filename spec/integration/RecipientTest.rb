@@ -1,5 +1,6 @@
 require_relative 'helper'
 
+# rubocop:disable Metrics/ClassLength
 class RecipientTest < Test::Unit::TestCase
   def setup
     @client = PaymentRails.client(
@@ -116,9 +117,25 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient2.status, 'archived')
   end
 
+  def test_retrieve_logs
+    recipient = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    assert_not_nil(recipient)
+    assert_equal(recipient.firstName, 'Tom')
+    assert_equal(recipient.status, 'incomplete')
+
+    logs = @client.recipient.retrieve_logs(recipient.id)
+    assert_equal(logs.class, OpenStruct)
+  end
+
   private
 
   def uuid
     SecureRandom.uuid.to_s
   end
 end
+# rubocop:enable Metrics/ClassLength
