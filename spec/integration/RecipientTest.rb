@@ -132,6 +132,26 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(logs.class, OpenStruct)
   end
 
+  def test_find_payments
+    recipient = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
+
+    @client.batch.create(
+      sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
+        { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
+        { sourceAmount: '100.00', recipient: { id: recipient.id } }
+      ]
+    )
+
+    payments = @client.recipient.find_payments(recipient.id)
+    assert_equal(payments.count, 2)
+  end
+
   private
 
   def uuid
