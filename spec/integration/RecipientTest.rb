@@ -117,7 +117,7 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient2.status, 'archived')
   end
 
-  def test_retrieve_logs
+  def test_find_logs
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -128,7 +128,9 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient.firstName, 'Tom')
     assert_equal(recipient.status, 'incomplete')
 
-    logs = @client.recipient.retrieve_logs(recipient.id)
+    @client.recipient.update(recipient.id, firstName: 'John')
+    logs = @client.recipient.find_logs(recipient.id)
+
     assert_equal(logs.class, OpenStruct)
   end
 
