@@ -25,12 +25,18 @@ module PaymentRails
     end
 
     def delete(recipient_id)
-      @client.delete('/v1/recipients/' + recipient_id)
-      true
-    end
+      path = '/v1/recipients/'
+      body = ''
 
-    def delete_multiple(recipient_ids)
-      @client.delete_multiple('/v1/recipients/', ids: recipient_ids)
+      if recipient_id.is_a?(String)
+        path += recipient_id
+      elsif recipient_id.is_a?(Array)
+        body = { ids: recipient_id }
+      else
+        raise 'Invalid recipient_id type'
+      end
+
+      @client.delete(path, body)
       true
     end
 

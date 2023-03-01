@@ -107,7 +107,7 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient2.firstName, 'Tom')
     assert_equal(recipient2.status, 'incomplete')
 
-    response = @client.recipient.delete_multiple([recipient1.id, recipient2.id])
+    response = @client.recipient.delete([recipient1.id, recipient2.id])
     assert_true(response)
 
     recipient1 = @client.recipient.find(recipient1.id)

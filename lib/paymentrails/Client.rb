@@ -20,12 +20,8 @@ module PaymentRails
       send_request(endPoint, 'POST', body)
     end
 
-    def delete(endPoint)
-      send_request(endPoint, 'DELETE')
-    end
-
-    def delete_multiple(endPoint, body)
-      body = body.to_json
+    def delete(endPoint, body = '')
+      body = body.to_json if body != ''
       send_request(endPoint, 'DELETE', body)
     end
 
