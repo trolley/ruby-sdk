@@ -36,6 +36,17 @@ gem build paymentrails.gemspec
 gem install paymentrails-[version].gem
 ```
 
+### Running Tests
+
+```
+// set keys as environment variables
+export SANDBOX_ACCESS_KEY="your_access_key"
+export SANDBOX_SECRET_KEY="your_secret_key"
+
+// run a single test file, for example:
+bundle exec ruby spec/integration/RecipientTest.rb
+```
+
 ## Getting Started
 
 ```Ruby
