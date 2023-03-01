@@ -46,8 +46,8 @@ module PaymentRails
       headers = {'X-PR-Timestamp': time.to_s,
                 'Authorization': generate_authorization(time, endPoint, method, body),
                 'Content-Type': 'application/json',
-                'Trolley-Source': 'ruby-sdk_' + spec.version}
-
+                'Trolley-Source': "ruby-sdk_#{spec.version}"}
+                
       if method === "GET"
         request = Net::HTTP::Get.new(uri.request_uri, headers)
       elsif method === "POST"
