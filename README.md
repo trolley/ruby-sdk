@@ -1,4 +1,4 @@
-# Trolley Ruby SDK (Previously Trolley[^1])
+# Trolley Ruby SDK (Previously Payment Rails[^1])
 
 [![Latest Stable Version](https://poser.pugx.org/paymentrails/ruby-sdk/v/stable.png)](https://packagist.org/packages/paymentrails/ruby-sdk)
 
