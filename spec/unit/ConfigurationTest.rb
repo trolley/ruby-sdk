@@ -22,9 +22,9 @@ class ConfigurationTest < Test::Unit::TestCase
 
   def test_api_base
     assert_equal 'http://api.local.dev:3000', PaymentRails::Configuration.new('key', 'secret', 'integration').apiBase
-    assert_equal 'https://api.paymentrails.com', PaymentRails::Configuration.new('key', 'secret', 'production').apiBase
+    assert_equal 'https://api.trolley.com', PaymentRails::Configuration.new('key', 'secret', 'production').apiBase
     assert_equal 'https://api.railz.io', PaymentRails::Configuration.new('key', 'secret', 'development').apiBase
-    assert_equal 'https://api.paymentrails.com', PaymentRails::Configuration.new('key', 'secret', 'non_standard_environment').apiBase
+    assert_equal 'https://api.trolley.com', PaymentRails::Configuration.new('key', 'secret', 'non_standard_environment').apiBase
   end
 
   def test_use_ssl?

@@ -67,6 +67,7 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient.firstName, 'Tom')
     assert_equal(recipient.lastName, 'Jones')
     assert_not_nil(recipient.id)
+    assert_true(recipient.routeMinimum.to_i >= 0)
 
     account = @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
     assert_not_nil(account)
