@@ -1,11 +1,12 @@
 require_relative 'helper'
 
+# rubocop:disable Metrics/ClassLength
 class BatchTest < Test::Unit::TestCase
   def setup
     @client = PaymentRails.client(
       ENV.fetch('SANDBOX_API_KEY'),
       ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
+      'development',
       proxy_uri: ENV['PROXY_URI']
     )
   end
@@ -118,4 +119,18 @@ class BatchTest < Test::Unit::TestCase
     start = @client.batch.start_processing(batch.id)
     assert_not_nil(start)
   end
+
+  def test_delete_multiple
+    batch = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    assert_not_nil(batch)
+    assert_not_nil(batch.id)
+
+    batch2 = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    assert_not_nil(batch2)
+    assert_not_nil(batch2.id)
+
+    response = @client.batch.delete([batch.id, batch2.id])
+    assert_true(response)
+  end
 end
+# rubocop:enable Metrics/ClassLength
