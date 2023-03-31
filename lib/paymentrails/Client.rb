@@ -20,8 +20,9 @@ module PaymentRails
       send_request(endPoint, 'POST', body)
     end
 
-    def delete(endPoint)
-      send_request(endPoint, 'DELETE')
+    def delete(endPoint, body = '')
+      body = body.to_json if body != ''
+      send_request(endPoint, 'DELETE', body)
     end
 
     def patch(endPoint, body)
@@ -54,6 +55,7 @@ module PaymentRails
         request.body = body
       elsif method === "DELETE"
         request = Net::HTTP::Delete.new(uri.request_uri, headers)
+        request.body = body
       end
 
       response = http.request(request)

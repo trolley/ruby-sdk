@@ -1,17 +1,17 @@
 require_relative 'helper'
 
+# rubocop:disable Metrics/ClassLength
 class RecipientTest < Test::Unit::TestCase
   def setup
     @client = PaymentRails.client(
       ENV.fetch('SANDBOX_API_KEY'),
       ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
+      'development',
       proxy_uri: ENV['PROXY_URI']
     )
   end
 
   def test_create
-    uuid = SecureRandom.uuid.to_s
     response = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -25,7 +25,6 @@ class RecipientTest < Test::Unit::TestCase
   end
 
   def test_lifecycle
-    uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -50,7 +49,6 @@ class RecipientTest < Test::Unit::TestCase
   end
 
   def test_account
-    uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
@@ -87,4 +85,82 @@ class RecipientTest < Test::Unit::TestCase
     accountList = @client.recipient_account.all(recipient.id)
     assert_equal(1, accountList.count)
   end
+
+  def test_delete_multiple
+    recipient1 = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    assert_not_nil(recipient1)
+    assert_equal(recipient1.firstName, 'Tom')
+    assert_equal(recipient1.status, 'incomplete')
+
+    recipient2 = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    assert_not_nil(recipient2)
+    assert_equal(recipient2.firstName, 'Tom')
+    assert_equal(recipient2.status, 'incomplete')
+
+    response = @client.recipient.delete([recipient1.id, recipient2.id])
+    assert_true(response)
+
+    recipient1 = @client.recipient.find(recipient1.id)
+    assert_equal(recipient1.status, 'archived')
+
+    recipient2 = @client.recipient.find(recipient2.id)
+    assert_equal(recipient2.status, 'archived')
+  end
+
+  def test_find_logs
+    recipient = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    assert_not_nil(recipient)
+    assert_equal(recipient.firstName, 'Tom')
+    assert_equal(recipient.status, 'incomplete')
+
+    @client.recipient.update(recipient.id, firstName: 'John')
+    logs = @client.recipient.find_logs(recipient.id)
+
+    assert_equal(logs.class, OpenStruct)
+  end
+
+  def test_find_payments
+    recipient = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: 'test.create' + uuid + '@example.com'
+    )
+    @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
+
+    @client.batch.create(
+      sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
+        { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
+        { sourceAmount: '10.00', recipient: { id: recipient.id } }
+      ]
+    )
+
+    payments = @client.recipient.find_payments(recipient.id)
+    assert_equal(payments.count, 2)
+    assert_equal(payments[0].recipient['id'], recipient.id)
+    assert_equal(payments[1].recipient['id'], recipient.id)
+    assert_equal(payments.map(&:amount), ['10.00', '10.00'])
+  end
+
+  private
+
+  def uuid
+    SecureRandom.uuid.to_s
+  end
 end
+# rubocop:enable Metrics/ClassLength
