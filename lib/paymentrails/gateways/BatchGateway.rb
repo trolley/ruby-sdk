@@ -30,7 +30,18 @@ module PaymentRails
     end
 
     def delete(batch_id)
-      @client.delete('/v1/batches/' + batch_id)
+      path = '/v1/batches/'
+      body = ''
+
+      if batch_id.is_a?(String)
+        path += batch_id
+      elsif batch_id.is_a?(Array)
+        body = { ids: batch_id }
+      else
+        raise 'Invalid batch_id type, please pass a string or array of strings'
+      end
+
+      @client.delete(path, body)
       true
     end
 

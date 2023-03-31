@@ -156,11 +156,5 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(payments[1].recipient['id'], recipient.id)
     assert_equal(payments.map(&:amount), ['10.00', '10.00'])
   end
-
-  private
-
-  def uuid
-    SecureRandom.uuid.to_s
-  end
 end
 # rubocop:enable Metrics/ClassLength
