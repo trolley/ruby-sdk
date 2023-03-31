@@ -19,13 +19,13 @@ module PaymentRails
     def apiBase
       case environment
       when 'production'
-        'https://api.paymentrails.com'
+        'https://api.trolley.com'
       when 'development'
         'https://api.railz.io'
       when 'integration'
         'http://api.local.dev:3000'
       else
-        'https://api.paymentrails.com'
+        'https://api.trolley.com'
       end
     end
 
