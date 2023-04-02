@@ -29,6 +29,7 @@ module PaymentRails
       true
     end
 
+    # @param batch_id [String] or [Array] The id (or array of ids) of the batch to delete
     def delete(batch_id)
       path = '/v1/batches/'
       body = ''

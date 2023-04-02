@@ -24,6 +24,7 @@ module PaymentRails
       true
     end
 
+    # @param recipient_id [String] or [Array] The id (or array of ids) of the recipient to delete
     def delete(recipient_id)
       path = '/v1/recipients/'
       body = ''
@@ -40,6 +41,7 @@ module PaymentRails
       true
     end
 
+    # @note This method retrieves a list of activity logs for a recipient
     def find_logs(recipient_id)
       response = @client.get('/v1/recipients/' + recipient_id + '/logs')
       JSON.parse(response, object_class: OpenStruct)
