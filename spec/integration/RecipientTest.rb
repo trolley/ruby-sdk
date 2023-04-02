@@ -6,7 +6,7 @@ class RecipientTest < Test::Unit::TestCase
     @client = PaymentRails.client(
       ENV.fetch('SANDBOX_API_KEY'),
       ENV.fetch('SANDBOX_SECRET_KEY'),
-      'development',
+      'production',
       proxy_uri: ENV['PROXY_URI']
     )
   end
@@ -133,6 +133,7 @@ class RecipientTest < Test::Unit::TestCase
     logs = @client.recipient.find_logs(recipient.id)
 
     assert_equal(logs.class, OpenStruct)
+    assert_boolean(true, @client.recipient.delete(recipient.id))
   end
 
   def test_find_payments
@@ -142,9 +143,9 @@ class RecipientTest < Test::Unit::TestCase
       lastName: 'Jones',
       email: 'test.create' + uuid + '@example.com'
     )
-    @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
+    recipient_account = @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
 
-    @client.batch.create(
+    batch = @client.batch.create(
       sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
         { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
         { sourceAmount: '10.00', recipient: { id: recipient.id } }
@@ -156,6 +157,10 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(payments[0].recipient['id'], recipient.id)
     assert_equal(payments[1].recipient['id'], recipient.id)
     assert_equal(payments.map(&:amount), ['10.00', '10.00'])
+
+    assert_boolean(true, @client.batch.delete(batch.id))
+    assert_boolean(true, @client.recipient_account.delete(recipient.id, recipient_account.id))
+    assert_boolean(true, @client.recipient.delete(recipient.id))
   end
 end
 # rubocop:enable Metrics/ClassLength

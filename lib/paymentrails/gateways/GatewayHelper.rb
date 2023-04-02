@@ -1,6 +1,5 @@
 module PaymentRails
   module GatewayHelper
-    # rubocop:disable Lint/SuppressedException
     def loosely_hydrate_model(klass_instance, attributes)
       attributes.each do |k, v|
         klass_instance.send("#{k}=", v)
