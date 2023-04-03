@@ -49,6 +49,7 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient.status, 'archived')
   end
 
+  # rubocop:disable Metrics/MethodLength
   def test_account
     uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
@@ -88,4 +89,5 @@ class RecipientTest < Test::Unit::TestCase
     accountList = @client.recipient_account.all(recipient.id)
     assert_equal(1, accountList.count)
   end
+  # rubocop:enable Metrics/MethodLength
 end
