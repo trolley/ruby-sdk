@@ -40,13 +40,11 @@ module PaymentRails
       )
       http.use_ssl = @config.useSsl?
 
-      spec = Gem::Specification.load("paymentrails.gemspec")
-
       time = Time.now.to_i
       headers = {'X-PR-Timestamp': time.to_s,
                 'Authorization': generate_authorization(time, endPoint, method, body),
                 'Content-Type': 'application/json',
-                'Trolley-Source': "ruby-sdk_#{spec.version}"}
+                'Trolley-Source': "ruby-sdk_#{::PaymentRails::VERSION}"}
                 
       if method === "GET"
         request = Net::HTTP::Get.new(uri.request_uri, headers)
