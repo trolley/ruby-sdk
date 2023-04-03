@@ -53,7 +53,7 @@ bundle exec ruby spec/integration/RecipientTest.rb
 
 require 'trolley'
 
-client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY')
+client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY')
 
 recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
@@ -62,7 +62,7 @@ print recipient.id
 #### Need a proxy?
 
 ```Ruby
-client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production', proxy_uri: 'peter_the_proxy.com')
+client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production', proxy_uri: 'peter_the_proxy.com')
 ```
 
 ## Documentation for API Endpoints

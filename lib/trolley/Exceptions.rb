@@ -1,19 +1,19 @@
 module Trolley
-    class PaymentRailsError < ::StandardError; end
+    class TrolleyError < ::StandardError; end
 
-    class AuthenticationError < PaymentRailsError; end
+    class AuthenticationError < TrolleyError; end
 
-    class AuthorizationError < PaymentRailsError; end
+    class AuthorizationError < TrolleyError; end
 
-    class DownForMaintenanceError < PaymentRailsError; end
+    class DownForMaintenanceError < TrolleyError; end
 
-    class NotFoundError < PaymentRailsError; end
+    class NotFoundError < TrolleyError; end
 
-    class ServerError < PaymentRailsError; end
+    class ServerError < TrolleyError; end
 
-    class TooManyRequestsError < PaymentRailsError; end
+    class TooManyRequestsError < TrolleyError; end
 
-    class UnexpectedError < PaymentRailsError; end
+    class UnexpectedError < TrolleyError; end
 
-    class MalformedException < PaymentRailsError; end
+    class MalformedRequestError < TrolleyError; end
 end

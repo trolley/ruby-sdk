@@ -79,7 +79,7 @@ module Trolley
     def throw_status_code_exception(message, code)
         case code
         when '400'
-          raise MalformedException, message
+          raise MalformedRequestError, message
         when '401'
           raise AuthenticationError, message
         when '403'
