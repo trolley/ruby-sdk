@@ -32,7 +32,7 @@ git clone https://github.com/PaymentRails/ruby-sdk.git
 ```bash
 cd ruby-sdk
 bundler install
-gem build trolley.gemspec
+gem build paymentrails.gemspec
 gem install trolley-[version].gem
 ```
 
