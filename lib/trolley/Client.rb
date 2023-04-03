@@ -78,6 +78,7 @@ module Trolley
     private
 
     # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Lint/SuppressedException
     def throw_status_code_exception(message, code, body = nil)
       validation_errors = []
       unless body.nil?
@@ -109,5 +110,6 @@ module Trolley
       end
     end
     # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Lint/SuppressedException
   end
 end
