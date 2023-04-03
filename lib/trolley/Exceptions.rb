@@ -1,4 +1,4 @@
-module PaymentRails
+module Trolley
     class PaymentRailsError < ::StandardError; end
 
     class AuthenticationError < PaymentRailsError; end

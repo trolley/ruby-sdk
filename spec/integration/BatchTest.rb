@@ -1,14 +1,7 @@
 require_relative 'helper'
 
 class BatchTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def create_recipient
     uuid = SecureRandom.uuid.to_s

@@ -1,4 +1,4 @@
-module PaymentRails
+module Trolley
   module GatewayHelper
     def loosely_hydrate_model(klass_instance, attributes)
       attributes.each do |k, v|

@@ -1,6 +1,6 @@
 require_relative '../Client.rb'
 
-module PaymentRails
+module Trolley
   class BalanceGateway
     def initialize(client)
       @client = client

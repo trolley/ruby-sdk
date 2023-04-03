@@ -1,4 +1,4 @@
-require_relative '../../lib/paymentrails'
+require_relative '../../lib/trolley'
 require 'test/unit'
 
 class ConfigurationTest < Test::Unit::TestCase

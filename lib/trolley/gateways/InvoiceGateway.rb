@@ -1,7 +1,7 @@
 require_relative '../Client.rb'
 require_relative 'GatewayHelper'
 
-module PaymentRails
+module Trolley
   class InvoiceGateway
     include GatewayHelper
 
