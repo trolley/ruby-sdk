@@ -63,7 +63,7 @@ module Trolley
       response = http.request(request)
 
       if response.code != '200' && response.code != '204'
-        throw_status_code_exception(response.message + ' ' + response.body , response.code)
+        throw_status_code_exception(response.message + ' ' + response.body , response.code, response.body)
       end
       response.body
     end
@@ -76,25 +76,38 @@ module Trolley
     end
 
     private
-    def throw_status_code_exception(message, code)
-        case code
-        when '400'
-          raise MalformedRequestError, message
-        when '401'
-          raise AuthenticationError, message
-        when '403'
-          raise AuthorizationError, message
-        when '404'
-          raise NotFoundError, message
-        when '429'
-          raise TooManyRequestsError, message
-        when '500'
-          raise ServerError, message
-        when '503'
-          raise DownForMaintenanceError, message
-        else
-          raise UnexpectedError, message
+
+    # rubocop:disable Metrics/CyclomaticComplexity
+    def throw_status_code_exception(message, code, body = nil)
+      validation_errors = []
+      unless body.nil?
+        begin
+          body = JSON.parse(body)
+          validation_errors = body['errors']
+        rescue JSON::ParserError
+          # no-op
         end
+      end
+
+      case code
+      when '400'
+        raise MalformedRequestError.new(message, validation_errors)
+      when '401'
+        raise AuthenticationError.new(message, validation_errors)
+      when '403'
+        raise AuthorizationError.new(message, validation_errors)
+      when '404'
+        raise NotFoundError.new(message, validation_errors)
+      when '429'
+        raise TooManyRequestsError.new(message, validation_errors)
+      when '500'
+        raise ServerError.new(message, validation_errors)
+      when '503'
+        raise DownForMaintenanceError.new(message, validation_errors)
+      else
+        raise UnexpectedError.new(message, validation_errors)
+      end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end

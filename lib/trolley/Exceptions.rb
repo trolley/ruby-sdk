@@ -1,5 +1,12 @@
 module Trolley
-    class TrolleyError < ::StandardError; end
+    class TrolleyError < ::StandardError
+        attr_reader :validation_errors
+
+        def initialize(message, validation_errors)
+            super(message)
+            @validation_errors = validation_errors
+        end
+    end
 
     class AuthenticationError < TrolleyError; end
 
