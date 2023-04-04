@@ -41,7 +41,6 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient.status, 'archived')
   end
 
-  # rubocop:disable Metrics/MethodLength
   def test_account
     recipient = @client.recipient.create(
       type: 'individual',

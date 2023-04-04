@@ -1,6 +1,4 @@
 require_relative 'helper'
-
-# rubocop:disable Metrics/ClassLength
 class BatchTest < Test::Unit::TestCase
   include ApiClientHelper
 
@@ -126,4 +124,3 @@ class BatchTest < Test::Unit::TestCase
     assert_true(response)
   end
 end
-# rubocop:enable Metrics/ClassLength
