@@ -16,7 +16,7 @@ Bundler is required.
 ### Install the Gem
 
 ```bash
-gem install paymentrails
+gem install trolley
 ```
 
 ## Installation & Usage (Git)
@@ -32,8 +32,8 @@ git clone https://github.com/PaymentRails/ruby-sdk.git
 ```bash
 cd ruby-sdk
 bundler install
-gem build paymentrails.gemspec
-gem install paymentrails-[version].gem
+gem build trolley.gemspec
+gem install trolley-[version].gem
 ```
 
 ### Running Tests
@@ -49,11 +49,10 @@ bundle exec ruby spec/integration/RecipientTest.rb
 
 ## Getting Started
 
-```Ruby
+```ruby
+require 'trolley'
 
-require 'paymentrails'
-
-client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY')
+client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY')
 
 recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
@@ -62,7 +61,7 @@ print recipient.id
 #### Need a proxy?
 
 ```Ruby
-client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production', proxy_uri: 'peter_the_proxy.com')
+client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production', proxy_uri: 'peter_the_proxy.com')
 ```
 
 ## Documentation for API Endpoints

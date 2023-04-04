@@ -2,14 +2,7 @@ require_relative 'helper'
 
 # rubocop:disable Metrics/ClassLength
 class RecipientTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def test_create
     response = @client.recipient.create(

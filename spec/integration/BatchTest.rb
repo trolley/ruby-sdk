@@ -1,15 +1,6 @@
 require_relative 'helper'
-
-# rubocop:disable Metrics/ClassLength
 class BatchTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'development',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def create_recipient
     uuid = SecureRandom.uuid.to_s
@@ -133,4 +124,3 @@ class BatchTest < Test::Unit::TestCase
     assert_true(response)
   end
 end
-# rubocop:enable Metrics/ClassLength

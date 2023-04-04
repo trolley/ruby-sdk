@@ -12,7 +12,7 @@
 # SupportedStyles: around, only_before
 Layout/EmptyLinesAroundAccessModifier:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -20,15 +20,15 @@ Layout/EmptyLinesAroundAccessModifier:
 # SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
 Layout/EmptyLinesAroundClassBody:
   Exclude:
-    - 'lib/paymentrails/Configuration.rb'
-    - 'lib/paymentrails/gateways/BalanceGateway.rb'
+    - 'lib/trolley/Configuration.rb'
+    - 'lib/trolley/gateways/BalanceGateway.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
 Layout/ExtraSpacing:
   Exclude:
-    - 'lib/paymentrails/gateways/BalanceGateway.rb'
+    - 'lib/trolley/gateways/BalanceGateway.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -38,21 +38,21 @@ Layout/ExtraSpacing:
 # SupportedLastArgumentHashStyles: always_inspect, always_ignore, ignore_implicit, ignore_explicit
 Layout/HashAlignment:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
 
 # Offense count: 10
 # Cop supports --auto-correct.
 # Configuration parameters: Width, IgnoredPatterns.
 Layout/IndentationWidth:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
-    - 'lib/paymentrails/Exceptions.rb'
+    - 'lib/trolley/Client.rb'
+    - 'lib/trolley/Exceptions.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/SpaceBeforeComma:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -61,7 +61,7 @@ Layout/SpaceBeforeComma:
 # SupportedStylesForEmptyBraces: space, no_space
 Layout/SpaceInsideHashLiteralBraces:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -69,15 +69,15 @@ Layout/SpaceInsideHashLiteralBraces:
 # SupportedStyles: space, no_space
 Layout/SpaceInsideParens:
   Exclude:
-    - 'lib/paymentrails/gateways/BalanceGateway.rb'
+    - 'lib/trolley/gateways/BalanceGateway.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: IndentationWidth.
 Layout/Tab:
   Exclude:
-    - 'lib/paymentrails/Batch.rb'
-    - 'lib/paymentrails/RecipientAccount.rb'
+    - 'lib/trolley/Batch.rb'
+    - 'lib/trolley/RecipientAccount.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -90,7 +90,7 @@ Layout/TrailingWhitespace:
 # Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
 Lint/UselessAccessModifier:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
 
 # Offense count: 11
 Metrics/AbcSize:
@@ -119,15 +119,15 @@ Naming/BlockParameterName:
 # SupportedStyles: snake_case, camelCase
 Naming/MethodName:
   Exclude:
-    - 'lib/paymentrails/Configuration.rb'
+    - 'lib/trolley/Configuration.rb'
 
 # Offense count: 8
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
 # AllowedNames: io, id, to, by, on, in, at, ip, db, os
 Naming/MethodParameterName:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
-    - 'lib/paymentrails/Configuration.rb'
+    - 'lib/trolley/Client.rb'
+    - 'lib/trolley/Configuration.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -135,7 +135,7 @@ Naming/MethodParameterName:
 # SupportedStyles: assign_to_condition, assign_inside_condition
 Style/ConditionalAssignment:
   Exclude:
-    - 'lib/paymentrails/gateways/OfflinePaymentGateway.rb'
+    - 'lib/trolley/gateways/OfflinePaymentGateway.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -154,14 +154,14 @@ Style/FrozenStringLiteralComment:
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
   Exclude:
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
 Style/RedundantReturn:
   Exclude:
-    - 'lib/paymentrails.rb'
+    - 'lib/trolley.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -177,7 +177,7 @@ Style/SpecialGlobalVars:
 Style/StringLiterals:
   Exclude:
     - 'Gemfile'
-    - 'lib/paymentrails/Client.rb'
+    - 'lib/trolley/Client.rb'
     - 'paymentrails.gemspec'
 
 # Offense count: 49

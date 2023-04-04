@@ -1,4 +1,4 @@
-module PaymentRails
+module Trolley
   class Gateway
     attr_reader :config
     attr_writer :config

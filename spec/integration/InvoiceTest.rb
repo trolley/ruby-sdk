@@ -1,14 +1,8 @@
 require_relative 'helper'
 
+# rubocop:disable Metrics/ClassLength
 class InvoiceTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def create_recipient
     uuid = SecureRandom.uuid.to_s
@@ -121,4 +115,14 @@ class InvoiceTest < Test::Unit::TestCase
     response = @client.invoice.delete_line(invoiceId: invoice.id, invoiceLineIds: [invoice_line.lines.first['id']])
     assert_true(response)
   end
+
+  def test_support_error_arrays
+    @client.invoice.create(recipientId: 'invalid', description: 'Integration Test Invoice Create')
+  rescue ::Trolley::TrolleyError => e
+    assert_equal(1, e.validation_errors.count)
+    assert_equal('recipientId', e.validation_errors.first['field'])
+    assert_equal('Value is invalid', e.validation_errors.first['message'])
+    assert_equal('invalid_field', e.validation_errors.first['code'])
+  end
 end
+# rubocop:enable Metrics/ClassLength

@@ -1,4 +1,4 @@
-module PaymentRails
+module Trolley
   class Payment
     attr_accessor(
       :id,

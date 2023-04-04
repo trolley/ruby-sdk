@@ -1,4 +1,4 @@
-module PaymentRails
+module Trolley
   class Configuration
     class InvalidProxyAddress < StandardError; end
 
