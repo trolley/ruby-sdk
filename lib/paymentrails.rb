@@ -22,6 +22,8 @@ require 'paymentrails/Invoice'
 require 'paymentrails/InvoicePayment'
 
 module PaymentRails
+  VERSION = '0.2.14'.freeze
+
   def self.client(key, secret, environment = 'production', **optionals)
     Gateway.new(Configuration.new(key, secret, environment, **optionals))
   end

@@ -3,7 +3,7 @@ inherit_from: .rubocop_todo.yml
 # This basically enshrines existing intentional styles
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.7
 
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
