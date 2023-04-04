@@ -21,8 +21,9 @@ module PaymentRails
       send_request(endPoint, 'POST', body)
     end
 
-    def delete(endPoint)
-      send_request(endPoint, 'DELETE')
+    def delete(endPoint, body = '')
+      body = body.to_json if body != ''
+      send_request(endPoint, 'DELETE', body)
     end
 
     def patch(endPoint, body)
@@ -47,7 +48,7 @@ module PaymentRails
                 'Authorization': generate_authorization(time, endPoint, method, body),
                 'Content-Type': 'application/json',
                 'Trolley-Source': "ruby-sdk_#{spec.version}"}
-                
+
       if method === "GET"
         request = Net::HTTP::Get.new(uri.request_uri, headers)
       elsif method === "POST"
@@ -58,6 +59,7 @@ module PaymentRails
         request.body = body
       elsif method === "DELETE"
         request = Net::HTTP::Delete.new(uri.request_uri, headers)
+        request.body = body
       end
 
       response = http.request(request)
