@@ -32,8 +32,8 @@ git clone https://github.com/PaymentRails/ruby-sdk.git
 ```bash
 cd ruby-sdk
 bundler install
-gem build paymentrails.gemspec
-gem install paymentrails-[version].gem
+gem build trolley.gemspec
+gem install trolley-[version].gem
 ```
 
 ### Running Tests
@@ -49,8 +49,7 @@ bundle exec ruby spec/integration/RecipientTest.rb
 
 ## Getting Started
 
-```Ruby
-
+```ruby
 require 'trolley'
 
 client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY')
