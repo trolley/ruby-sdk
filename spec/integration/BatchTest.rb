@@ -1,5 +1,6 @@
 require_relative 'helper'
 
+# rubocop:disable Metrics/ClassLength
 class BatchTest < Test::Unit::TestCase
   include ApiClientHelper
 
@@ -111,4 +112,18 @@ class BatchTest < Test::Unit::TestCase
     start = @client.batch.start_processing(batch.id)
     assert_not_nil(start)
   end
+
+  def test_delete_multiple
+    batch = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    assert_not_nil(batch)
+    assert_not_nil(batch.id)
+
+    batch2 = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    assert_not_nil(batch2)
+    assert_not_nil(batch2.id)
+
+    response = @client.batch.delete([batch.id, batch2.id])
+    assert_true(response)
+  end
 end
+# rubocop:enable Metrics/ClassLength

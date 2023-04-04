@@ -13,3 +13,7 @@ module ApiClientHelper
     )
   end
 end
+
+def uuid
+  SecureRandom.uuid.to_s
+end

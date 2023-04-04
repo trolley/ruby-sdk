@@ -21,8 +21,9 @@ module Trolley
       send_request(endPoint, 'POST', body)
     end
 
-    def delete(endPoint)
-      send_request(endPoint, 'DELETE')
+    def delete(endPoint, body = '')
+      body = body.to_json if body != ''
+      send_request(endPoint, 'DELETE', body)
     end
 
     def patch(endPoint, body)
@@ -40,13 +41,11 @@ module Trolley
       )
       http.use_ssl = @config.useSsl?
 
-      spec = Gem::Specification.load("trolley.gemspec")
-
       time = Time.now.to_i
       headers = {'X-PR-Timestamp': time.to_s,
                 'Authorization': generate_authorization(time, endPoint, method, body),
                 'Content-Type': 'application/json',
-                'Trolley-Source': "ruby-sdk_#{spec.version}"}
+                'Trolley-Source': "ruby-sdk_#{::Trolley::VERSION}"}
 
       if method === "GET"
         request = Net::HTTP::Get.new(uri.request_uri, headers)
@@ -58,6 +57,7 @@ module Trolley
         request.body = body
       elsif method === "DELETE"
         request = Net::HTTP::Delete.new(uri.request_uri, headers)
+        request.body = body
       end
 
       response = http.request(request)
