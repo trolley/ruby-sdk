@@ -1,4 +1,4 @@
-require_relative '../Client.rb'
+require_relative '../Client'
 require_relative 'GatewayHelper'
 
 module Trolley
@@ -10,7 +10,7 @@ module Trolley
     end
 
     def find(recipient_id)
-      response = @client.get('/v1/recipients/' + recipient_id)
+      response = @client.get("/v1/recipients/#{recipient_id}")
       recipient_builder(response)
     end
 
@@ -20,7 +20,7 @@ module Trolley
     end
 
     def update(recipient_id, body)
-      @client.patch('/v1/recipients/' + recipient_id, body)
+      @client.patch("/v1/recipients/#{recipient_id}", body)
       true
     end
 
@@ -43,7 +43,7 @@ module Trolley
 
     # @note This method retrieves a list of activity logs for a recipient
     def find_logs(recipient_id)
-      response = @client.get('/v1/recipients/' + recipient_id + '/logs')
+      response = @client.get("/v1/recipients/#{recipient_id}/logs")
       JSON.parse(response, object_class: OpenStruct)
     end
 

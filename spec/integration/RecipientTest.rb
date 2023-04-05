@@ -9,7 +9,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(response)
     assert_equal(response.firstName, 'Tom')
@@ -22,7 +22,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(recipient)
     assert_equal(recipient.firstName, 'Tom')
@@ -46,7 +46,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com',
+      email: "test.create#{uuid}@example.com",
       address: {
         street1: '123 Wolfstrasse',
         city: 'Berlin',
@@ -85,7 +85,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(recipient1)
     assert_equal(recipient1.firstName, 'Tom')
@@ -95,7 +95,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(recipient2)
     assert_equal(recipient2.firstName, 'Tom')
@@ -116,7 +116,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(recipient)
     assert_equal(recipient.firstName, 'Tom')
@@ -134,7 +134,7 @@ class RecipientTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     recipient_account = @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
 

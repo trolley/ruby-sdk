@@ -10,7 +10,7 @@ class InvoiceTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.batch' + uuid + '@example.com',
+      email: "test.batch#{uuid}@example.com",
       address: {
         street1: '123 Wolfstrasse',
         city: 'Berlin',
