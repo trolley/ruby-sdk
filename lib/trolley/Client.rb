@@ -33,6 +33,8 @@ module Trolley
 
     private
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def send_request(endPoint, method, body = '')
       uri = URI.parse(@config.apiBase + endPoint)
       http = Net::HTTP.new(
@@ -67,6 +69,8 @@ module Trolley
       end
       response.body
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
     private
     def generate_authorization(time, endPoint, method, body)

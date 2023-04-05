@@ -24,6 +24,7 @@ module Trolley
       true
     end
 
+    # rubocop:disable Metrics/ParameterLists
     def search(recipient_id = '', page = 1, page_size = 10, term = '')
       if recipient_id === ''
         response = @client.get("/v1/offline-payments?page=#{page}&pageSize=#{page_size}&search=#{term}")
@@ -33,6 +34,7 @@ module Trolley
 
       offline_payments_list_builder(response)
     end
+    # rubocop:enable Metrics/ParameterLists
 
     def offline_payment_builder(response)
       offline_payment = OfflinePayment.new
