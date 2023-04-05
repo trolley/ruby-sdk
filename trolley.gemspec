@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.files = Dir.glob ['README.rdoc', 'LICENSE', 'lib/**/*.{rb,crt}', 'spec/**/*', '*.gemspec']
   s.required_ruby_version = '>= 2.7'
   s.add_development_dependency 'dotenv', '~> 2'
-  s.add_development_dependency 'rake', '~> 12'
+  s.add_development_dependency 'rake', '~> 13'
   s.add_development_dependency 'rubocop', '~> 1'
   s.add_development_dependency 'test-unit', '~> 3'
 end
