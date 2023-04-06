@@ -1,14 +1,18 @@
 module Trolley
   class Configuration
     class InvalidProxyAddress < StandardError; end
+    attr_reader :api_base
 
-    def initialize(publicKey, privateKey, environment = 'production', proxy_uri: nil)
+    DEFAULT_API_BASE = 'https://api.trolley.com'.freeze
+
+    def initialize(publicKey, privateKey, **optionals)
       raise ArgumentError, 'Both key/secret must be a nonempty string' if publicKey.to_s&.empty? || privateKey.to_s&.empty?
 
       @publicKey = publicKey
       @privateKey = privateKey
-      @environment = environment
+      @api_base = optionals[:api_base] || DEFAULT_API_BASE
       # failfast on a bad proxy
+      proxy_uri = optionals[:proxy_uri]
       begin
         @proxy = proxy_uri.nil? ? nil : URI.parse(proxy_uri)
       rescue URI::InvalidURIError
@@ -16,21 +20,8 @@ module Trolley
       end
     end
 
-    def apiBase
-      case environment
-      when 'production'
-        'https://api.trolley.com'
-      when 'development'
-        'https://api.railz.io'
-      when 'integration'
-        'http://api.local.dev:3000'
-      else
-        'https://api.trolley.com'
-      end
-    end
-
     def useSsl?
-      apiBase.start_with? 'https'
+      api_base.start_with? 'https'
     end
 
     attr_reader :proxy

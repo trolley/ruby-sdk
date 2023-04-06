@@ -58,10 +58,15 @@ recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
 ```
 
-#### Need a proxy?
+#### Configuring a proxy
 
 ```Ruby
-client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production', proxy_uri: 'peter_the_proxy.com')
+client = Trolley.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', proxy_uri: 'peter_the_proxy.com')
+```
+
+### Configuring a custom base API URL
+```ruby
+client = Trolley.client('key', 'secret', api_base: 'https://api.railz.io')
 ```
 
 ## Documentation for API Endpoints
