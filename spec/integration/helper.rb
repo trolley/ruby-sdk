@@ -8,7 +8,7 @@ module ApiClientHelper
     @client = Trolley.client(
       ENV.fetch('SANDBOX_API_KEY'),
       ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
+      api_base: ENV['API_BASE'],
       proxy_uri: ENV['PROXY_URI']
     )
   end
