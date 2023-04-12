@@ -1,7 +1,7 @@
 module Trolley
   class Configuration
     class InvalidProxyAddress < StandardError; end
-    attr_reader :api_base
+    attr_reader :api_base, :proxy, :environment
 
     DEFAULT_API_BASE = 'https://api.trolley.com'.freeze
 
@@ -25,7 +25,6 @@ module Trolley
     end
 
     attr_accessor :publicKey, :privateKey
-    attr_reader :proxy, :environment
 
   end
 end

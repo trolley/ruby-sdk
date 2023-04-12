@@ -22,7 +22,7 @@ class ConfigurationTest < Test::Unit::TestCase
 
   def test_api_base
     assert_equal 'https://api.trolley.com', Trolley::Configuration.new('key', 'secret').api_base
-    assert_equal 'https://api.railz.io', Trolley::Configuration.new('key', 'secret', api_base: 'https://api.railz.io').api_base
+    assert_equal 'http://localhost:8080', Trolley::Configuration.new('key', 'secret', api_base: 'http://localhost:8080').api_base
   end
 
   def test_use_ssl?
