@@ -74,7 +74,7 @@ Layout/SpaceInsideParens:
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: IndentationWidth.
-Layout/Tab:
+Layout/IndentationStyle:
   Exclude:
     - 'lib/trolley/Batch.rb'
     - 'lib/trolley/RecipientAccount.rb'

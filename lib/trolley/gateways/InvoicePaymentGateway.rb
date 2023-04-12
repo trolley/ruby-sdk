@@ -1,4 +1,4 @@
-require_relative '../Client.rb'
+require_relative '../Client'
 require_relative 'GatewayHelper'
 
 module Trolley

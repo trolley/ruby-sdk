@@ -19,3 +19,6 @@ Style/CaseEquality:
 
 Style/Documentation:
   Enabled: false
+
+Naming/MethodName:
+  Enabled: false

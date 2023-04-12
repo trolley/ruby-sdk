@@ -1,4 +1,4 @@
-require_relative '../Client.rb'
+require_relative '../Client'
 require_relative 'GatewayHelper'
 
 module Trolley
@@ -10,7 +10,7 @@ module Trolley
     end
 
     def find(batch_id)
-      response = @client.get('/v1/batches/' + batch_id)
+      response = @client.get("/v1/batches/#{batch_id}")
       batch_builder(response)
     end
 
@@ -25,7 +25,7 @@ module Trolley
     end
 
     def update(batch_id, body)
-      @client.patch('/v1/batches/' + batch_id, body)
+      @client.patch("/v1/batches/#{batch_id}", body)
       true
     end
 
@@ -47,17 +47,17 @@ module Trolley
     end
 
     def generate_quote(batch_id)
-      response = @client.post('/v1/batches/' + batch_id + '/generate-quote', {})
+      response = @client.post("/v1/batches/#{batch_id}/generate-quote", {})
       batch_builder(response)
     end
 
     def start_processing(batch_id)
-      response = @client.post('/v1/batches/' + batch_id + '/start-processing', {})
+      response = @client.post("/v1/batches/#{batch_id}/start-processing", {})
       batch_builder(response)
     end
 
     def search(page = 1, page_size = 10, term = '')
-      response = @client.get('/v1/batches?page=' + page.to_s + '&pageSize=' + page_size.to_s + '&search=' + term)
+      response = @client.get("/v1/batches?page=#{page}&pageSize=#{page_size}&search=#{term}")
       batch_list_builder(response)
     end
 
@@ -72,7 +72,7 @@ module Trolley
     end
 
     def summary(batch_id)
-      response = @client.get('/v1/batches/' + batch_id + '/summary')
+      response = @client.get("/v1/batches/#{batch_id}/summary")
       summary = BatchSummary.new
       data = JSON.parse(response)
       data.each do |key, value|

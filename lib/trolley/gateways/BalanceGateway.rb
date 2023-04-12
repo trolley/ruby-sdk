@@ -1,4 +1,4 @@
-require_relative '../Client.rb'
+require_relative '../Client'
 
 module Trolley
   class BalanceGateway
@@ -7,7 +7,7 @@ module Trolley
     end
 
     def find(term = '')
-      response = @client.get('/v1/balances/' + term )
+      response = @client.get("/v1/balances/#{term}" )
       JSON.parse(response,  object_class: OpenStruct)
     end
 
