@@ -1,4 +1,4 @@
-require_relative '../Client.rb'
+require_relative '../Client'
 require_relative 'GatewayHelper'
 
 module Trolley
@@ -10,7 +10,7 @@ module Trolley
     end
 
     def find(recipient_id)
-      response = @client.get('/v1/recipients/' + recipient_id)
+      response = @client.get("/v1/recipients/#{recipient_id}")
       recipient_builder(response)
     end
 
@@ -20,7 +20,7 @@ module Trolley
     end
 
     def update(recipient_id, body)
-      @client.patch('/v1/recipients/' + recipient_id, body)
+      @client.patch("/v1/recipients/#{recipient_id}", body)
       true
     end
 
@@ -43,7 +43,7 @@ module Trolley
 
     # @note This method retrieves a list of activity logs for a recipient
     def find_logs(recipient_id)
-      response = @client.get('/v1/recipients/' + recipient_id + '/logs')
+      response = @client.get("/v1/recipients/#{recipient_id}/logs")
       JSON.parse(response, object_class: OpenStruct)
     end
 
@@ -57,6 +57,7 @@ module Trolley
     end
 
     # TODO: if we can afford a breaking change ideally these should be kwargs
+    # rubocop:disable Metrics/ParameterLists
     def search(page = 1, page_size = 10, prefix_search = '', filters = {})
       query_string = URI.encode_www_form(
         page: page.to_s,
@@ -67,6 +68,7 @@ module Trolley
       response = @client.get("/v1/recipients?#{query_string}")
       recipient_list_builder(response)
     end
+    # rubocop:enable Metrics/ParameterLists
 
     def recipient_builder(response)
       recipient = Recipient.new

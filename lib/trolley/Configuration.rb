@@ -24,16 +24,8 @@ module Trolley
       api_base.start_with? 'https'
     end
 
-    attr_reader :proxy
+    attr_accessor :publicKey, :privateKey
+    attr_reader :proxy, :environment
 
-    attr_reader :publicKey
-
-    attr_writer :publicKey
-
-    attr_reader :privateKey
-
-    attr_writer :privateKey
-
-    attr_reader :environment
   end
 end

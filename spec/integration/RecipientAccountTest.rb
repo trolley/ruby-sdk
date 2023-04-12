@@ -16,7 +16,7 @@ class RecipientAccountTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     recipient_account = @client.recipient_account.create(
       recipient.id, type: 'bank-transfer',

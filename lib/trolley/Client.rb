@@ -33,6 +33,8 @@ module Trolley
 
     private
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def send_request(endPoint, method, body = '')
       uri = URI.parse(@config.api_base + endPoint)
       http = Net::HTTP.new(
@@ -63,22 +65,23 @@ module Trolley
       response = http.request(request)
 
       if response.code != '200' && response.code != '204'
-        throw_status_code_exception(response.message + ' ' + response.body , response.code, response.body)
+        throw_status_code_exception("#{response.message} #{response.body}" , response.code, response.body)
       end
       response.body
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
     private
     def generate_authorization(time, endPoint, method, body)
-      message = [time.to_s, method, endPoint, body].join("\n") + "\n"
+      message = "#{[time.to_s, method, endPoint, body].join("\n")}\n"
       signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), @config.privateKey, message)
-      'prsign ' + @config.publicKey + ':' + signature
+      "prsign #{@config.publicKey}:#{signature}"
     end
 
     private
 
     # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Lint/SuppressedException
     def throw_status_code_exception(message, code, body = nil)
       validation_errors = []
       unless body.nil?
@@ -110,6 +113,5 @@ module Trolley
       end
     end
     # rubocop:enable Metrics/CyclomaticComplexity
-    # rubocop:enable Lint/SuppressedException
   end
 end
