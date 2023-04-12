@@ -36,7 +36,7 @@ module Trolley
     # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/PerceivedComplexity
     def send_request(endPoint, method, body = '')
-      uri = URI.parse(@config.apiBase + endPoint)
+      uri = URI.parse(@config.api_base + endPoint)
       http = Net::HTTP.new(
         uri.host, uri.port,
         @config.proxy&.host, @config.proxy&.port, @config.proxy&.user, @config.proxy&.password
