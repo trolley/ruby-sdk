@@ -16,7 +16,7 @@ module Trolley
 
     def all
       response = @client.get('/v1/batches/')
-      batch_list_builder(response)
+      Utils::PaginatedArray.from_response(response, Batch)
     end
 
     def create(body)
@@ -58,7 +58,7 @@ module Trolley
 
     def search(page = 1, page_size = 10, term = '')
       response = @client.get("/v1/batches?page=#{page}&pageSize=#{page_size}&search=#{term}")
-      batch_list_builder(response)
+      Utils::PaginatedArray.from_response(response, Batch)
     end
 
     def batch_builder(response)
