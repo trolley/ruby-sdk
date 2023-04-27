@@ -9,6 +9,7 @@ module Trolley
         'Trolley::InvoicePayment' => { resource: 'invoicePayment', collection: 'invoicePayments' },
         'Trolley::OfflinePayment' => { resource: 'offlinePayment', collection: 'offlinePayments' },
         'Trolley::Payment' => { resource: 'payment', collection: 'payments' },
+        'Trolley::RecipientAccount' => { resource: 'account', collection: 'accounts' },
       }.freeze
 
       def self.build(response, klass)

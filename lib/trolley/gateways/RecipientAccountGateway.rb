@@ -35,27 +35,11 @@ module Trolley
     end
 
     def recipient_account_builder(response)
-      recipient_account = RecipientAccount.new
-      data = JSON.parse(response)
-      data.each do |key, value|
-        next unless key === 'account'
-        loosely_hydrate_model(recipient_account, value)
-      end
-      recipient_account
+      Utils::ResponseMapper.build(response, RecipientAccount)
     end
 
     def recipient_account_list_builder(response)
-      recipient_accounts = []
-      data = JSON.parse(response)
-
-      data.each do |key, value|
-        next unless key === 'accounts'
-        value.each do |newKey, _newValue|
-          recipient_account = loosely_hydrate_model(RecipientAccount.new, newKey)
-          recipient_accounts.push(recipient_account)
-        end
-      end
-      recipient_accounts
+      Utils::PaginatedArray.from_response(response, RecipientAccount)
     end
   end
 end

@@ -1,14 +1,7 @@
 require_relative 'helper'
 
 class RecipientAccountTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'development',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   # rubocop:disable Metrics/MethodLength
   def test_basic_crud
