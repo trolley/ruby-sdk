@@ -1,5 +1,4 @@
 require_relative '../Client'
-require_relative 'GatewayHelper'
 
 module Trolley
   class InvoicePaymentGateway
