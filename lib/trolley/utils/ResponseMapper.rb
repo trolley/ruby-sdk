@@ -7,6 +7,10 @@ module Trolley
         'Trolley::Batch' => { resource: 'batch', collection: 'batches' }
       }.freeze
 
+      def self.build(response, klass)
+        new(response, klass).build
+      end
+
       def initialize(response, klass)
         @response = response
         @klass = klass

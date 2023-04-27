@@ -16,7 +16,7 @@ module Trolley
 
     def all
       response = @client.get('/v1/batches/')
-      Utils::PaginatedArray.from_response(response, Batch)
+      batch_list_builder(response)
     end
 
     def create(body)
@@ -58,17 +58,11 @@ module Trolley
 
     def search(page = 1, page_size = 10, term = '')
       response = @client.get("/v1/batches?page=#{page}&pageSize=#{page_size}&search=#{term}")
-      Utils::PaginatedArray.from_response(response, Batch)
+      batch_list_builder(response)
     end
 
     def batch_builder(response)
-      batch = Batch.new
-      data = JSON.parse(response)
-      data.each do |key, value|
-        next unless key === 'batch'
-        loosely_hydrate_model(batch, value)
-      end
-      batch
+      Utils::ResponseMapper.build(response, Batch)
     end
 
     def summary(batch_id)
@@ -83,18 +77,7 @@ module Trolley
     end
 
     def batch_list_builder(response)
-      batches = []
-      data = JSON.parse(response)
-
-      data.each do |key, value|
-        next unless key === 'batches'
-        value.each do |newKey, _newValue|
-          batches.push(
-            loosely_hydrate_model(Batch.new, newKey)
-          )
-        end
-      end
-      batches
+      Utils::PaginatedArray.from_response(response, Batch)
     end
   end
 end
