@@ -7,6 +7,7 @@ module Trolley
         'Trolley::Batch' => { resource: 'batch', collection: 'batches' },
         'Trolley::Invoice' => { resource: 'invoice', collection: 'invoices' },
         'Trolley::InvoicePayment' => { resource: 'invoicePayment', collection: 'invoicePayments' },
+        'Trolley::OfflinePayment' => { resource: 'offlinePayment', collection: 'offlinePayments' },
       }.freeze
 
       def self.build(response, klass)

@@ -37,27 +37,11 @@ module Trolley
     # rubocop:enable Metrics/ParameterLists
 
     def offline_payment_builder(response)
-      offline_payment = OfflinePayment.new
-      data = JSON.parse(response)
-      data.each do |key, value|
-        next unless key === 'offlinePayment'
-        loosely_hydrate_model(offline_payment, value)
-      end
-      offline_payment
+      Utils::ResponseMapper.build(response, OfflinePayment)
     end
 
     def offline_payments_list_builder(response)
-      offline_payments = []
-      data = JSON.parse(response)
-
-      data.each do |key, value|
-        next unless key === 'offlinePayments'
-        value.each do |newKey, _newValue|
-          offline_payment = loosely_hydrate_model(OfflinePayment.new, newKey)
-          offline_payments.push(offline_payment)
-        end
-      end
-      offline_payments
+      Utils::PaginatedArray.from_response(response, OfflinePayment)
     end
   end
 end
