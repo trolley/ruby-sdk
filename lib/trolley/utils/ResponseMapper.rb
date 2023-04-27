@@ -4,7 +4,8 @@ module Trolley
   module Utils
     class ResponseMapper
       KLASS_TO_RESOURCE_KEY_MAPPERS = {
-        'Trolley::Batch' => { resource: 'batch', collection: 'batches' }
+        'Trolley::Batch' => { resource: 'batch', collection: 'batches' },
+        'Trolley::Invoice' => { resource: 'invoice', collection: 'invoices' }
       }.freeze
 
       def self.build(response, klass)
