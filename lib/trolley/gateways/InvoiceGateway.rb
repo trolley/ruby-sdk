@@ -3,8 +3,6 @@ require_relative 'GatewayHelper'
 
 module Trolley
   class InvoiceGateway
-    include GatewayHelper
-
     def initialize(client)
       @client = client
     end

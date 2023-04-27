@@ -3,8 +3,6 @@ require_relative 'GatewayHelper'
 
 module Trolley
   class BatchGateway
-    include GatewayHelper
-
     def initialize(client)
       @client = client
     end
@@ -67,13 +65,7 @@ module Trolley
 
     def summary(batch_id)
       response = @client.get("/v1/batches/#{batch_id}/summary")
-      summary = BatchSummary.new
-      data = JSON.parse(response)
-      data.each do |key, value|
-        next unless key === 'batchSummary'
-        loosely_hydrate_model(summary, value)
-      end
-      summary
+      Utils::ResponseMapper.build(response, BatchSummary)
     end
 
     def batch_list_builder(response)
