@@ -1,10 +1,7 @@
 require_relative '../Client'
-require_relative 'GatewayHelper'
 
 module Trolley
   class InvoicePaymentGateway
-    include GatewayHelper
-
     def initialize(client)
       @client = client
     end
@@ -30,27 +27,11 @@ module Trolley
     end
 
     def invoice_payment_builder(response)
-      invoice_payment = InvoicePayment.new
-      data = JSON.parse(response)
-      data.each do |key, value|
-        next unless key === 'invoicePayment'
-        loosely_hydrate_model(invoice_payment, value)
-      end
-      invoice_payment
+      Utils::ResponseMapper.build(response, InvoicePayment)
     end
 
     def invoice_payments_list_builder(response)
-      invoice_payments = []
-      data = JSON.parse(response)
-
-      data.each do |key, value|
-        next unless key === 'invoicePayments'
-        value.each do |newKey, _newValue|
-          invoice_payment = loosely_hydrate_model(InvoicePayment.new, newKey)
-          invoice_payments.push(invoice_payment)
-        end
-      end
-      invoice_payments
+      Utils::PaginatedArray.from_response(response, InvoicePayment)
     end
   end
 end

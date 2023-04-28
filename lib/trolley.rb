@@ -10,6 +10,9 @@ require 'trolley/gateways/OfflinePaymentGateway'
 require 'trolley/gateways/InvoiceGateway'
 require 'trolley/gateways/InvoicePaymentGateway'
 
+require 'trolley/utils/PaginatedArray'
+require 'trolley/utils/ResponseMapper'
+
 require 'trolley/Balance'
 require 'trolley/Batch'
 require 'trolley/BatchSummary'

@@ -1,10 +1,7 @@
 require_relative '../Client'
-require_relative 'GatewayHelper'
 
 module Trolley
   class RecipientGateway
-    include GatewayHelper
-
     def initialize(client)
       @client = client
     end
@@ -71,41 +68,15 @@ module Trolley
     # rubocop:enable Metrics/ParameterLists
 
     def recipient_builder(response)
-      recipient = Recipient.new
-      data = JSON.parse(response)
-      data.each do |key, value|
-        next unless key === 'recipient'
-        loosely_hydrate_model(recipient, value)
-      end
-      recipient
+      Utils::ResponseMapper.build(response, Recipient)
     end
 
     def recipient_list_builder(response)
-      recipients = []
-      data = JSON.parse(response)
-
-      data.each do |key, value|
-        next unless key === 'recipients'
-        value.each do |newKey, _newValue|
-          recipient = loosely_hydrate_model(Recipient.new, newKey)
-          recipients.push(recipient)
-        end
-      end
-      recipients
+      Utils::PaginatedArray.from_response(response, Recipient)
     end
 
     def payments_list_builder(response)
-      payments = []
-      data = JSON.parse(response)
-
-      data.each do |key, value|
-        next unless key === 'payments'
-        value.each do |newKey, _newValue|
-          payment = loosely_hydrate_model(Payment.new, newKey)
-          payments.push(payment)
-        end
-      end
-      payments
+      Utils::PaginatedArray.from_response(response, Payment)
     end
   end
 end
