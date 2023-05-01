@@ -1,10 +1,8 @@
-# Trolley Ruby SDK (Previously Payment Rails[^1])
+# Trolley Ruby SDK
 
 [![Latest Stable Version](https://poser.pugx.org/paymentrails/ruby-sdk/v/stable.png)](https://packagist.org/packages/paymentrails/ruby-sdk)
 
 The Trolley Ruby SDK provides integration access to the Trolley API.
-
-[^1]: [Payment Rails is now Trolley](https://www.trolley.com/payment-rails-is-now-trolley-series-a). We're in the process of updating our SDKs to support the new domain. In this transition phase, you might still see "PaymentRails" at some places.
 
 ## Requirements
 
@@ -16,7 +14,7 @@ Bundler is required.
 ### Install the Gem
 
 ```bash
-gem install paymentrails
+gem install trolley
 ```
 
 ## Installation & Usage (Git)
@@ -32,8 +30,8 @@ git clone https://github.com/PaymentRails/ruby-sdk.git
 ```bash
 cd ruby-sdk
 bundler install
-gem build paymentrails.gemspec
-gem install paymentrails-[version].gem
+gem build trolley.gemspec
+gem install trolley-[version].gem
 ```
 
 ### Running Tests
@@ -49,20 +47,24 @@ bundle exec ruby spec/integration/RecipientTest.rb
 
 ## Getting Started
 
-```Ruby
+```ruby
+require 'trolley'
 
-require 'paymentrails'
-
-client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY')
+client = Trolley.client('ACCESS-KEY', 'SECRET-KEY')
 
 recipient = client.recipient.find('R-1234567abcdefg')
 print recipient.id
 ```
 
-#### Need a proxy?
+#### Configuring a proxy
 
 ```Ruby
-client = PaymentRails.client('YOUR-API-KEY', 'YOUR-SECRET-KEY', 'production', proxy_uri: 'peter_the_proxy.com')
+client = Trolley.client('ACCESS-KEY', 'SECRET-KEY', proxy_uri: 'peter_the_proxy.com')
+```
+
+### Configuring a custom base API URL
+```ruby
+client = Trolley.client('key', 'secret', api_base: 'https://api.railz.io')
 ```
 
 ## Documentation for API Endpoints

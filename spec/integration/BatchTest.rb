@@ -1,14 +1,6 @@
 require_relative 'helper'
-
 class BatchTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def create_recipient
     uuid = SecureRandom.uuid.to_s
@@ -16,7 +8,7 @@ class BatchTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.batch' + uuid + '@example.com',
+      email: "test.batch#{uuid}@example.com",
       address: {
         street1: '123 Wolfstrasse',
         city: 'Berlin',
@@ -117,5 +109,18 @@ class BatchTest < Test::Unit::TestCase
 
     start = @client.batch.start_processing(batch.id)
     assert_not_nil(start)
+  end
+
+  def test_delete_multiple
+    batch = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    assert_not_nil(batch)
+    assert_not_nil(batch.id)
+
+    batch2 = @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    assert_not_nil(batch2)
+    assert_not_nil(batch2.id)
+
+    response = @client.batch.delete([batch.id, batch2.id])
+    assert_true(response)
   end
 end

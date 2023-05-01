@@ -1,22 +1,15 @@
 require_relative 'helper'
 
+# rubocop:disable Metrics/ClassLength
 class RecipientTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def test_create
-    uuid = SecureRandom.uuid.to_s
     response = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(response)
     assert_equal(response.firstName, 'Tom')
@@ -25,12 +18,11 @@ class RecipientTest < Test::Unit::TestCase
   end
 
   def test_lifecycle
-    uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com'
+      email: "test.create#{uuid}@example.com"
     )
     assert_not_nil(recipient)
     assert_equal(recipient.firstName, 'Tom')
@@ -49,14 +41,12 @@ class RecipientTest < Test::Unit::TestCase
     assert_equal(recipient.status, 'archived')
   end
 
-  # rubocop:disable Metrics/MethodLength
   def test_account
-    uuid = SecureRandom.uuid.to_s
     recipient = @client.recipient.create(
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.create' + uuid + '@example.com',
+      email: "test.create#{uuid}@example.com",
       address: {
         street1: '123 Wolfstrasse',
         city: 'Berlin',
@@ -89,5 +79,81 @@ class RecipientTest < Test::Unit::TestCase
     accountList = @client.recipient_account.all(recipient.id)
     assert_equal(1, accountList.count)
   end
-  # rubocop:enable Metrics/MethodLength
+
+  def test_delete_multiple
+    recipient1 = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: "test.create#{uuid}@example.com"
+    )
+    assert_not_nil(recipient1)
+    assert_equal(recipient1.firstName, 'Tom')
+    assert_equal(recipient1.status, 'incomplete')
+
+    recipient2 = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: "test.create#{uuid}@example.com"
+    )
+    assert_not_nil(recipient2)
+    assert_equal(recipient2.firstName, 'Tom')
+    assert_equal(recipient2.status, 'incomplete')
+
+    response = @client.recipient.delete([recipient1.id, recipient2.id])
+    assert_true(response)
+
+    recipient1 = @client.recipient.find(recipient1.id)
+    assert_equal(recipient1.status, 'archived')
+
+    recipient2 = @client.recipient.find(recipient2.id)
+    assert_equal(recipient2.status, 'archived')
+  end
+
+  def test_find_logs
+    recipient = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: "test.create#{uuid}@example.com"
+    )
+    assert_not_nil(recipient)
+    assert_equal(recipient.firstName, 'Tom')
+    assert_equal(recipient.status, 'incomplete')
+
+    @client.recipient.update(recipient.id, firstName: 'John')
+    logs = @client.recipient.find_logs(recipient.id)
+
+    assert_equal(logs.class, OpenStruct)
+    assert_boolean(true, @client.recipient.delete(recipient.id))
+  end
+
+  def test_find_payments
+    recipient = @client.recipient.create(
+      type: 'individual',
+      firstName: 'Tom',
+      lastName: 'Jones',
+      email: "test.create#{uuid}@example.com"
+    )
+    recipient_account = @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
+
+    batch = @client.batch.create(
+      sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
+        { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
+        { sourceAmount: '10.00', recipient: { id: recipient.id } }
+      ]
+    )
+
+    payments = @client.recipient.find_payments(recipient.id)
+    assert_equal(payments.count, 2)
+    assert_equal(payments[0].recipient['id'], recipient.id)
+    assert_equal(payments[1].recipient['id'], recipient.id)
+    assert_equal(payments.map(&:amount), ['10.00', '10.00'])
+
+    assert_boolean(true, @client.batch.delete(batch.id))
+    assert_boolean(true, @client.recipient_account.delete(recipient.id, recipient_account.id))
+    assert_boolean(true, @client.recipient.delete(recipient.id))
+  end
 end
+# rubocop:enable Metrics/ClassLength

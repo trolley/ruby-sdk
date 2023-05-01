@@ -1,4 +1,4 @@
-module PaymentRails
+module Trolley
   class Batch
     attr_accessor(
       :id,

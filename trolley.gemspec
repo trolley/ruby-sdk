@@ -1,0 +1,18 @@
+$:.push File.expand_path('lib', __dir__)
+
+Gem::Specification.new do |s|
+  s.name = 'trolley'
+  s.summary = 'Trolley Ruby SDK'
+  s.description = 'Ruby SDK for interacting with the Trolley API'
+  s.version = '1.0.0'
+  s.homepage = 'https://trolley.com/'
+  s.email = ['developer-tools@trolley.com']
+  s.license = 'MIT'
+  s.author = 'PaymentRails'
+  s.files = Dir.glob ['README.rdoc', 'LICENSE', 'lib/**/*.{rb,crt}', 'spec/**/*', '*.gemspec']
+  s.required_ruby_version = '>= 2.7'
+  s.add_development_dependency 'dotenv', '~> 2'
+  s.add_development_dependency 'rake', '~> 13'
+  s.add_development_dependency 'rubocop', '~> 1'
+  s.add_development_dependency 'test-unit', '~> 3'
+end

@@ -1,14 +1,7 @@
 require_relative 'helper'
 
 class InvoicePaymentTest < Test::Unit::TestCase
-  def setup
-    @client = PaymentRails.client(
-      ENV.fetch('SANDBOX_API_KEY'),
-      ENV.fetch('SANDBOX_SECRET_KEY'),
-      'production',
-      proxy_uri: ENV['PROXY_URI']
-    )
-  end
+  include ApiClientHelper
 
   def create_recipient
     uuid = SecureRandom.uuid.to_s
@@ -16,7 +9,7 @@ class InvoicePaymentTest < Test::Unit::TestCase
       type: 'individual',
       firstName: 'Tom',
       lastName: 'Jones',
-      email: 'test.batch' + uuid + '@example.com',
+      email: "test.batch#{uuid}@example.com",
       address: {
         street1: '123 Wolfstrasse',
         city: 'Berlin',
