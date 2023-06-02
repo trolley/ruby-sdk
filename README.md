@@ -1,7 +1,5 @@
 # Trolley Ruby SDK
 
-[![Latest Stable Version](https://poser.pugx.org/paymentrails/ruby-sdk/v/stable.png)](https://packagist.org/packages/paymentrails/ruby-sdk)
-
 The Trolley Ruby SDK provides integration access to the Trolley API.
 
 ## Requirements
@@ -22,7 +20,7 @@ gem install trolley
 ### Clone the SDK
 
 ```bash
-git clone https://github.com/PaymentRails/ruby-sdk.git
+git clone https://github.com/Trolley/ruby-sdk.git
 ```
 
 ### Build & Install the gem

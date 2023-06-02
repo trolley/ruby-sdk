@@ -1,7 +1,7 @@
 require_relative '../../lib/trolley'
 require 'test/unit'
 
-class PaymentRailsTest < Test::Unit::TestCase
+class TrolleyTest < Test::Unit::TestCase
   def test_client
     Trolley.client('key', 'secret', proxy_uri: 'http://user:pass@gimmeproxy.com:80')
   end
