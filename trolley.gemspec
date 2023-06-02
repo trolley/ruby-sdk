@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'test-unit', '~> 3'
   s.metadata = {
     "bug_tracker_uri"   => "https://github.com/trolley/ruby-sdk/issues",
-    "changelog_uri"     => "https://github.com/PaymentRails/ruby-sdk/releases",
+    "changelog_uri"     => "https://github.com/trolley/ruby-sdk/releases",
     "documentation_uri" => "https://docs.trolley.com",
     "homepage_uri"      => "https://github.com/trolley/ruby-sdk/",
     "source_code_uri"   => "https://github.com/trolley/ruby-sdk.git",
