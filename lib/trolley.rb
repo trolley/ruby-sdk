@@ -25,7 +25,7 @@ require 'trolley/Invoice'
 require 'trolley/InvoicePayment'
 
 module Trolley
-  VERSION = '1.0.0'.freeze
+  VERSION = '1.0.2'.freeze
 
   def self.client(key, secret, **optionals)
     Gateway.new(Configuration.new(key, secret, **optionals))

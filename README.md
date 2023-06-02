@@ -22,7 +22,7 @@ gem install trolley
 ### Clone the SDK
 
 ```bash
-git clone https://github.com/PaymentRails/ruby-sdk.git
+git clone https://github.com/Trolley/ruby-sdk.git
 ```
 
 ### Build & Install the gem
