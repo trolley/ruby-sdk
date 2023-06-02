@@ -1,7 +1,5 @@
 # Trolley Ruby SDK
 
-[![Latest Stable Version](https://poser.pugx.org/paymentrails/ruby-sdk/v/stable.png)](https://packagist.org/packages/paymentrails/ruby-sdk)
-
 The Trolley Ruby SDK provides integration access to the Trolley API.
 
 ## Requirements
