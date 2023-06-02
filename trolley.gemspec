@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.summary = 'Trolley Ruby SDK'
   s.description = 'Ruby SDK for interacting with the Trolley API'
   s.version = '1.0.2'
-  s.homepage = "https://github.com/Trolley/ruby-sdk"
+  s.homepage = "https://github.com/trolley/ruby-sdk"
   s.email = ['developer-tools@trolley.com']
   s.license = 'MIT'
   s.authors = ['Trolley', 'Emi GM']
