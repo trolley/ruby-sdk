@@ -141,7 +141,7 @@ Style/ConditionalAssignment:
 # Cop supports --auto-correct.
 Style/ExpandPathArguments:
   Exclude:
-    - 'paymentrails.gemspec'
+    - 'trolley.gemspec'
 
 # Offense count: 23
 # Cop supports --auto-correct.
@@ -178,7 +178,7 @@ Style/StringLiterals:
   Exclude:
     - 'Gemfile'
     - 'lib/trolley/Client.rb'
-    - 'paymentrails.gemspec'
+    - 'trolley.gemspec'
 
 # Offense count: 49
 # Cop supports --auto-correct.
