@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/batches/
+    body:
+      encoding: UTF-8
+      string: '{"sourceCurrency":"USD","description":"Integration Test Create"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688621728'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Jul 2023 05:35:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '370'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '568'
+      X-Rate-Limit-Reset:
+      - '1688621746'
+      Vary:
+      - Origin
+      Etag:
+      - W/"172-ifV+Yy7cgjsFufnqdyD+CfEQeGY"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"batch":{"id":"B-JAz7DDwozCYd3nEyWVF9cV","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:35:28.601Z","updatedAt":"2023-07-06T05:35:28.601Z","quoteExpiredAt":null,"payments":{"payments":[],"meta":{"page":1,"pages":0,"records":0}}}}'
+  recorded_at: Thu, 06 Jul 2023 05:35:28 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/batches/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688621728'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Jul 2023 05:35:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '3074'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '567'
+      X-Rate-Limit-Reset:
+      - '1688621746'
+      Vary:
+      - Origin
+      Etag:
+      - W/"c02-BMMpRQL+h9/E8E5GzLwnOm/IC3k"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"batches":[{"id":"B-JAz7DDwozCYd3nEyWVF9cV","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:35:28.601Z","updatedAt":"2023-07-06T05:35:28.601Z","quoteExpiredAt":null},{"id":"B-CjT3z9AdncbhXQVgzQ6Pga","status":"awaiting_approval","tags":[],"amount":"27.13","currency":"USD","totalPayments":2,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:34:55.311Z","updatedAt":"2023-07-06T05:34:57.547Z","quoteExpiredAt":"2023-07-06T07:34:55.748Z"},{"id":"B-KTrtQgopCuD9iZZP74uXbc","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:34:51.479Z","updatedAt":"2023-07-06T05:34:53.612Z","quoteExpiredAt":null},{"id":"B-0k1d2NYDvpnkMNapEJAtFP","status":"open","tags":[],"amount":"27.13","currency":"USD","totalPayments":2,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:34:48.786Z","updatedAt":"2023-07-06T05:34:49.085Z","quoteExpiredAt":"2023-07-06T07:34:48.981Z"},{"id":"B-EpNZtLF9cT3cfuUAXSf4in","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:34:46.687Z","updatedAt":"2023-07-06T05:34:46.687Z","quoteExpiredAt":null},{"id":"B-8Z252Bd8buB6RieEaVmudd","status":"awaiting_approval","tags":[],"amount":"27.13","currency":"USD","totalPayments":2,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:33:58.262Z","updatedAt":"2023-07-06T05:34:00.004Z","quoteExpiredAt":"2023-07-06T07:33:58.470Z"},{"id":"B-ASY8mNY6LsPdEF1y93qDJT","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:33:54.416Z","updatedAt":"2023-07-06T05:33:56.560Z","quoteExpiredAt":null},{"id":"B-WPLK5bUapdrC5M8Zns6v7M","status":"open","tags":[],"amount":"27.13","currency":"USD","totalPayments":2,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:33:51.731Z","updatedAt":"2023-07-06T05:33:52.059Z","quoteExpiredAt":"2023-07-06T07:33:51.939Z"},{"id":"B-3XR2Ma6cMvFDXK7HYiMh2Q","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:33:49.644Z","updatedAt":"2023-07-06T05:33:49.644Z","quoteExpiredAt":null},{"id":"B-7aVcsgxEdP6yPPnYNj4uz8","status":"awaiting_approval","tags":[],"amount":"27.13","currency":"USD","totalPayments":2,"description":"Integration
+        Test Payments","sentAt":null,"completedAt":null,"createdAt":"2023-07-06T05:33:31.449Z","updatedAt":"2023-07-06T05:33:33.246Z","quoteExpiredAt":"2023-07-06T07:33:31.671Z"}],"meta":{"page":1,"pages":26,"records":253}}'
+  recorded_at: Thu, 06 Jul 2023 05:35:28 GMT
+recorded_with: VCR 6.2.0

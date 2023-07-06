@@ -1,4 +1,4 @@
-require_relative 'helper'
+require_relative '../test_helper'
 
 class RecipientAccountTest < Test::Unit::TestCase
   include ApiClientHelper

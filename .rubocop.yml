@@ -22,3 +22,6 @@ Style/Documentation:
 
 Naming/MethodName:
   Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false

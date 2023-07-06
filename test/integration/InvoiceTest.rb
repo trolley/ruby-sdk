@@ -1,6 +1,5 @@
-require_relative 'helper'
+require_relative '../test_helper'
 
-# rubocop:disable Metrics/ClassLength
 class InvoiceTest < Test::Unit::TestCase
   include ApiClientHelper
 
@@ -29,7 +28,7 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
 
     invoice = @client.invoice.search({})
-    assert_true(invoice.count > 0)
+    assert_true(invoice.count.positive?)
   end
 
   def test_create_line
@@ -44,7 +43,7 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice_line.lines.first['id'])
 
     findInvoice = @client.invoice.find(invoiceId: invoice.id)
-    assert_true(findInvoice.lines.count > 0)
+    assert_true(findInvoice.lines.count.positive?)
   end
 
   def test_update
@@ -54,7 +53,7 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
 
     invoices = @client.invoice.search({})
-    assert_true(invoices.count > 0)
+    assert_true(invoices.count.positive?)
 
     response = @client.invoice.update(invoiceId: invoice.id, description: 'Integration Test Invoice Update')
     assert_true(response)
@@ -94,13 +93,13 @@ class InvoiceTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
 
     invoices = @client.invoice.search({})
-    assert_true(invoices.count > 0)
+    assert_true(invoices.count.positive?)
 
     response = @client.invoice.delete(invoiceIds: invoices.map(&:id))
     assert_true(response)
 
     final_invoices = @client.invoice.search({})
-    assert_true(final_invoices.count == 0)
+    assert_true(final_invoices.count.zero?)
   end
 
   def test_delete_line

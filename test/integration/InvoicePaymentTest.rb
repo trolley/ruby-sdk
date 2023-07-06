@@ -1,4 +1,4 @@
-require_relative 'helper'
+require_relative '../test_helper'
 
 class InvoicePaymentTest < Test::Unit::TestCase
   include ApiClientHelper
@@ -34,7 +34,7 @@ class InvoicePaymentTest < Test::Unit::TestCase
 
     @client.invoice_payment.create(ids: [invoiceId: invoice.id])
     invoice_payments = @client.invoice_payment.search(invoiceIds: [invoice.id])
-    assert_true(invoice_payments.count > 0)
+    assert_true(invoice_payments.count.positive?)
 
     findInvoice = @client.invoice.find(invoiceId: invoice.id)
     assert_equal('paid', findInvoice.status)
@@ -48,7 +48,7 @@ class InvoicePaymentTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
 
     invoices = @client.invoice.search({})
-    assert_true(invoices.count > 0)
+    assert_true(invoices.count.positive?)
 
     invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: { value: '2000', currency: 'USD' } }])
     assert_not_nil(invoice_line.lines)
@@ -56,13 +56,13 @@ class InvoicePaymentTest < Test::Unit::TestCase
 
     invoice_payment = @client.invoice_payment.create(ids: [invoiceId: invoice.id])
     invoice_payments = @client.invoice_payment.search(invoiceIds: [invoice.id])
-    assert_true(invoice_payments.count > 0)
+    assert_true(invoice_payments.count.positive?)
     assert_equal('2000.00', invoice_payments.first.amount['value'])
 
     response = @client.invoice_payment.update(paymentId: invoice_payment.paymentId, invoiceLineId: invoice_payment.invoicePayments.first['invoiceLineId'], amount: { value: '5000', currency: 'USD' })
     assert_true(response)
     invoice_payments = @client.invoice_payment.search(invoiceIds: [invoice.id])
-    assert_true(invoice_payments.count > 0)
+    assert_true(invoice_payments.count.positive?)
     assert_equal('5000.00', invoice_payments.first.amount['value'])
   end
 
@@ -74,7 +74,7 @@ class InvoicePaymentTest < Test::Unit::TestCase
     assert_not_nil(invoice.id)
 
     invoices = @client.invoice.search({})
-    assert_true(invoices.count > 0)
+    assert_true(invoices.count.positive?)
 
     invoice_line = @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: { value: '2000', currency: 'USD' } }])
     assert_not_nil(invoice_line.lines)
@@ -82,11 +82,11 @@ class InvoicePaymentTest < Test::Unit::TestCase
 
     invoice_payment = @client.invoice_payment.create(ids: [invoiceId: invoice.id])
     invoice_payments = @client.invoice_payment.search(invoiceIds: [invoice.id])
-    assert_true(invoice_payments.count > 0)
+    assert_true(invoice_payments.count.positive?)
 
     response = @client.invoice_payment.delete(paymentId: invoice_payment.paymentId, invoiceLineIds: [invoice_payment.invoicePayments.first['invoiceLineId']])
     assert_true(response)
     invoice_payments = @client.invoice_payment.search(invoiceIds: [invoice.id])
-    assert_true(invoice_payments.count == 0)
+    assert_true(invoice_payments.count.zero?)
   end
 end

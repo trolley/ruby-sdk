@@ -1,6 +1,5 @@
-require_relative 'helper'
+require_relative '../test_helper'
 
-# rubocop:disable Metrics/ClassLength
 class RecipientTest < Test::Unit::TestCase
   include ApiClientHelper
 
