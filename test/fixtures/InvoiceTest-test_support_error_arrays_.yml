@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/invoices/create
+    body:
+      encoding: UTF-8
+      string: '{"recipientId":"invalid","description":"Integration Test Invoice Create"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688739779'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:23:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '99'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '579'
+      X-Rate-Limit-Reset:
+      - '1688739829'
+      Vary:
+      - Origin
+      Etag:
+      - W/"63-kTMZS5lSGTW+69bycA+ETDLodf0"
+    body:
+      encoding: UTF-8
+      string: '{"ok":false,"errors":[{"code":"invalid_field","message":"Value is invalid","field":"recipientId"}]}'
+  recorded_at: Fri, 07 Jul 2023 14:23:00 GMT
+recorded_with: VCR 6.2.0
