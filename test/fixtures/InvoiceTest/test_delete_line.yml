@@ -5,11 +5,11 @@ http_interactions:
     uri: https://api.trolley.com/v1/recipients/
     body:
       encoding: UTF-8
-      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.batchf8198ff5-7304-42f3-8475-405e81d023b9@example.com","address":{"street1":"123
+      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.batchfccfc1a1-7aa3-4b70-8987-2f21c2ad5188@example.com","address":{"street1":"123
         Wolfstrasse","city":"Berlin","country":"DE","postalCode":"123123"}}'
     headers:
       X-Pr-Timestamp:
-      - '1688739771'
+      - '1688741228'
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 07 Jul 2023 14:22:51 GMT
+      - Fri, 07 Jul 2023 14:47:08 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -58,29 +58,29 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '600'
       X-Rate-Limit-Remaining:
-      - '595'
+      - '584'
       X-Rate-Limit-Reset:
-      - '1688739829'
+      - '1688741279'
       Vary:
       - Origin
       Etag:
-      - W/"509-9ISlmN2B2EKX59BJD6R6b8Thntw"
+      - W/"509-o7C0qKuzizkOy4OoKLRpksSNVrU"
     body:
       encoding: UTF-8
-      string: '{"ok":true,"recipient":{"id":"R-3WS2wwPSPdCaEkajBCAvnd","referenceId":"R-3WS2wwPSPdCaEkajBCAvnd","parentRecipientId":null,"email":"test.batchf8198ff5-7304-42f3-8475-405e81d023b9@example.com","name":"Tom
-        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:22:51.885Z","createdAt":"2023-07-07T14:22:51.885Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
-        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/9d14722286dbe9438b25cbf14d334f1f?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
-  recorded_at: Fri, 07 Jul 2023 14:22:52 GMT
+      string: '{"ok":true,"recipient":{"id":"R-T8bDFRZ77FExSZyykh5Ntv","referenceId":"R-T8bDFRZ77FExSZyykh5Ntv","parentRecipientId":null,"email":"test.batchfccfc1a1-7aa3-4b70-8987-2f21c2ad5188@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:47:08.561Z","createdAt":"2023-07-07T14:47:08.561Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/82545939699e5f69c1416d9c706ea013?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:47:08 GMT
 - request:
     method: post
-    uri: https://api.trolley.com/v1/recipients/R-3WS2wwPSPdCaEkajBCAvnd/accounts
+    uri: https://api.trolley.com/v1/recipients/R-T8bDFRZ77FExSZyykh5Ntv/accounts
     body:
       encoding: UTF-8
       string: '{"type":"bank-transfer","currency":"EUR","country":"DE","iban":"DE89
         3704 0044 0532 0130 00"}'
     headers:
       X-Pr-Timestamp:
-      - '1688739772'
+      - '1688741228'
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -95,7 +95,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 07 Jul 2023 14:22:52 GMT
+      - Fri, 07 Jul 2023 14:47:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -129,29 +129,29 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '600'
       X-Rate-Limit-Remaining:
-      - '594'
+      - '583'
       X-Rate-Limit-Reset:
-      - '1688739829'
+      - '1688741279'
       Vary:
       - Origin
       Etag:
-      - W/"291-No67BRg15gGsgFi6uPKFBZOKNtI"
+      - W/"291-tsBOlNDB04dj1AcsOZSRfvXTR38"
     body:
       encoding: UTF-8
-      string: '{"ok":true,"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-BvRcygWuFbQzjisQxkdAuA","recipientId":"R-3WS2wwPSPdCaEkajBCAvnd","recipientAccountId":"A-BvRcygWuFbQzjisQxkdAuA","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+      string: '{"ok":true,"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-DZdRbX6LBEn5kVgxK75vYV","recipientId":"R-T8bDFRZ77FExSZyykh5Ntv","recipientAccountId":"A-DZdRbX6LBEn5kVgxK75vYV","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
         Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
         AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}}'
-  recorded_at: Fri, 07 Jul 2023 14:22:52 GMT
+  recorded_at: Fri, 07 Jul 2023 14:47:09 GMT
 - request:
     method: post
     uri: https://api.trolley.com/v1/invoices/create
     body:
       encoding: UTF-8
-      string: '{"recipientId":"R-3WS2wwPSPdCaEkajBCAvnd","description":"Integration
+      string: '{"recipientId":"R-T8bDFRZ77FExSZyykh5Ntv","description":"Integration
         Test Invoice Create"}'
     headers:
       X-Pr-Timestamp:
-      - '1688739772'
+      - '1688741229'
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -166,7 +166,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 07 Jul 2023 14:22:52 GMT
+      - Fri, 07 Jul 2023 14:47:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -200,27 +200,27 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '600'
       X-Rate-Limit-Remaining:
-      - '593'
+      - '582'
       X-Rate-Limit-Reset:
-      - '1688739829'
+      - '1688741279'
       Vary:
       - Origin
       Etag:
-      - W/"246-oKeOYFaY5jLXDkDldVSr7sNCp68"
+      - W/"246-/Oou+4r0hNWr1bzdXVyeSOzkU1Y"
     body:
       encoding: UTF-8
-      string: '{"ok":true,"invoice":{"id":"I-9XGuwX3dgjt8r3bLZb4pq4","invoiceNumber":"","description":"Integration
-        Test Invoice Create","status":"open","externalId":null,"invoiceDate":"2023-07-07T14:22:52.910Z","dueDate":null,"releaseAfter":null,"createdAt":"2023-07-07T14:22:52.909Z","updatedAt":"2023-07-07T14:22:52.909Z","totalAmount":{"value":"0.00","currency":"CAD"},"paidAmount":{"value":"0.00","currency":"CAD"},"pendingAmount":{"value":"0.00","currency":"CAD"},"dueAmount":{"value":"0.00","currency":"CAD"},"tags":[],"lines":[],"recipientId":"R-3WS2wwPSPdCaEkajBCAvnd","syncDetails":null}}'
-  recorded_at: Fri, 07 Jul 2023 14:22:53 GMT
+      string: '{"ok":true,"invoice":{"id":"I-Qak2zrwr3RpFDKQ1vRw4ZP","invoiceNumber":"","description":"Integration
+        Test Invoice Create","status":"open","externalId":null,"invoiceDate":"2023-07-07T14:47:09.524Z","dueDate":null,"releaseAfter":null,"createdAt":"2023-07-07T14:47:09.523Z","updatedAt":"2023-07-07T14:47:09.523Z","totalAmount":{"value":"0.00","currency":"CAD"},"paidAmount":{"value":"0.00","currency":"CAD"},"pendingAmount":{"value":"0.00","currency":"CAD"},"dueAmount":{"value":"0.00","currency":"CAD"},"tags":[],"lines":[],"recipientId":"R-T8bDFRZ77FExSZyykh5Ntv","syncDetails":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:47:09 GMT
 - request:
     method: post
     uri: https://api.trolley.com/v1/invoices/create-lines
     body:
       encoding: UTF-8
-      string: '{"invoiceId":"I-9XGuwX3dgjt8r3bLZb4pq4","lines":[{"unitAmount":{"value":"2000","currency":"USD"}}]}'
+      string: '{"invoiceId":"I-Qak2zrwr3RpFDKQ1vRw4ZP","lines":[{"unitAmount":{"value":"2000","currency":"USD"}}]}'
     headers:
       X-Pr-Timestamp:
-      - '1688739773'
+      - '1688741229'
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -235,7 +235,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 07 Jul 2023 14:22:53 GMT
+      - Fri, 07 Jul 2023 14:47:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -269,27 +269,27 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '600'
       X-Rate-Limit-Remaining:
-      - '592'
+      - '581'
       X-Rate-Limit-Reset:
-      - '1688739829'
+      - '1688741279'
       Vary:
       - Origin
       Etag:
-      - W/"467-/YnN97/L9PHXbnhNuxX6urhuV4s"
+      - W/"467-aKGpj1C6cE6a/DTMJWwIIvyoFFM"
     body:
       encoding: UTF-8
-      string: '{"ok":true,"invoice":{"id":"I-9XGuwX3dgjt8r3bLZb4pq4","invoiceNumber":"","description":"Integration
-        Test Invoice Create","status":"open","externalId":null,"invoiceDate":"2023-07-07T14:22:52.910Z","dueDate":null,"releaseAfter":null,"createdAt":"2023-07-07T14:22:52.909Z","updatedAt":"2023-07-07T14:22:53.397Z","totalAmount":{"value":"2000.00","currency":"USD"},"paidAmount":{"value":"0.00","currency":"USD"},"pendingAmount":{"value":"0.00","currency":"USD"},"dueAmount":{"value":"2000.00","currency":"USD"},"tags":[],"lines":[{"id":"IL-CDBTGA5scDm2ydcoJPuVEn","status":"open","itemUrl":null,"description":"","unitAmount":{"value":"2000.00","currency":"USD"},"quantity":"1","discountAmount":{"value":"0.00","currency":"USD"},"taxAmount":{"value":"0.00","currency":"USD"},"totalAmount":{"value":"2000.00","currency":"USD"},"dueAmount":{"value":"2000.00","currency":"USD"},"paidAmount":{"value":"0.00","currency":"USD"},"pendingAmount":{"value":"0.00","currency":"USD"},"externalId":null,"taxReportable":true,"tags":[],"category":"services","forceUsTaxActivity":false}],"recipientId":"R-3WS2wwPSPdCaEkajBCAvnd","syncDetails":null}}'
-  recorded_at: Fri, 07 Jul 2023 14:22:53 GMT
+      string: '{"ok":true,"invoice":{"id":"I-Qak2zrwr3RpFDKQ1vRw4ZP","invoiceNumber":"","description":"Integration
+        Test Invoice Create","status":"open","externalId":null,"invoiceDate":"2023-07-07T14:47:09.524Z","dueDate":null,"releaseAfter":null,"createdAt":"2023-07-07T14:47:09.523Z","updatedAt":"2023-07-07T14:47:09.994Z","totalAmount":{"value":"2000.00","currency":"USD"},"paidAmount":{"value":"0.00","currency":"USD"},"pendingAmount":{"value":"0.00","currency":"USD"},"dueAmount":{"value":"2000.00","currency":"USD"},"tags":[],"lines":[{"id":"IL-7g3vV3W28PSbHmyk5T3iAy","status":"open","itemUrl":null,"description":"","unitAmount":{"value":"2000.00","currency":"USD"},"quantity":"1","discountAmount":{"value":"0.00","currency":"USD"},"taxAmount":{"value":"0.00","currency":"USD"},"totalAmount":{"value":"2000.00","currency":"USD"},"dueAmount":{"value":"2000.00","currency":"USD"},"paidAmount":{"value":"0.00","currency":"USD"},"pendingAmount":{"value":"0.00","currency":"USD"},"externalId":null,"taxReportable":true,"tags":[],"category":"services","forceUsTaxActivity":false}],"recipientId":"R-T8bDFRZ77FExSZyykh5Ntv","syncDetails":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:47:10 GMT
 - request:
     method: post
-    uri: https://api.trolley.com/v1/invoices/get
+    uri: https://api.trolley.com/v1/invoices/delete-lines
     body:
       encoding: UTF-8
-      string: '{"invoiceId":"I-9XGuwX3dgjt8r3bLZb4pq4"}'
+      string: '{"invoiceId":"I-Qak2zrwr3RpFDKQ1vRw4ZP","invoiceLineIds":["IL-7g3vV3W28PSbHmyk5T3iAy"]}'
     headers:
       X-Pr-Timestamp:
-      - '1688739773'
+      - '1688741230'
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -304,11 +304,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 07 Jul 2023 14:22:53 GMT
+      - Fri, 07 Jul 2023 14:47:10 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1127'
+      - '582'
       Connection:
       - keep-alive
       Cache-Control:
@@ -338,16 +338,16 @@ http_interactions:
       X-Rate-Limit-Limit:
       - '600'
       X-Rate-Limit-Remaining:
-      - '591'
+      - '580'
       X-Rate-Limit-Reset:
-      - '1688739829'
+      - '1688741279'
       Vary:
       - Origin
       Etag:
-      - W/"467-/YnN97/L9PHXbnhNuxX6urhuV4s"
+      - W/"246-+Kb4aa6Mwg4fUiATavUPd0h/cJ4"
     body:
       encoding: UTF-8
-      string: '{"ok":true,"invoice":{"id":"I-9XGuwX3dgjt8r3bLZb4pq4","invoiceNumber":"","description":"Integration
-        Test Invoice Create","status":"open","externalId":null,"invoiceDate":"2023-07-07T14:22:52.910Z","dueDate":null,"releaseAfter":null,"createdAt":"2023-07-07T14:22:52.909Z","updatedAt":"2023-07-07T14:22:53.397Z","totalAmount":{"value":"2000.00","currency":"USD"},"paidAmount":{"value":"0.00","currency":"USD"},"pendingAmount":{"value":"0.00","currency":"USD"},"dueAmount":{"value":"2000.00","currency":"USD"},"tags":[],"lines":[{"id":"IL-CDBTGA5scDm2ydcoJPuVEn","status":"open","itemUrl":null,"description":"","unitAmount":{"value":"2000.00","currency":"USD"},"quantity":"1","discountAmount":{"value":"0.00","currency":"USD"},"taxAmount":{"value":"0.00","currency":"USD"},"totalAmount":{"value":"2000.00","currency":"USD"},"dueAmount":{"value":"2000.00","currency":"USD"},"paidAmount":{"value":"0.00","currency":"USD"},"pendingAmount":{"value":"0.00","currency":"USD"},"externalId":null,"taxReportable":true,"tags":[],"category":"services","forceUsTaxActivity":false}],"recipientId":"R-3WS2wwPSPdCaEkajBCAvnd","syncDetails":null}}'
-  recorded_at: Fri, 07 Jul 2023 14:22:54 GMT
+      string: '{"ok":true,"invoice":{"id":"I-Qak2zrwr3RpFDKQ1vRw4ZP","invoiceNumber":"","description":"Integration
+        Test Invoice Create","status":"open","externalId":null,"invoiceDate":"2023-07-07T14:47:09.524Z","dueDate":null,"releaseAfter":null,"createdAt":"2023-07-07T14:47:09.523Z","updatedAt":"2023-07-07T14:47:10.462Z","totalAmount":{"value":"0.00","currency":"CAD"},"paidAmount":{"value":"0.00","currency":"CAD"},"pendingAmount":{"value":"0.00","currency":"CAD"},"dueAmount":{"value":"0.00","currency":"CAD"},"tags":[],"lines":[],"recipientId":"R-T8bDFRZ77FExSZyykh5Ntv","syncDetails":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:47:10 GMT
 recorded_with: VCR 6.2.0
