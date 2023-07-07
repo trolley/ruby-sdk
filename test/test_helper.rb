@@ -7,7 +7,8 @@ require 'vcr'
 
 module TestHelper
   def setup
-    @test_case = "#{self.class.name}-#{method_name}}"
+    @fixture_test_path = "test/fixtures/#{self.class.name.split('::').last}"
+    @test_case = method_name.chomp('_')
 
     @client = Trolley.client(
       ENV.fetch('SANDBOX_API_KEY'),
@@ -17,7 +18,7 @@ module TestHelper
     )
 
     VCR.configure do |config|
-      config.cassette_library_dir = 'test/fixtures'
+      config.cassette_library_dir = @fixture_test_path
       config.hook_into :webmock
 
       config.before_record do |interaction|
