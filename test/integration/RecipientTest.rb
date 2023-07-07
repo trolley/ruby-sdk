@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 class RecipientTest < Test::Unit::TestCase
-  include ApiClientHelper
+  include TestHelper
 
   def test_create
     response = @client.recipient.create(

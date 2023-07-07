@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 class InvoiceTest < Test::Unit::TestCase
-  include ApiClientHelper
+  include TestHelper
 
   def create_recipient
     uuid = SecureRandom.uuid.to_s

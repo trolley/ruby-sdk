@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 class RecipientAccountTest < Test::Unit::TestCase
-  include ApiClientHelper
+  include TestHelper
 
   # rubocop:disable Metrics/MethodLength
   def test_basic_crud
