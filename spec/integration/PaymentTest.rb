@@ -20,9 +20,11 @@ class PaymentTest < Test::Unit::TestCase
     @client.recipient_account.create(recipient.id, type: 'bank-transfer', currency: 'EUR', country: 'DE', iban: 'DE89 3704 0044 0532 0130 00')
     recipient
   end
+
   def batch
     @_batch ||= @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
   end
+
   def test_crud
     payment = @client.payment.create(
       batch.id,
@@ -60,7 +62,7 @@ class PaymentTest < Test::Unit::TestCase
       recipient: { id: recipient.id }
     )
 
-    result =@client.payment.search(batch.id)
+    result = @client.payment.search(batch.id)
     assert_not_nil(result)
     assert_true(result.count > 0)
   end
