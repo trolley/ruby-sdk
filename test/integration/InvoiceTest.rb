@@ -83,9 +83,9 @@ class InvoiceTest < Test::Unit::TestCase
       response = @client.invoice.update_line(
         invoiceId: invoice.id,
         lines: [{
-                  invoiceLineId: invoice_line.lines.first['id'],
-                  unitAmount: { value: '3000', currency: 'USD' }
-                }]
+          invoiceLineId: invoice_line.lines.first['id'],
+          unitAmount: { value: '3000', currency: 'USD' }
+        }]
       )
       assert_true(response)
 
