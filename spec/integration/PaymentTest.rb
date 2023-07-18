@@ -22,7 +22,7 @@ class PaymentTest < Test::Unit::TestCase
   end
 
   def batch
-    @_batch ||= @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
+    @batch ||= @client.batch.create(sourceCurrency: 'USD', description: 'Integration Test Create')
   end
 
   def test_crud
