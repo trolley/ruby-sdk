@@ -1,3 +1,4 @@
+# rubocop:disable Layout/EndOfLine
 require_relative 'helper'
 
 class BalanceTest < Test::Unit::TestCase
@@ -16,3 +17,4 @@ class BalanceTest < Test::Unit::TestCase
     assert_equal('paymentrails', balances.balances[0].type)
   end
 end
+# rubocop:enable Layout/EndOfLine
