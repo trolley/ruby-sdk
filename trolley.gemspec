@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop', '~> 1'
   s.add_development_dependency 'test-unit', '~> 3'
   s.metadata = {
-    "bug_tracker_uri"   => "https://github.com/trolley/ruby-sdk/issues",
-    "changelog_uri"     => "https://github.com/trolley/ruby-sdk/releases",
+    "bug_tracker_uri" => "https://github.com/trolley/ruby-sdk/issues",
+    "changelog_uri" => "https://github.com/trolley/ruby-sdk/releases",
     "documentation_uri" => "https://docs.trolley.com",
-    "homepage_uri"      => "https://github.com/trolley/ruby-sdk/",
-    "source_code_uri"   => "https://github.com/trolley/ruby-sdk.git",
+    "homepage_uri" => "https://github.com/trolley/ruby-sdk/",
+    "source_code_uri" => "https://github.com/trolley/ruby-sdk.git"
   }
 end
