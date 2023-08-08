@@ -4,6 +4,7 @@ class RecipientAccountTest < Test::Unit::TestCase
   include TestHelper
 
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/BlockLength
   def test_basic_crud
     with_vcr do
       recipient = @client.recipient.create(
@@ -14,9 +15,9 @@ class RecipientAccountTest < Test::Unit::TestCase
       )
       recipient_account = @client.recipient_account.create(
         recipient.id, type: 'bank-transfer',
-        currency: 'EUR',
-        country: 'DE',
-        iban: 'DE89 3704 0044 0532 0130 00'
+                      currency: 'EUR',
+                      country: 'DE',
+                      iban: 'DE89 3704 0044 0532 0130 00'
       )
 
       assert_not_nil(recipient_account)
@@ -47,4 +48,5 @@ class RecipientAccountTest < Test::Unit::TestCase
     end
   end
   # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/BlockLength
 end
