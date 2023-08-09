@@ -103,7 +103,7 @@ class OfflinePaymentTest < Test::Unit::TestCase
         recipient.id
       )
 
-      assert_true(offline_payments.count > 0)
+      assert_true(offline_payments.count.positive?)
     end
   end
 end

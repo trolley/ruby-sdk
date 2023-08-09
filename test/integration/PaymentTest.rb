@@ -67,7 +67,7 @@ class PaymentTest < Test::Unit::TestCase
 
       result = @client.payment.search(batch.id)
       assert_not_nil(result)
-      assert_true(result.count > 0)
+      assert_true(result.count.positive?)
     end
   end
 end
