@@ -1,5 +1,7 @@
 require_relative '../test_helper'
 
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/BlockLength
 class RecipientTest < Test::Unit::TestCase
   include TestHelper
 
@@ -150,9 +152,9 @@ class RecipientTest < Test::Unit::TestCase
 
       batch = @client.batch.create(
         sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
-        { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
-        { sourceAmount: '10.00', recipient: { id: recipient.id } }
-      ]
+          { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipient.id } },
+          { sourceAmount: '10.00', recipient: { id: recipient.id } }
+        ]
       )
 
       payments = @client.recipient.find_payments(recipient.id)
@@ -168,3 +170,5 @@ class RecipientTest < Test::Unit::TestCase
   end
 end
 # rubocop:enable Metrics/ClassLength
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/BlockLength
