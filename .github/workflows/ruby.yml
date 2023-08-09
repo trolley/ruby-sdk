@@ -2,6 +2,10 @@ name: Ruby
 
 on: [push]
 
+env:
+  SANDBOX_API_KEY: 'key'
+  SANDBOX_SECRET_KEY: 'secret'
+
 jobs:
   build:
 
@@ -22,4 +26,4 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec rake unit_tests
+        bundle exec rake tests
