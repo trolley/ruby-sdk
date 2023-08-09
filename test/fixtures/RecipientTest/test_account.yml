@@ -1,0 +1,499 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/
+    body:
+      encoding: UTF-8
+      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.createb8e6424e-a94f-404f-aa8e-e2623e931a5b@example.com","address":{"street1":"123
+        Wolfstrasse","city":"Berlin","country":"DE","postalCode":"123123"}}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688741558'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1290'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '599'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"50a-4eU/38c63p2woJQwtHM/crnjG18"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-9nkDE4BNDGCe3MMtzLTw7v","referenceId":"R-9nkDE4BNDGCe3MMtzLTw7v","parentRecipientId":null,"email":"test.createb8e6424e-a94f-404f-aa8e-e2623e931a5b@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:52:39.005Z","createdAt":"2023-07-07T14:52:39.005Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/38efd0723a83df3b704d0470331ab9a2?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:39 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/R-9nkDE4BNDGCe3MMtzLTw7v/accounts
+    body:
+      encoding: UTF-8
+      string: '{"type":"bank-transfer","currency":"EUR","country":"DE","iban":"DE89
+        3704 0044 0532 0130 00"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688741559'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:39 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '657'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '598'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"291-K78s3IM/wcdK6HFayAU/rtKVR+0"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-SPpLxm3exkDB2eSxBSCSjS","recipientId":"R-9nkDE4BNDGCe3MMtzLTw7v","recipientAccountId":"A-SPpLxm3exkDB2eSxBSCSjS","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:39 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/R-9nkDE4BNDGCe3MMtzLTw7v/accounts
+    body:
+      encoding: UTF-8
+      string: '{"type":"bank-transfer","currency":"EUR","country":"FR","iban":"FR14
+        2004 1010 0505 0001 3M02 606"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688741559'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '657'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '597'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"291-n0JpdXtk/P5333GduHaZyEoiYUU"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"account":{"status":"inactive","type":"bank-transfer","primary":false,"currency":"EUR","id":"A-KdXAWZgbAtNhSQFaU72GCf","recipientId":"R-9nkDE4BNDGCe3MMtzLTw7v","recipientAccountId":"A-KdXAWZgbAtNhSQFaU72GCf","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"FR","iban":"*************************06","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"PSSTFRPPLIL","branchId":"","bankId":"","bankName":"La Banque
+        Postale","bankAddress":"3 R Paul Duez","bankCity":"Lille","bankRegionCode":"Hauts-de-France","bankPostalCode":"59900
+        Cedex 9","routeType":"sepa","recipientFees":"2"}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:40 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/recipients/R-9nkDE4BNDGCe3MMtzLTw7v/accounts/A-KdXAWZgbAtNhSQFaU72GCf
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688741560'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '657'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '596'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"291-n0JpdXtk/P5333GduHaZyEoiYUU"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"account":{"status":"inactive","type":"bank-transfer","primary":false,"currency":"EUR","id":"A-KdXAWZgbAtNhSQFaU72GCf","recipientId":"R-9nkDE4BNDGCe3MMtzLTw7v","recipientAccountId":"A-KdXAWZgbAtNhSQFaU72GCf","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"FR","iban":"*************************06","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"PSSTFRPPLIL","branchId":"","bankId":"","bankName":"La Banque
+        Postale","bankAddress":"3 R Paul Duez","bankCity":"Lille","bankRegionCode":"Hauts-de-France","bankPostalCode":"59900
+        Cedex 9","routeType":"sepa","recipientFees":"2"}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:40 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/recipients/R-9nkDE4BNDGCe3MMtzLTw7v/accounts/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688741560'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1296'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '595'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"510-eA4cu480S15ynL0bNKHOCBKV3cw"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"accounts":[{"status":"inactive","type":"bank-transfer","primary":false,"currency":"EUR","id":"A-KdXAWZgbAtNhSQFaU72GCf","recipientId":"R-9nkDE4BNDGCe3MMtzLTw7v","recipientAccountId":"A-KdXAWZgbAtNhSQFaU72GCf","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"FR","iban":"*************************06","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"PSSTFRPPLIL","branchId":"","bankId":"","bankName":"La Banque
+        Postale","bankAddress":"3 R Paul Duez","bankCity":"Lille","bankRegionCode":"Hauts-de-France","bankPostalCode":"59900
+        Cedex 9","routeType":"sepa","recipientFees":"2"},{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-SPpLxm3exkDB2eSxBSCSjS","recipientId":"R-9nkDE4BNDGCe3MMtzLTw7v","recipientAccountId":"A-SPpLxm3exkDB2eSxBSCSjS","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}]}'
+  recorded_at: Fri, 07 Jul 2023 14:52:41 GMT
+- request:
+    method: delete
+    uri: https://api.trolley.com/v1/recipients/R-9nkDE4BNDGCe3MMtzLTw7v/accounts/A-KdXAWZgbAtNhSQFaU72GCf
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688741561'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '11'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '594'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"b-Ai2R8hgEarLmHKwesT1qcY913ys"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true}'
+  recorded_at: Fri, 07 Jul 2023 14:52:41 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/recipients/R-9nkDE4BNDGCe3MMtzLTw7v/accounts/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688741561'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '660'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '593'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"294-Jkj7xB6/lo5btHjPZVL4xl+jPeg"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"accounts":[{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-SPpLxm3exkDB2eSxBSCSjS","recipientId":"R-9nkDE4BNDGCe3MMtzLTw7v","recipientAccountId":"A-SPpLxm3exkDB2eSxBSCSjS","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}]}'
+  recorded_at: Fri, 07 Jul 2023 14:52:42 GMT
+recorded_with: VCR 6.2.0

@@ -1,0 +1,347 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/
+    body:
+      encoding: UTF-8
+      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.create07f52829-4736-47d0-ada8-4885e39786e3@example.com"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688741562'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1263'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '591'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"4ef-LM5+QFfc7FfEHQjerM7yULvfVCc"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-YHLKWXRKs5oiGz6bzmbp4r","referenceId":"R-YHLKWXRKs5oiGz6bzmbp4r","parentRecipientId":null,"email":"test.create07f52829-4736-47d0-ada8-4885e39786e3@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:52:42.863Z","createdAt":"2023-07-07T14:52:42.863Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"","street2":"","city":"","postalCode":"","country":null,"region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/761d5359c30dbb7a2827da16bc845edc?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":null,"routeMinimum":null,"estimatedFees":null,"accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:43 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/
+    body:
+      encoding: UTF-8
+      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.createe90b2735-3a07-4ce5-b58e-82024aa27bca@example.com"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688741563'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1263'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '590'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"4ef-gE/zQsfRnrAIMdaTytnuNHjHTG0"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-U27xuZBFJ8Th3hiHoQ3MXt","referenceId":"R-U27xuZBFJ8Th3hiHoQ3MXt","parentRecipientId":null,"email":"test.createe90b2735-3a07-4ce5-b58e-82024aa27bca@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:52:43.361Z","createdAt":"2023-07-07T14:52:43.361Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"","street2":"","city":"","postalCode":"","country":null,"region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/7f79429dc0404ccb907c51a284ec8564?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":null,"routeMinimum":null,"estimatedFees":null,"accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:43 GMT
+- request:
+    method: delete
+    uri: https://api.trolley.com/v1/recipients/
+    body:
+      encoding: UTF-8
+      string: '{"ids":["R-YHLKWXRKs5oiGz6bzmbp4r","R-U27xuZBFJ8Th3hiHoQ3MXt"]}'
+    headers:
+      X-Pr-Timestamp:
+      - '1688741563'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '11'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '589'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"b-Ai2R8hgEarLmHKwesT1qcY913ys"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true}'
+  recorded_at: Fri, 07 Jul 2023 14:52:44 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/recipients/R-YHLKWXRKs5oiGz6bzmbp4r
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688741564'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1235'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '588'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"4d3-8Chmt0wHO0No3g1gdxuG8OtRazY"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-YHLKWXRKs5oiGz6bzmbp4r","referenceId":"R-YHLKWXRKs5oiGz6bzmbp4r","parentRecipientId":null,"email":"test.create07f52829-4736-47d0-ada8-4885e39786e3@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"archived","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:52:43.908Z","createdAt":"2023-07-07T14:52:42.863Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"","street2":"","city":"","postalCode":"","country":null,"region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/761d5359c30dbb7a2827da16bc845edc?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":null,"routeMinimum":null,"estimatedFees":null,"accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:44 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/recipients/R-U27xuZBFJ8Th3hiHoQ3MXt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1688741564'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Jul 2023 14:52:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1235'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '587'
+      X-Rate-Limit-Reset:
+      - '1688741619'
+      Vary:
+      - Origin
+      Etag:
+      - W/"4d3-JuxHV1I2tOBBgu/vHp/pgG8nK3s"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-U27xuZBFJ8Th3hiHoQ3MXt","referenceId":"R-U27xuZBFJ8Th3hiHoQ3MXt","parentRecipientId":null,"email":"test.createe90b2735-3a07-4ce5-b58e-82024aa27bca@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"archived","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-07-07T14:52:43.907Z","createdAt":"2023-07-07T14:52:43.361Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"","street2":"","city":"","postalCode":"","country":null,"region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/7f79429dc0404ccb907c51a284ec8564?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":null,"routeMinimum":null,"estimatedFees":null,"accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Fri, 07 Jul 2023 14:52:45 GMT
+recorded_with: VCR 6.2.0

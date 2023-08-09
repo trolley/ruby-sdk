@@ -9,12 +9,14 @@ Gem::Specification.new do |s|
   s.email = ['developer-tools@trolley.com']
   s.license = 'MIT'
   s.authors = ['Trolley']
-  s.files = Dir.glob ['README.rdoc', 'LICENSE', 'lib/**/*.{rb,crt}', 'spec/**/*', '*.gemspec']
+  s.files = Dir.glob ['README.rdoc', 'LICENSE', 'lib/**/*.{rb,crt}', 'test/**/*', '*.gemspec']
   s.required_ruby_version = '>= 2.7'
   s.add_development_dependency 'dotenv', '~> 2'
   s.add_development_dependency 'rake', '~> 13'
   s.add_development_dependency 'rubocop', '~> 1'
   s.add_development_dependency 'test-unit', '~> 3'
+  s.add_development_dependency 'vcr', '~> 6.2'
+  s.add_development_dependency 'webmock', '~> 3.18'
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/trolley/ruby-sdk/issues",
     "changelog_uri" => "https://github.com/trolley/ruby-sdk/releases",
