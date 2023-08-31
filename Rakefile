@@ -3,17 +3,17 @@ require 'rake/testtask'
 
 Rake::TestTask.new(:unit_tests) do |t|
   t.libs << 'lib'
-  t.test_files = FileList['spec/unit/*Test.rb']
+  t.test_files = FileList['test/unit/*Test.rb']
 end
 
 Rake::TestTask.new(:integration_tests) do |t|
   t.libs << 'lib'
-  t.test_files = FileList['spec/integration/*Test.rb']
+  t.test_files = FileList['test/integration/*Test.rb']
 end
 
 Rake::TestTask.new(:tests) do |t|
   t.libs << 'lib'
-  t.test_files = FileList['spec/**/*Test.rb']
+  t.test_files = FileList['test/**/*Test.rb']
 end
 
 task default: :tests

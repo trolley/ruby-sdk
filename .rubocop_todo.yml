@@ -84,7 +84,7 @@ Layout/IndentationStyle:
 # Configuration parameters: AllowInHeredoc.
 Layout/TrailingWhitespace:
   Exclude:
-    - 'spec/integration/RecipientAccountTest.rb'
+    - 'test/integration/RecipientAccountTest.rb'
 
 # Offense count: 2
 # Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
