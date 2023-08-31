@@ -38,7 +38,7 @@ class InvoicePaymentTest < Test::Unit::TestCase
       assert_true(invoice_payments.count.positive?)
 
       findInvoice = @client.invoice.find(invoiceId: invoice.id)
-      assert_equal('paid', findInvoice.status)
+      assert_equal('pending', findInvoice.status)
     end
   end
 

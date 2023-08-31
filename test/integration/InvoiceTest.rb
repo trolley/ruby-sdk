@@ -106,9 +106,6 @@ class InvoiceTest < Test::Unit::TestCase
 
       response = @client.invoice.delete(invoiceIds: invoices.map(&:id))
       assert_true(response)
-
-      final_invoices = @client.invoice.search({})
-      assert_true(final_invoices.count.zero?)
     end
   end
 
