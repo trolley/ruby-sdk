@@ -19,14 +19,25 @@ jobs:
             gem install bundler
             bundle install --jobs 4 --retry 3
             bundle exec rubocop --parallel
+  test:
+    executor: default
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Build and run tests
           command: |
             gem install bundler
             bundle install --jobs 4 --retry 3
             bundle exec rake tests
+      - store_test_results:
+          path: test-results
 
 workflows:
-  run:
+  build_and_test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
