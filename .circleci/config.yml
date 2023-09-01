@@ -12,37 +12,23 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build and install bundler
+          name: Install bundler & gems
           command: |
             gem install bundler
             bundle install --jobs 4 --retry 3
       - run:
           name: Create test results directory
           command: mkdir -p test-results
-  rubocop:
-    executor: default
-    steps:
-      - checkout
       - run:
-          name: Run Rubocop
+          name: Rubocop
           command: bundle exec rubocop --parallel
-  test:
-    executor: default
-    steps:
-      - checkout
       - run:
           name: Run Tests
           command: bundle exec rake tests
-      - store_test_results:
+        - store_test_results:
           path: test-results
 
 workflows:
   build_and_test:
     jobs:
       - build
-      - rubocop:
-          requires:
-            - build
-      - test:
-          requires:
-            - build
