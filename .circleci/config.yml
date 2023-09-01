@@ -17,16 +17,11 @@ jobs:
             gem install bundler
             bundle install --jobs 4 --retry 3
       - run:
-          name: Create test results directory
-          command: mkdir -p test-results
-      - run:
           name: Rubocop
           command: bundle exec rubocop --parallel
       - run:
           name: Run Tests
           command: bundle exec rake tests
-          - store_test_results:
-            path: test-results
 
 workflows:
   build_and_test:
