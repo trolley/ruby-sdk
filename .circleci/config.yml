@@ -43,8 +43,8 @@ workflows:
     jobs:
       - build
       - rubocop
-        requires:
-          - build
+          requires:
+            - build
       - test:
           requires:
             - build
