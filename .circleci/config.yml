@@ -22,8 +22,27 @@ jobs:
       - run:
           name: Run Tests
           command: bundle exec rake tests
-
+  publish:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Publish to RubyGems
+          command: |
+              mkdir -p ~/.gem
+              touch ~/.gem/credentials
+              chmod 0600 ~/.gem/credentials
+              printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > ~/.gem/credentials
+              gem build *.gemspec
+              gem push *.gem -v
 workflows:
   build_and_test:
     jobs:
       - build
+  publish: 
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only:
+                - master
