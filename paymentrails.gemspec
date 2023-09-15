@@ -1,7 +1,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name = "paymentrails"
+  s.name = "paymentrails-zero"
   s.summary = "Trolley Ruby SDK"
   s.description = "Ruby SDK for interacting with the Trolley API"
   s.version = '0.2.13'
