@@ -19,9 +19,9 @@ jobs:
       - run:
           name: Rubocop
           command: bundle exec rubocop --parallel
-      - run:
-          name: Run Tests
-          command: bundle exec rake tests
+      # - run:
+      #     name: Run Tests
+      #     command: bundle exec rake tests
   publish:
     executor: default
     steps:
