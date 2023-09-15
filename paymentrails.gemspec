@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name = "paymentrails-zero"
   s.summary = "Trolley Ruby SDK"
   s.description = "Ruby SDK for interacting with the Trolley API"
-  s.version = '0.2.13'
+  s.version = '0.2.14'
   s.homepage = 'https://trolley.com/'
   s.email = ['developer-tools@trolley.com']
   s.license = "MIT"
