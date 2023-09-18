@@ -31,8 +31,9 @@ class ConfigurationTest < Test::Unit::TestCase
   end
 
   def test_invalid_proxy_uri
+    proxy_uri = 'not_://*a_valid_proxy'
     assert_raise Trolley::Configuration::InvalidProxyAddress.new("Invalid proxy provided to configuration: #{proxy_uri}") do
-      Trolley::Configuration.new('k', 's', proxy_uri: 'not_://*a_valid_proxy').proxy
+      Trolley::Configuration.new('k', 's', proxy_uri:).proxy
     end
   end
 
