@@ -27,7 +27,7 @@ class InvoicePaymentTest < Test::Unit::TestCase
       invoice = @client.invoice.create(recipientId: recipient.id, description: 'Integration Test Invoice Create')
       @client.invoice.create_line(invoiceId: invoice.id, lines: [{ unitAmount: { value: '2000', currency: 'USD' } }])
       @client.invoice_payment.create(ids: [invoiceId: invoice.id])
-      invoice_payments = @client.invoice_payment.search({invoiceIds: [invoice.id]})
+      invoice_payments = @client.invoice_payment.search({ invoiceIds: [invoice.id] })
       assert_true(invoice_payments.count.positive?)
     end
   end

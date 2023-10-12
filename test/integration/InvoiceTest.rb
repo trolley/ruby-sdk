@@ -33,7 +33,7 @@ class InvoiceTest < Test::Unit::TestCase
   def test_search
     with_vcr do
       recipient = create_recipient
-      invoice = @client.invoice.create(recipientId: recipient.id, description: 'Integration Test Invoice Create')
+      @client.invoice.create(recipientId: recipient.id, description: 'Integration Test Invoice Create')
       search = @client.invoice.search({})
       assert_true(search.count.positive?)
     end
