@@ -21,6 +21,24 @@ class InvoiceTest < Test::Unit::TestCase
     recipient
   end
 
+  def test_find
+    with_vcr do
+      recipient = create_recipient
+      invoice = @client.invoice.create(recipientId: recipient.id, description: 'Integration Test Invoice Create')
+      find = @client.invoice.find(invoiceId: invoice.id)
+      assert_not_nil(find)
+    end
+  end
+
+  def test_search
+    with_vcr do
+      recipient = create_recipient
+      invoice = @client.invoice.create(recipientId: recipient.id, description: 'Integration Test Invoice Create')
+      search = @client.invoice.search({})
+      assert_true(search.count.positive?)
+    end
+  end
+
   def test_create
     with_vcr do
       recipient = create_recipient
