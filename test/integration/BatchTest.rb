@@ -135,4 +135,23 @@ class BatchTest < Test::Unit::TestCase
       assert_true(response)
     end
   end
+
+  def test_summary
+    with_vcr do
+      recipientAlpha = create_recipient
+      recipientBeta = create_recipient
+
+      batch = @client.batch.create(
+        sourceCurrency: 'USD', description: 'Integration Test Payments', payments: [
+          { targetAmount: '10.00', targetCurrency: 'EUR', recipient: { id: recipientAlpha.id } },
+          { sourceAmount: '10.00', recipient: { id: recipientBeta.id } }
+        ]
+      )
+      assert_not_nil(batch)
+      assert_not_nil(batch.id)
+
+      summary = @client.batch.summary(batch.id)
+      assert_equal(2, summary.detail['bank-transfer']['count'])
+    end
+  end
 end
