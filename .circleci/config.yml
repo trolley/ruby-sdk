@@ -1,0 +1,48 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/sdk
+    docker:
+      - image: cimg/ruby:3.2
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Install bundler & gems
+          command: |
+            gem install bundler
+            bundle install --jobs 4 --retry 3
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop --parallel
+      - run:
+          name: Run Tests
+          command: bundle exec rake tests
+  publish:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Publish to RubyGems
+          command: |
+              mkdir -p ~/.gem
+              touch ~/.gem/credentials
+              chmod 0600 ~/.gem/credentials
+              printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > ~/.gem/credentials
+              gem build *.gemspec
+              gem push *.gem -v
+workflows:
+  build_and_test:
+    jobs:
+      - build
+  publish: 
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only:
+                - master

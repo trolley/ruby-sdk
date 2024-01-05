@@ -1,0 +1,281 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/
+    body:
+      encoding: UTF-8
+      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.batch596b3f89-aa20-4db6-a8bc-44528653e782@example.com","address":{"street1":"123
+        Wolfstrasse","city":"Berlin","country":"DE","postalCode":"123123"}}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540965'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1289'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '584'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"509-uO/BAnUpxAu8IsvisHGAlfR5pEU"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-GvUxtcNfWwUBzrmgvPfKSb","referenceId":"R-GvUxtcNfWwUBzrmgvPfKSb","parentRecipientId":null,"email":"test.batch596b3f89-aa20-4db6-a8bc-44528653e782@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-08-09T00:29:26.291Z","createdAt":"2023-08-09T00:29:26.291Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/fcb3c2ab37a0751f4801e781afcd2342?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:26 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/R-GvUxtcNfWwUBzrmgvPfKSb/accounts
+    body:
+      encoding: UTF-8
+      string: '{"type":"bank-transfer","currency":"EUR","country":"DE","iban":"DE89
+        3704 0044 0532 0130 00"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540966'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '657'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '583'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"291-3w1eQTBNoG5y+rS1PzHrMcxy4Nk"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-AqKLwZyxJMQxHUWZyBuj1w","recipientId":"R-GvUxtcNfWwUBzrmgvPfKSb","recipientAccountId":"A-AqKLwZyxJMQxHUWZyBuj1w","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:26 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/R-GvUxtcNfWwUBzrmgvPfKSb/offlinePayments
+    body:
+      encoding: UTF-8
+      string: '{"amount":"10.00","currency":"EUR","category":"services"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540966'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '957'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '582'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"3bd-dp/aPOaLKhNyPM101vVC63uhYFw"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"offlinePayment":{"id":"OP-S7pNnSTVnKVXqDpEHbkCRM","recipientId":"R-GvUxtcNfWwUBzrmgvPfKSb","taxFormId":null,"entered":{"value":"10.00","currency":"EUR"},"withholding":{"value":"0.00","currency":"EUR"},"equivalentWithholding":{"value":"0.00","currency":"USD"},"amount":"10.00","currency":"EUR","withholdingAmount":"0.00","withholdingCurrency":"EUR","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","paymentId":null,"externalId":null,"memo":"","payoutMethod":null,"tags":[],"taxReportable":true,"category":"services","processedAt":"2023-08-09T00:29:27.283Z","forceUsTaxActivity":false,"taxWithholdingReason":null,"equivalentUntaxedAmount":{"value":"10.96","currency":"USD"},"modifiedSinceCreation":false,"taxPaidByWithholdingAgents":"0","status":"processed","enteredAmount":{"value":"10.00","currency":"EUR"},"updatedAt":"2023-08-09T00:29:27.283Z","createdAt":"2023-08-09T00:29:27.283Z","deletedAt":null,"dac7Meta":null}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:27 GMT
+- request:
+    method: delete
+    uri: https://api.trolley.com/v1/recipients/R-GvUxtcNfWwUBzrmgvPfKSb/offlinePayments/OP-S7pNnSTVnKVXqDpEHbkCRM
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1691540967'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '11'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '581'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"b-Ai2R8hgEarLmHKwesT1qcY913ys"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true}'
+  recorded_at: Wed, 09 Aug 2023 00:29:27 GMT
+recorded_with: VCR 6.2.0

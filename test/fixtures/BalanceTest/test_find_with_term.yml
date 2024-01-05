@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/balances/paymentrails
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1691540984'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1274'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '571'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"4fa-cIh4HHPQy3USghbJIC8KtJ3/Hns"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"balances":[{"primary":false,"type":"paymentrails","accountNumber":"BL-39b3ddb685af30da0d33fd813250dd26","display":true,"amount":"761316.01","currency":"GBP","pendingCredit":"0.00","pendingDebit":"0.00","amountPending":"761316.01","amountCleared":"761316.01","provider":"sandbox","providerId":null,"providerAcct":"0000846"},{"primary":false,"type":"paymentrails","accountNumber":"BL-e4b7202c4da3ff46551f52cf44a9421e","display":true,"amount":"135644.55","currency":"EUR","pendingCredit":"0.00","pendingDebit":"0.00","amountPending":"135644.55","amountCleared":"135644.55","provider":"sandbox","providerId":null,"providerAcct":"0000847"},{"primary":false,"type":"paymentrails","accountNumber":"BL-db7d007f42b5704e7f4ab0cff8abe6a3","display":true,"amount":"1396485.40","currency":"USD","pendingCredit":"0.00","pendingDebit":"0.00","amountPending":"1396485.40","amountCleared":"1396485.40","provider":"sandbox","providerId":null,"providerAcct":"0000848"},{"primary":true,"type":"paymentrails","accountNumber":"BL-e936ff546939eed3219cb2fbf757bf3d","display":true,"amount":"883454.00","currency":"CAD","pendingCredit":"0.00","pendingDebit":"0.00","amountPending":"883454.00","amountCleared":"883454.00","provider":"sandbox","providerId":null,"providerAcct":"0000867"}]}'
+  recorded_at: Wed, 09 Aug 2023 00:29:44 GMT
+recorded_with: VCR 6.2.0

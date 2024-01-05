@@ -1,0 +1,510 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/batches/
+    body:
+      encoding: UTF-8
+      string: '{"sourceCurrency":"USD","description":"Integration Test Create"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540947'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '370'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '599'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"172-8eKqMnVoAReWf3S5wfqHLgJZ4PI"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"batch":{"id":"B-QmoMmcUtHNH2od8jetWvhq","status":"open","tags":[],"amount":"0.00","currency":"USD","totalPayments":0,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-08-09T00:29:08.203Z","updatedAt":"2023-08-09T00:29:08.203Z","quoteExpiredAt":null,"payments":{"payments":[],"meta":{"page":1,"pages":0,"records":0}}}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:08 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/
+    body:
+      encoding: UTF-8
+      string: '{"type":"individual","firstName":"Tom","lastName":"Jones","email":"test.batch816a8032-3380-470f-b7f0-5a6ed1bec9e0@example.com","address":{"street1":"123
+        Wolfstrasse","city":"Berlin","country":"DE","postalCode":"123123"}}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540948'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1289'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '598'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"509-9iTa8TIT1ty9fWzPGY5LPMDr59g"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"recipient":{"id":"R-2xp7k58h9NRvaEEgXnA7Qo","referenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","parentRecipientId":null,"email":"test.batch816a8032-3380-470f-b7f0-5a6ed1bec9e0@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"incomplete","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-08-09T00:29:09.017Z","createdAt":"2023-08-09T00:29:09.017Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/e81b79eda3f49d4a3d475d59b9cd07aa?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[],"payoutMethod":null,"primaryCurrency":null,"riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{"primaryAccount":"missing"},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:09 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/recipients/R-2xp7k58h9NRvaEEgXnA7Qo/accounts
+    body:
+      encoding: UTF-8
+      string: '{"type":"bank-transfer","currency":"EUR","country":"DE","iban":"DE89
+        3704 0044 0532 0130 00"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540949'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '657'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '597'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"291-Dp4IVU//PAqlmmjI8OSUCTPMr/Y"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:09 GMT
+- request:
+    method: post
+    uri: https://api.trolley.com/v1/batches/B-QmoMmcUtHNH2od8jetWvhq/payments
+    body:
+      encoding: UTF-8
+      string: '{"sourceAmount":"10.00","sourceCurrency":"USD","recipient":{"id":"R-2xp7k58h9NRvaEEgXnA7Qo"}}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540949'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4990'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '596'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"137e-yPaloBzA/UfiXqnM9FGDSmoxYzA"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"payment":{"id":"P-KQLGFEHSHqEVkeDLWiTMxP","recipient":{"id":"R-2xp7k58h9NRvaEEgXnA7Qo","referenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","parentRecipientId":null,"email":"test.batch816a8032-3380-470f-b7f0-5a6ed1bec9e0@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"active","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-08-09T00:29:09.815Z","createdAt":"2023-08-09T00:29:09.017Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/e81b79eda3f49d4a3d475d59b9cd07aa?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"recipientReferenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}],"payoutMethod":"bank-transfer","primaryCurrency":"EUR","riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null},"status":"pending","isSupplyPayment":false,"coverFees":false,"returnedAmount":"0.00","category":"services","amount":"10.00","currency":"USD","sourceAmount":"10.00","sourceCurrency":"USD","targetAmount":"0.00","targetCurrency":"EUR","taxReportable":true,"taxBasisAmount":"10.00","taxBasisCurrency":"USD","withholdingAmount":"0.00","withholdingCurrency":"USD","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","exchangeRate":"0","fees":"4.00","recipientFees":"2.00","fxRate":"2.5","memo":"","externalId":"","processedAt":null,"createdAt":"2023-08-09T00:29:10.382Z","updatedAt":"2023-08-09T00:29:10.382Z","forceUsTaxActivity":false,"batch":{"id":"B-QmoMmcUtHNH2od8jetWvhq","status":"open","tags":[],"amount":"12.00","currency":"USD","totalPayments":1,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-08-09T00:29:08.203Z","updatedAt":"2023-08-09T00:29:10.397Z","quoteExpiredAt":null},"checkNumber":null,"tags":[],"merchantFees":"2.00","compliance":{"status":"pending","checkedAt":null},"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"recipientReferenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"},"payoutMethod":"bank-transfer","methodDisplay":"Bank
+        Transfer","initiatedAt":null,"settledAt":null,"returnedAt":null,"returnedReason":[],"returnedNote":null,"estimatedDeliveryAt":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","taxes":[{"id":"OP-C2ZCBcok484o8HPVLWanMf","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","taxFormId":null,"entered":{"value":"10.00","currency":"USD"},"withholding":{"value":"0.00","currency":"USD"},"equivalentWithholding":{"value":"0.00","currency":"USD"},"amount":"10.00","currency":"USD","withholdingAmount":"0.00","withholdingCurrency":"USD","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","paymentId":"P-KQLGFEHSHqEVkeDLWiTMxP","externalId":null,"memo":"","payoutMethod":"bank-transfer","tags":[],"taxReportable":true,"category":"services","processedAt":"2023-08-09T00:29:10.355Z","forceUsTaxActivity":false,"taxWithholdingReason":null,"equivalentUntaxedAmount":{"value":"10.00","currency":"USD"},"modifiedSinceCreation":false,"taxPaidByWithholdingAgents":"0","status":"internal","enteredAmount":{"value":"10.00","currency":"USD"},"updatedAt":"2023-08-09T00:29:10.374Z","createdAt":"2023-08-09T00:29:10.355Z","deletedAt":null,"dac7Meta":null}],"errors":[],"routeMinimum":"0","routeType":"sepa"}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:10 GMT
+- request:
+    method: get
+    uri: https://api.trolley.com/v1/batches/B-QmoMmcUtHNH2od8jetWvhq/payments/P-KQLGFEHSHqEVkeDLWiTMxP
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1691540950'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4990'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '595'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"137e-yPaloBzA/UfiXqnM9FGDSmoxYzA"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"payment":{"id":"P-KQLGFEHSHqEVkeDLWiTMxP","recipient":{"id":"R-2xp7k58h9NRvaEEgXnA7Qo","referenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","parentRecipientId":null,"email":"test.batch816a8032-3380-470f-b7f0-5a6ed1bec9e0@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"active","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-08-09T00:29:09.815Z","createdAt":"2023-08-09T00:29:09.017Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/e81b79eda3f49d4a3d475d59b9cd07aa?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"recipientReferenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}],"payoutMethod":"bank-transfer","primaryCurrency":"EUR","riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null},"status":"pending","isSupplyPayment":false,"coverFees":false,"returnedAmount":"0.00","category":"services","amount":"10.00","currency":"USD","sourceAmount":"10.00","sourceCurrency":"USD","targetAmount":"0.00","targetCurrency":"EUR","taxReportable":true,"taxBasisAmount":"10.00","taxBasisCurrency":"USD","withholdingAmount":"0.00","withholdingCurrency":"USD","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","exchangeRate":"0","fees":"4.00","recipientFees":"2.00","fxRate":"2.5","memo":"","externalId":"","processedAt":null,"createdAt":"2023-08-09T00:29:10.382Z","updatedAt":"2023-08-09T00:29:10.382Z","forceUsTaxActivity":false,"batch":{"id":"B-QmoMmcUtHNH2od8jetWvhq","status":"open","tags":[],"amount":"12.00","currency":"USD","totalPayments":1,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-08-09T00:29:08.203Z","updatedAt":"2023-08-09T00:29:10.397Z","quoteExpiredAt":null},"checkNumber":null,"tags":[],"merchantFees":"2.00","compliance":{"status":"pending","checkedAt":null},"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"recipientReferenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"},"payoutMethod":"bank-transfer","methodDisplay":"Bank
+        Transfer","initiatedAt":null,"settledAt":null,"returnedAt":null,"returnedReason":[],"returnedNote":null,"estimatedDeliveryAt":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","taxes":[{"id":"OP-C2ZCBcok484o8HPVLWanMf","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","taxFormId":null,"entered":{"value":"10.00","currency":"USD"},"withholding":{"value":"0.00","currency":"USD"},"equivalentWithholding":{"value":"0.00","currency":"USD"},"amount":"10.00","currency":"USD","withholdingAmount":"0.00","withholdingCurrency":"USD","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","paymentId":"P-KQLGFEHSHqEVkeDLWiTMxP","externalId":null,"memo":"","payoutMethod":"bank-transfer","tags":[],"taxReportable":true,"category":"services","processedAt":"2023-08-09T00:29:10.355Z","forceUsTaxActivity":false,"taxWithholdingReason":null,"equivalentUntaxedAmount":{"value":"10.00","currency":"USD"},"modifiedSinceCreation":false,"taxPaidByWithholdingAgents":"0","status":"internal","enteredAmount":{"value":"10.00","currency":"USD"},"updatedAt":"2023-08-09T00:29:10.374Z","createdAt":"2023-08-09T00:29:10.355Z","deletedAt":null,"dac7Meta":null}],"errors":[],"routeMinimum":"0","routeType":"sepa"}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:11 GMT
+- request:
+    method: patch
+    uri: https://api.trolley.com/v1/batches/B-QmoMmcUtHNH2od8jetWvhq/payments/P-KQLGFEHSHqEVkeDLWiTMxP
+    body:
+      encoding: UTF-8
+      string: '{"sourceAmount":"20.00","sourceCurrency":"USD"}'
+    headers:
+      X-Pr-Timestamp:
+      - '1691540951'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:11 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4990'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '594'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"137e-vVOmruOgdFvEtSqDFkAzXl57Q8I"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"payment":{"id":"P-KQLGFEHSHqEVkeDLWiTMxP","recipient":{"id":"R-2xp7k58h9NRvaEEgXnA7Qo","referenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","parentRecipientId":null,"email":"test.batch816a8032-3380-470f-b7f0-5a6ed1bec9e0@example.com","name":"Tom
+        Jones","lastName":"Jones","firstName":"Tom","legalName":"","type":"individual","status":"active","language":"en","complianceStatus":"pending","dob":null,"passport":"","placeOfBirth":null,"updatedAt":"2023-08-09T00:29:09.815Z","createdAt":"2023-08-09T00:29:09.017Z","tags":[],"isPortalUser":false,"taxDeliveryType":"mail","contactEmails":[],"occupation":"","address":{"street1":"123
+        Wolfstrasse","street2":"","city":"Berlin","postalCode":"123123","country":"DE","region":null,"phone":"","phoneValidated":false},"compliance":{"status":"pending","checkedAt":null},"gravatarUrl":"https://www.gravatar.com/avatar/e81b79eda3f49d4a3d475d59b9cd07aa?d=404","governmentId":null,"ssn":null,"governmentIds":[],"birthplace":{"country":null,"region":null,"city":null},"citizenships":[],"routeType":"sepa","routeMinimum":"0","estimatedFees":"3","accounts":[{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"recipientReferenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"}],"payoutMethod":"bank-transfer","primaryCurrency":"EUR","riskScore":null,"riskScoreLabel":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","inactiveReasons":{},"taxWithholdingPercentage":null,"taxForm":null,"taxFormStatus":null},"status":"pending","isSupplyPayment":false,"coverFees":false,"returnedAmount":"0.00","category":"services","amount":"20.00","currency":"USD","sourceAmount":"20.00","sourceCurrency":"USD","targetAmount":"0.00","targetCurrency":"EUR","taxReportable":true,"taxBasisAmount":"20.00","taxBasisCurrency":"USD","withholdingAmount":"0.00","withholdingCurrency":"USD","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","exchangeRate":"0","fees":"4.00","recipientFees":"2.00","fxRate":"2.5","memo":"","externalId":"","processedAt":null,"createdAt":"2023-08-09T00:29:10.382Z","updatedAt":"2023-08-09T00:29:11.930Z","forceUsTaxActivity":false,"batch":{"id":"B-QmoMmcUtHNH2od8jetWvhq","status":"open","tags":[],"amount":"22.00","currency":"USD","totalPayments":1,"description":"Integration
+        Test Create","sentAt":null,"completedAt":null,"createdAt":"2023-08-09T00:29:08.203Z","updatedAt":"2023-08-09T00:29:11.941Z","quoteExpiredAt":null},"checkNumber":null,"tags":[],"merchantFees":"2.00","compliance":{"status":"pending","checkedAt":null},"account":{"status":"primary","type":"bank-transfer","primary":true,"currency":"EUR","id":"A-65yNLmHwkr2RdhkuNySoZj","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","recipientAccountId":"A-65yNLmHwkr2RdhkuNySoZj","disabledAt":null,"recipientReferenceId":"R-2xp7k58h9NRvaEEgXnA7Qo","deliveryBusinessDaysEstimate":5,"country":"DE","iban":"********************00","accountNum":"","bankAccountType":null,"bankCodeMappingId":null,"accountHolderName":"Tom
+        Jones","swiftBic":"COBADEFFXXX","branchId":"","bankId":"","bankName":"Commerzbank
+        AG","bankAddress":"Unter Sachsenhausen 21-27","bankCity":"Cologne","bankRegionCode":"Nordrhein-Westfalen","bankPostalCode":"50667","routeType":"sepa","recipientFees":"2"},"payoutMethod":"bank-transfer","methodDisplay":"Bank
+        Transfer","initiatedAt":null,"settledAt":null,"returnedAt":null,"returnedReason":[],"returnedNote":null,"estimatedDeliveryAt":null,"merchantId":"M-C7AsydAeAqW3husDNHSAND","taxes":[{"id":"OP-C2ZCBcok484o8HPVLWanMf","recipientId":"R-2xp7k58h9NRvaEEgXnA7Qo","taxFormId":null,"entered":{"value":"20.00","currency":"USD"},"withholding":{"value":"0.00","currency":"USD"},"equivalentWithholding":{"value":"0.00","currency":"USD"},"amount":"20.00","currency":"USD","withholdingAmount":"0.00","withholdingCurrency":"USD","equivalentWithholdingAmount":"0.00","equivalentWithholdingCurrency":"USD","paymentId":"P-KQLGFEHSHqEVkeDLWiTMxP","externalId":null,"memo":"","payoutMethod":"bank-transfer","tags":[],"taxReportable":true,"category":"services","processedAt":"2023-08-09T00:29:10.355Z","forceUsTaxActivity":false,"taxWithholdingReason":null,"equivalentUntaxedAmount":{"value":"20.00","currency":"USD"},"modifiedSinceCreation":false,"taxPaidByWithholdingAgents":"0","status":"internal","enteredAmount":{"value":"20.00","currency":"USD"},"updatedAt":"2023-08-09T00:29:11.923Z","createdAt":"2023-08-09T00:29:10.355Z","deletedAt":null,"dac7Meta":null}],"errors":[],"routeMinimum":"0","routeType":"sepa"}}'
+  recorded_at: Wed, 09 Aug 2023 00:29:12 GMT
+- request:
+    method: delete
+    uri: https://api.trolley.com/v1/batches/B-QmoMmcUtHNH2od8jetWvhq/payments/P-KQLGFEHSHqEVkeDLWiTMxP
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Pr-Timestamp:
+      - '1691540952'
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Aug 2023 00:29:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '11'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store, no-cache
+      Content-Security-Policy:
+      - 'default-src ''self'';base-uri ''self'';block-all-mixed-content;font-src ''self''
+        https: data:;frame-ancestors ''self'';img-src ''self'' data:;object-src ''none'';script-src
+        ''self'';script-src-attr ''none'';style-src ''self'' https: ''unsafe-inline'';upgrade-insecure-requests'
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Expect-Ct:
+      - max-age=0
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - no-referrer
+      X-Xss-Protection:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Rate-Limit-Limit:
+      - '600'
+      X-Rate-Limit-Remaining:
+      - '593'
+      X-Rate-Limit-Reset:
+      - '1691541008'
+      Vary:
+      - Origin
+      Etag:
+      - W/"b-Ai2R8hgEarLmHKwesT1qcY913ys"
+    body:
+      encoding: UTF-8
+      string: '{"ok":true}'
+  recorded_at: Wed, 09 Aug 2023 00:29:12 GMT
+recorded_with: VCR 6.2.0
