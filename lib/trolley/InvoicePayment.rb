@@ -7,7 +7,12 @@ module Trolley
       :invoiceId,
       :invoiceLineId,
       :amount,
-      :invoicePayments
+      :invoicePayments,
+      :status,
+      :memo,
+      :externalId,
+      :tags,
+      :coverFees
     )
   end
 end
