@@ -1,3 +1,10 @@
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter '/test/'
+  coverage_dir 'coverage'
+end
+
 require_relative '../lib/trolley'
 require 'dotenv/load'
 require 'test/unit'
