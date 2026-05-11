@@ -13,6 +13,17 @@ This is the **Trolley Ruby SDK** — a Ruby gem wrapping the Trolley payments AP
 | All tests | `bundle exec rake` |
 | Build gem | `gem build trolley.gemspec` |
 
+### API keys
+
+Sandbox credentials go in `.env` (loaded by `dotenv`). The file has two required variables:
+
+```
+SANDBOX_API_KEY=<your access key>
+SANDBOX_SECRET_KEY=<your secret key>
+```
+
+Get sandbox keys from [developers.trolley.com](https://developers.trolley.com). In Cloud Agent environments these are injected as env vars via Cursor Secrets (`SANDBOX_API_KEY`, `SANDBOX_SECRET_KEY`).
+
 ### Important notes
 
 - Ruby 3.2.2 is required (see `.ruby-version`). It is installed at `/usr/local/bin/ruby`.
