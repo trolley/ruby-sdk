@@ -1,0 +1,12 @@
+---
+description: Cursor Cloud Agent environment details for Trolley Ruby SDK
+globs:
+alwaysApply: true
+---
+
+# Cloud Agent environment
+
+- Ruby 3.2.2 is installed at `/usr/local/bin/ruby`.
+- Sandbox API credentials are available as env vars `SANDBOX_API_KEY` and `SANDBOX_SECRET_KEY` (injected via Cursor Secrets).
+- Write them to `.env` before running live integration tests: `cp .env.template .env` then replace the fake values with `$SANDBOX_API_KEY` / `$SANDBOX_SECRET_KEY`.
+- VCR cassette playback works with fake keys — no secrets needed for `bundle exec rake`.
