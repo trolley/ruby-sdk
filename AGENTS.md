@@ -1,32 +1,29 @@
-## Cursor Cloud specific instructions
+# AGENTS.md
 
-This is the **Trolley Ruby SDK** — a Ruby gem wrapping the Trolley payments API. No databases or background services are required.
+Ruby SDK for the [Trolley](https://trolley.com) payments API. Pure gem — no databases or background services.
 
-### Quick reference
+## Development
 
-| Task | Command |
-|---|---|
-| Install deps | `bundle install` |
-| Lint | `bundle exec rubocop` |
-| Unit tests | `bundle exec rake unit_tests` |
-| Integration tests | `bundle exec rake integration_tests` |
-| All tests | `bundle exec rake` |
-| Build gem | `gem build trolley.gemspec` |
+Requires Ruby 3.2.2 (see `.ruby-version`). Setup and test commands are in `CONTRIBUTING.md`. Quick reference:
 
-### API keys
+```
+bundle install                        # install deps
+bundle exec rubocop                   # lint
+bundle exec rake unit_tests           # unit tests only
+bundle exec rake integration_tests    # integration tests only
+bundle exec rake                      # all tests
+gem build trolley.gemspec             # build gem
+```
 
-Sandbox credentials go in `.env` (loaded by `dotenv`). The file has two required variables:
+## Testing without API keys
+
+Integration tests use VCR cassettes (`test/fixtures/`). Copy `.env.template` to `.env` — the fake keys are sufficient for cassette playback. No live API access is needed to run the full test suite.
+
+## Testing with live API
+
+To re-record cassettes or test against the sandbox, add real credentials from [developers.trolley.com](https://developers.trolley.com) to `.env`:
 
 ```
 SANDBOX_API_KEY=<your access key>
 SANDBOX_SECRET_KEY=<your secret key>
 ```
-
-Get sandbox keys from [developers.trolley.com](https://developers.trolley.com). In Cloud Agent environments these are injected as env vars via Cursor Secrets (`SANDBOX_API_KEY`, `SANDBOX_SECRET_KEY`).
-
-### Important notes
-
-- Ruby 3.2.2 is required (see `.ruby-version`). It is installed at `/usr/local/bin/ruby`.
-- Integration tests use VCR cassettes in `test/fixtures/` and do **not** need live API credentials. The `.env` file with fake keys (copied from `.env.template`) is sufficient for cassette playback.
-- To re-record VCR cassettes or run live integration tests, set real `SANDBOX_API_KEY` and `SANDBOX_SECRET_KEY` in `.env`. See `CONTRIBUTING.md`.
-- The gem has no runtime dependencies; all deps in the gemspec are `add_development_dependency`.
