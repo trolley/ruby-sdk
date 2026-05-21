@@ -11,6 +11,11 @@ module Trolley
       payment_builder(response)
     end
 
+    def find_by_id(payment_id)
+      response = @client.get("/v1/payments/#{payment_id}")
+      payment_builder(response)
+    end
+
     def create(batch_id, body)
       response = @client.post("/v1/batches/#{batch_id}/payments", body)
       payment_builder(response)
