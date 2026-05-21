@@ -14,5 +14,9 @@ module Trolley
       @invoice = InvoiceGateway.new(client)
       @invoice_payment = InvoicePaymentGateway.new(client)
     end
+
+    def request(method, end_point, body = nil)
+      @client.request(method, end_point, body)
+    end
   end
 end
