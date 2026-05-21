@@ -8,7 +8,7 @@ module Trolley
     end
 
     def find(term = '')
-      path = term.to_s.empty? ? '/v1/balances' : "/v1/balances/#{term}"
+      path = term.to_s.empty? ? '/v1/balances/' : "/v1/balances/#{term}"
       response = @client.get(path)
       JSON.parse(response,  object_class: OpenStruct)
     end
