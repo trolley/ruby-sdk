@@ -7,8 +7,10 @@ module Trolley
       :returnedAmount,
       :sourceAmount,
       :sourceCurrency,
+      :sourceCurrencyName,
       :targetAmount,
       :targetCurrency,
+      :targetCurrencyName,
       :exchangeRate,
       :fees,
       :recipientFees,
@@ -46,7 +48,8 @@ module Trolley
       :failureMessage,
       :merchantId,
       :checkNumber,
-      :forceUsTaxActivity
+      :forceUsTaxActivity,
+      :visibleToRecipient
     )
   end
 end

@@ -104,6 +104,37 @@ class GatewayParityTest < Test::Unit::TestCase
     assert_equal true, invoice_payment.coverFees
   end
 
+  def test_payment_response_fields_are_mapped
+    stub_request(:get, "#{API_BASE}/v1/payments/P-123")
+      .to_return(status: 200, body: payment_response)
+
+    payment = @gateway.payment.find_by_id('P-123')
+
+    assert_equal 'US Dollar', payment.sourceCurrencyName
+    assert_equal 'Canadian Dollar', payment.targetCurrencyName
+    assert_equal false, payment.visibleToRecipient
+  end
+
+  def test_offline_payment_response_fields_are_mapped
+    stub_request(:get, "#{API_BASE}/v1/offline-payments?page=1&pageSize=10&search=")
+      .to_return(status: 200, body: offline_payments_response)
+
+    offline_payment = @gateway.offline_payment.search.first
+
+    assert_equal 2, offline_payment.activityCount
+  end
+
+  def test_recipient_account_response_fields_are_mapped
+    stub_request(:get, "#{API_BASE}/v1/recipients/R-123/accounts/A-123")
+      .to_return(status: 200, body: recipient_account_response)
+
+    account = @gateway.recipient_account.find('R-123', 'A-123')
+
+    assert_equal({ 'brand' => 'visa', 'last4' => '4242' }, account.cardDetails)
+    assert_equal({ 'city' => 'San Francisco', 'country' => 'US' }, account.mailing)
+    assert_equal '+15555550123', account.phoneNumber
+  end
+
   def test_gateway_exposes_verification_and_trust_aliases
     assert_same @gateway.verification, @gateway.trust
   end
@@ -116,5 +147,17 @@ class GatewayParityTest < Test::Unit::TestCase
 
   def invoice_payment_search_response
     '{"ok":true,"invoicePayments":[{"invoiceId":"I-123","invoiceLineId":"IL-123","paymentId":"P-123","amount":{"value":"150.00","currency":"EUR"},"status":"pending","memo":"payment memo","externalId":"payment-external-id_123","tags":["invoice_payment","royalty invoice"],"coverFees":true}]}'
+  end
+
+  def payment_response
+    '{"ok":true,"payment":{"id":"P-123","sourceCurrency":"USD","sourceCurrencyName":"US Dollar","targetCurrency":"CAD","targetCurrencyName":"Canadian Dollar","visibleToRecipient":false}}'
+  end
+
+  def offline_payments_response
+    '{"ok":true,"offlinePayments":[{"id":"OP-123","recipientId":"R-123","amount":"10.00","currency":"USD","activityCount":2}]}'
+  end
+
+  def recipient_account_response
+    '{"ok":true,"account":{"id":"A-123","recipientId":"R-123","cardDetails":{"brand":"visa","last4":"4242"},"mailing":{"city":"San Francisco","country":"US"},"phoneNumber":"+15555550123"}}'
   end
 end
