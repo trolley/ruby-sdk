@@ -90,6 +90,20 @@ class GatewayParityTest < Test::Unit::TestCase
     assert_equal 'P-123', @gateway.payment.create('B-123', payment_body).id
   end
 
+  def test_invoice_payment_response_fields_are_mapped
+    stub_request(:post, "#{API_BASE}/v1/invoices/payment/search")
+      .with(body: '{"invoiceIds":["I-123"]}')
+      .to_return(status: 200, body: invoice_payment_search_response)
+
+    invoice_payment = @gateway.invoice_payment.search(invoiceIds: ['I-123']).first
+
+    assert_equal 'pending', invoice_payment.status
+    assert_equal 'payment memo', invoice_payment.memo
+    assert_equal 'payment-external-id_123', invoice_payment.externalId
+    assert_equal ['invoice_payment', 'royalty invoice'], invoice_payment.tags
+    assert_equal true, invoice_payment.coverFees
+  end
+
   def test_gateway_exposes_verification_and_trust_aliases
     assert_same @gateway.verification, @gateway.trust
   end
@@ -98,5 +112,9 @@ class GatewayParityTest < Test::Unit::TestCase
 
   def verification_response
     '{"ok":true,"verifications":[{"id":"WV-123","type":"watchlist"}],"meta":{"page":1,"pages":1,"records":1}}'
+  end
+
+  def invoice_payment_search_response
+    '{"ok":true,"invoicePayments":[{"invoiceId":"I-123","invoiceLineId":"IL-123","paymentId":"P-123","amount":{"value":"150.00","currency":"EUR"},"status":"pending","memo":"payment memo","externalId":"payment-external-id_123","tags":["invoice_payment","royalty invoice"],"coverFees":true}]}'
   end
 end
