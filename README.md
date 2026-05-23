@@ -4,7 +4,7 @@ The Trolley Ruby SDK provides integration access to the Trolley API.
 
 ## Requirements
 
-Ruby version >= 2.4 is required.
+Ruby version >= 3.2.2 is required.
 Bundler is required.
 
 ## Installation & Usage (RubyGem)

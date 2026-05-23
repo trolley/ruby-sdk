@@ -10,6 +10,7 @@ module Trolley
         'Trolley::OfflinePayment' => { resource: 'offlinePayment', collection: 'offlinePayments' },
         'Trolley::Payment' => { resource: 'payment', collection: 'payments' },
         'Trolley::RecipientAccount' => { resource: 'account', collection: 'accounts' },
+        'Trolley::RecipientLog' => { resource: 'recipientLog', collection: 'recipientLogs' },
         'Trolley::Recipient' => { resource: 'recipient', collection: 'recipients' },
         'Trolley::BatchSummary' => { resource: 'batchSummary' }
       }.freeze

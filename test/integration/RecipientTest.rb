@@ -135,7 +135,9 @@ class RecipientTest < Test::Unit::TestCase
       @client.recipient.update(recipient.id, firstName: 'John')
       logs = @client.recipient.find_logs(recipient.id)
 
-      assert_equal(logs.class, OpenStruct)
+      assert_equal(Trolley::Utils::PaginatedArray, logs.class)
+      assert_equal(1, logs.page)
+      assert_equal('create', logs.first.type)
       assert_boolean(true, @client.recipient.delete(recipient.id))
     end
   end

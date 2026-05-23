@@ -41,7 +41,7 @@ module Trolley
     # @note This method retrieves a list of activity logs for a recipient
     def find_logs(recipient_id)
       response = @client.get("/v1/recipients/#{recipient_id}/logs")
-      JSON.parse(response, object_class: OpenStruct)
+      logs_list_builder(response)
     end
 
     def find_payments(recipient_id, page = 1, page_size = 10)
@@ -77,6 +77,10 @@ module Trolley
 
     def payments_list_builder(response)
       Utils::PaginatedArray.from_response(response, Payment)
+    end
+
+    def logs_list_builder(response)
+      Utils::PaginatedArray.from_response(response, RecipientLog)
     end
   end
 end

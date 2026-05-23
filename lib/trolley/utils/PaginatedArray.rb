@@ -1,7 +1,7 @@
 module Trolley
   module Utils
     class PaginatedArray < Array
-      attr_accessor :page, :pages, :records
+      attr_accessor :page, :pages, :records, :ok
 
       def self.from_response(response, klass)
         data = JSON.parse(response)
@@ -10,15 +10,19 @@ module Trolley
         page = data.dig('meta', 'page')
         pages = data.dig('meta', 'pages')
         records = data.dig('meta', 'records')
+        collection_key = data.keys.find { |key| data[key].is_a?(Array) }
 
-        new(enum, page, pages, records)
+        new(enum, page, pages, records, data['ok'], collection_key)
       end
 
-      def initialize(enum, page, pages, records)
+      def initialize(enum, page, pages, records, ok = nil, collection_key = nil)
         super(enum)
         @page = page
         @pages = pages
         @records = records
+        @ok = ok
+
+        define_singleton_method(collection_key) { self } unless collection_key.nil?
       end
     end
   end
