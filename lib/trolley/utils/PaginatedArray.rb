@@ -12,16 +12,17 @@ module Trolley
         records = data.dig('meta', 'records')
         collection_key = data.keys.find { |key| data[key].is_a?(Array) }
 
-        new(enum, page, pages, records, data['ok'], collection_key)
+        new(enum, page, pages, records, ok: data['ok'], collection_key:)
       end
 
-      def initialize(enum, page, pages, records, ok = nil, collection_key = nil)
+      def initialize(enum, page, pages, records, metadata = {})
         super(enum)
         @page = page
         @pages = pages
         @records = records
-        @ok = ok
+        @ok = metadata[:ok]
 
+        collection_key = metadata[:collection_key]
         define_singleton_method(collection_key) { self } unless collection_key.nil?
       end
     end
