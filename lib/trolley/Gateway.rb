@@ -1,6 +1,6 @@
 module Trolley
   class Gateway
-    attr_accessor :config, :client, :recipient, :recipient_account, :batch, :payment, :balance, :offline_payment, :invoice, :invoice_payment
+    attr_accessor :config, :client, :recipient, :recipient_account, :batch, :payment, :balance, :offline_payment, :invoice, :invoice_payment, :verification, :trust
 
     def initialize(config)
       @config = config
@@ -13,6 +13,12 @@ module Trolley
       @offline_payment = OfflinePaymentGateway.new(client)
       @invoice = InvoiceGateway.new(client)
       @invoice_payment = InvoicePaymentGateway.new(client)
+      @verification = VerificationGateway.new(client)
+      @trust = @verification
+    end
+
+    def request(method, end_point, body = nil)
+      @client.request(method, end_point, body)
     end
   end
 end

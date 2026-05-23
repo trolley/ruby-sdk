@@ -17,7 +17,8 @@ module Trolley
       :equivalentWithholdingCurrency,
       :updatedAt,
       :createdAt,
-      :deletedAt
+      :deletedAt,
+      :activityCount
     )
   end
 end

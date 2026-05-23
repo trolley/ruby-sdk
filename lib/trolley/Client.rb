@@ -31,6 +31,11 @@ module Trolley
       send_request(endPoint, 'PATCH', body)
     end
 
+    def request(method, endPoint, body = nil)
+      payload = body.nil? || body.is_a?(String) ? body.to_s : body.to_json
+      send_request(endPoint, method.to_s.upcase, payload)
+    end
+
     private
 
     # rubocop:disable Metrics/CyclomaticComplexity
@@ -64,7 +69,7 @@ module Trolley
 
       response = http.request(request)
 
-      if response.code != '200' && response.code != '204'
+      unless response.code.to_i.between?(200, 299)
         throw_status_code_exception("#{response.message} #{response.body}" , response.code, response.body)
       end
       response.body

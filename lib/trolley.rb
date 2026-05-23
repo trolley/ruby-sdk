@@ -9,6 +9,7 @@ require 'trolley/gateways/RecipientAccountGateway'
 require 'trolley/gateways/OfflinePaymentGateway'
 require 'trolley/gateways/InvoiceGateway'
 require 'trolley/gateways/InvoicePaymentGateway'
+require 'trolley/gateways/VerificationGateway'
 
 require 'trolley/utils/PaginatedArray'
 require 'trolley/utils/ResponseMapper'

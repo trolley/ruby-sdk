@@ -24,7 +24,10 @@ module Trolley
       :bankRegionCode,
       :bankPostalCode,
       :status,
-      :disabledAt
+      :disabledAt,
+      :cardDetails,
+      :mailing,
+      :phoneNumber
     )
   end
 end
