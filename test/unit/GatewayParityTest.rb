@@ -28,6 +28,23 @@ class GatewayParityTest < Test::Unit::TestCase
     assert_equal 'P-123', payment.id
   end
 
+  def test_recipient_find_logs_returns_paginated_logs
+    stub_request(:get, "#{API_BASE}/v1/recipients/R-123/logs")
+      .to_return(status: 200, body: recipient_logs_response)
+
+    logs = @gateway.recipient.find_logs('R-123')
+
+    assert_equal Trolley::Utils::PaginatedArray, logs.class
+    assert_equal true, logs.ok
+    assert_equal logs, logs.recipientLogs
+    assert_equal 1, logs.page
+    assert_equal 1, logs.pages
+    assert_equal 1, logs.records
+    assert_equal Trolley::RecipientLog, logs.first.class
+    assert_equal 'create', logs.first.type
+    assert_equal '2023-07-07T14:52:45.901Z', logs.first.createdAt
+  end
+
   def test_verification_gateway_calls_documented_trust_endpoints
     stub_request(:get, "#{API_BASE}/v1/verifications?verificationType=watchlist&page=1&pageSize=10")
       .to_return(status: 200, body: verification_response)
@@ -143,6 +160,10 @@ class GatewayParityTest < Test::Unit::TestCase
 
   def verification_response
     '{"ok":true,"verifications":[{"id":"WV-123","type":"watchlist"}],"meta":{"page":1,"pages":1,"records":1}}'
+  end
+
+  def recipient_logs_response
+    '{"ok":true,"recipientLogs":[{"via":"apikey","ipAddress":"23.93.176.55","userId":"user@example.com","type":"create","fields":[{"name":"referenceId","oldValue":null,"newValue":"external-reference-id"}],"createdAt":"2023-07-07T14:52:45.901Z"}],"meta":{"page":1,"pages":1,"records":1}}'
   end
 
   def invoice_payment_search_response

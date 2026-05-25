@@ -30,28 +30,8 @@ jobs:
           slug: trolley/ruby-sdk
           files: coverage/.resultset.json
           when: always
-  publish:
-    executor: default
-    steps:
-      - checkout
-      - run:
-          name: Publish to RubyGems
-          command: |
-              mkdir -p ~/.gem
-              touch ~/.gem/credentials
-              chmod 0600 ~/.gem/credentials
-              printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > ~/.gem/credentials
-              gem build *.gemspec
-              gem push *.gem -v
 workflows:
   build_and_test:
     jobs:
       - build:
           context: org-global
-  publish:
-    jobs:
-      - publish:
-          filters:
-            branches:
-              only:
-                - master
