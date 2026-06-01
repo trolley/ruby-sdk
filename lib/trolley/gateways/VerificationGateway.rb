@@ -28,7 +28,7 @@ module Trolley
     end
 
     def trigger_watchlist(body)
-      verification_list_builder(@client.post('/v1/verifications/watchlist/trigger', body))
+      trigger('watchlist', body)
     end
 
     private
