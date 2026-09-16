@@ -27,6 +27,10 @@ module Trolley
       verification_list_builder(@client.post("/v1/verifications/#{verification_type}/trigger", body))
     end
 
+    def trigger_identity_or_business_verification(body)
+      verification_list_builder(@client.post('/v1/verifications/trigger', body))
+    end
+
     def trigger_watchlist(body)
       verification_list_builder(@client.post('/v1/verifications/watchlist/trigger', body))
     end

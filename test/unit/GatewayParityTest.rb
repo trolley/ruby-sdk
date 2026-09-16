@@ -57,11 +57,21 @@ class GatewayParityTest < Test::Unit::TestCase
     stub_request(:post, "#{API_BASE}/v1/verifications/individual/trigger")
       .with(body: '{"recipientIds":["R-123"]}')
       .to_return(status: 200, body: verification_response)
+    stub_request(:post, "#{API_BASE}/v1/verifications/trigger")
+      .with(body: '{"recipientId":"R-123","types":["individual"],"retryAllowed":true}')
+      .to_return(status: 200, body: identity_or_business_verification_response)
 
     assert_equal 'WV-123', @gateway.verification.search(verificationType: 'watchlist', page: 1, pageSize: 10).verifications.first.id
     assert_equal 'WV-123', @gateway.verification.expire(type: 'individual', verificationIds: ['IV-123']).verifications.first.id
     assert_equal 'WV-123', @gateway.verification.trigger_watchlist(recipientIds: ['R-123']).verifications.first.id
     assert_equal 'WV-123', @gateway.trust.trigger('individual', recipientIds: ['R-123']).verifications.first.id
+    identity = @gateway.verification.trigger_identity_or_business_verification(
+      recipientId: 'R-123',
+      types: ['individual'],
+      retryAllowed: true
+    )
+    assert_equal 'R-123', identity.recipientId
+    assert_equal 'IV-123', identity.verifications.first.verificationId
   end
 
   def test_existing_deletes_support_single_and_multiple_ids
@@ -160,6 +170,10 @@ class GatewayParityTest < Test::Unit::TestCase
 
   def verification_response
     '{"ok":true,"verifications":[{"id":"WV-123","type":"watchlist"}],"meta":{"page":1,"pages":1,"records":1}}'
+  end
+
+  def identity_or_business_verification_response
+    '{"ok":true,"recipientId":"R-123","verifications":[{"type":"individual","status":"created","verificationId":"IV-123"}]}'
   end
 
   def recipient_logs_response
