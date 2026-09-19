@@ -22,8 +22,11 @@ class PartnerGatewayTest < Test::Unit::TestCase
     ].each do |path|
       stub_request(:get, "#{API_BASE}#{path}").to_return(status: 200, body: '{"ok":true}')
     end
+    stub_request(:get, "#{API_BASE}/v1/fees?currency=USD")
+      .to_return(status: 200, body: '{"ok":true}')
 
     assert_equal true, @partner.get_fees.ok
+    assert_equal true, @partner.get_fees('USD').ok
     assert_equal true, @partner.list_payout_methods.ok
     assert_equal true, @partner.get_payout_method('bank-transfer').ok
     assert_equal true, @partner.get_processing_settings.ok

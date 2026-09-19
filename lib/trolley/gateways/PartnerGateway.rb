@@ -1,6 +1,7 @@
 require_relative '../Client'
 require 'json'
 require 'ostruct'
+require 'uri'
 
 module Trolley
   class PartnerGateway
@@ -8,8 +9,10 @@ module Trolley
       @client = client
     end
 
-    def get_fees
-      parse_response(@client.get('/v1/fees'))
+    def get_fees(currency = nil)
+      path = '/v1/fees'
+      path = "#{path}?#{URI.encode_www_form(currency: currency)}" unless currency.nil?
+      parse_response(@client.get(path))
     end
 
     def update_fees(body)
