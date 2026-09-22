@@ -10,6 +10,7 @@ require 'trolley/gateways/OfflinePaymentGateway'
 require 'trolley/gateways/InvoiceGateway'
 require 'trolley/gateways/InvoicePaymentGateway'
 require 'trolley/gateways/VerificationGateway'
+require 'trolley/gateways/FeesGateway'
 
 require 'trolley/utils/PaginatedArray'
 require 'trolley/utils/ResponseMapper'
@@ -25,6 +26,8 @@ require 'trolley/RecipientAccount'
 require 'trolley/OfflinePayment'
 require 'trolley/Invoice'
 require 'trolley/InvoicePayment'
+require 'trolley/Fee'
+require 'trolley/RevenueStream'
 
 module Trolley
   VERSION = '1.1.0'.freeze
