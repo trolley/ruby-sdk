@@ -5,6 +5,7 @@ module Trolley
     class ResponseMapper
       KLASS_TO_RESOURCE_KEY_MAPPERS = {
         'Trolley::Batch' => { resource: 'batch', collection: 'batches' },
+        'Trolley::Fee' => { resource: 'fee', collection: 'fees' },
         'Trolley::Invoice' => { resource: 'invoice', collection: 'invoices' },
         'Trolley::InvoicePayment' => { resource: 'invoicePayment', collection: 'invoicePayments' },
         'Trolley::OfflinePayment' => { resource: 'offlinePayment', collection: 'offlinePayments' },
@@ -12,6 +13,7 @@ module Trolley
         'Trolley::RecipientAccount' => { resource: 'account', collection: 'accounts' },
         'Trolley::RecipientLog' => { resource: 'recipientLog', collection: 'recipientLogs' },
         'Trolley::Recipient' => { resource: 'recipient', collection: 'recipients' },
+        'Trolley::RevenueStream' => { resource: 'revenueStream' },
         'Trolley::BatchSummary' => { resource: 'batchSummary' }
       }.freeze
 
